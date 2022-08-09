@@ -1,8 +1,9 @@
 import React from 'react';
-
+import {useState} from 'react'
 
 export default function SearchName() {
   const [data, setData] = React.useState([]);
+  const [searchTerm, setSearchTerm] = useState('')
   React.useEffect(() => {
     let url = `https://developer.nps.gov/api/v1/parks?StateCode="all"&api_key=iemcdp722ZKWNmS5oMOwf64LiOd3fw6XSsq9tzUf`;
     fetch(url)
@@ -25,7 +26,7 @@ export default function SearchName() {
 
     if (data.length > 0) {
     let url = data.filter((i)  => {
-        return i.name.match(data);
+        return i.fullName.match(data);
     });
     }
 
@@ -34,10 +35,16 @@ return (
     <input
     type="text"
     placeholder="Search Parks Name"
-    onChange = {handleChange}
-    />
+    onChange = {event => {setSearchTerm(event.target.value)}
+    }/>
       {}
-      {data.map((park, key) => {
+      {data.filter((park)=> {
+        if (searchTerm == ""){
+            return park
+        } else if (park.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return park
+        }
+      }).map((park, key) => {
         return (
           <p key={key}>
             {park.fullName}
