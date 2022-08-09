@@ -1,25 +1,15 @@
-import logo from './logo.svg';
+import ParkList from './components/SearchName';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+    <h1>This is app.js </h1>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <SearchName />
       </header>
     </div>
   );
 }
-
+<p>this is here</p>
 export default App;
