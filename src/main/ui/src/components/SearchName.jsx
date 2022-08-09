@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export default function SearchName() {
   const [data, setData] = React.useState([]);
   React.useEffect(() => {
@@ -19,7 +18,6 @@ export default function SearchName() {
 
   return (
     <div>
-      {}
       {data.map((park, key) => {
         return (
           <p key={key}>
