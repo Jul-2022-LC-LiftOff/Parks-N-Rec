@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-    <h1>This is app.js </h1>
+    <h1>Search Parks </h1>
       <header className="App-header">
         <SearchName />
       </header>
