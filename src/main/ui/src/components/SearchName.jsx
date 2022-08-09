@@ -10,6 +10,9 @@ export default function SearchName() {
       .then((json) => {
         setData(json.data);
         console.log('data!: ', json);
+        data.fullName.forEach(v => {
+        console.log("name: " + v.fullName)
+        })
       })
       .catch((error) => console.log(error));
   }, []);
