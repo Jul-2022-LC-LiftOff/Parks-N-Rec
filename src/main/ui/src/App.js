@@ -1,4 +1,4 @@
-import ParkList from './components/SearchName';
+import SearchName from './components/SearchName';
 import './App.css';
 
 function App() {
