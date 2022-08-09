@@ -33,7 +33,7 @@ return (
     <div>
     <input
     type="text"
-    placeholder="Search Park Name"
+    placeholder="Search Parks Name"
     onChange = {handleChange}
     />
       {}
