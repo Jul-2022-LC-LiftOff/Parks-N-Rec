@@ -11,9 +11,6 @@ export default function SearchByState() {
         .then((json) => {
             setData(json.data);
             console.log('data!: ', json);
-            data.states.forEach(v => {
-            console.log("State: " + v.states)
-         })
         })
     .catch((error) => console.log(error));
 }, []);
@@ -42,7 +39,7 @@ type="text"
 placeholder = "Search Parks By State"
 onChange = {handleSearch}
 />
-    {}
+
     {data.filter((park) => {
         if (searchTerm == "") {
           return park
