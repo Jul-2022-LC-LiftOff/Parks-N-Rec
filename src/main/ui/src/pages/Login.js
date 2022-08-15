@@ -1,166 +1,85 @@
-import React, {
-  useState,
-  useEffect,
-  useReducer,
-  useContext,
-  useRef,
-} from 'react';
-
-import Card from '../UI/Card/Card';
-import Button from '../UI/Button/Button';
-import AuthContext from '../../store/auth-context';
-import Input from '../UI/Input/Input';
-import classes from './Login.module.css';
-
-const emailReducer = (state, action) => {
-  if (action.type === 'USER_INPUT') {
-    return { value: action.val, isValid: action.val.includes('@') };
-  }
-  if (action.type === 'INPUT_BLUR') {
-    return { value: state.value, isValid: state.value.includes('@') };
-  }
-  return { value: '', isValid: false };
-};
-
-const passwordReducer = (state, action) => {
-  if (action.type === 'USER_INPUT') {
-    return { value: action.val, isValid: action.val.trim().length > 6 };
-  }
-  if (action.type === 'INPUT_BLUR') {
-    return { value: state.value, isValid: state.value.trim().length > 6 };
-  }
-  return { value: '', isValid: false };
-};
-
-const Login = (props) => {
-  // const [enteredEmail, setEnteredEmail] = useState('');
-  // const [emailIsValid, setEmailIsValid] = useState();
-  // const [enteredPassword, setEnteredPassword] = useState('');
-  // const [passwordIsValid, setPasswordIsValid] = useState();
-  const [formIsValid, setFormIsValid] = useState(false);
-
-  const [emailState, dispatchEmail] = useReducer(emailReducer, {
-    value: '',
-    isValid: null,
-  });
-  const [passwordState, dispatchPassword] = useReducer(passwordReducer, {
-    value: '',
-    isValid: null,
+import React, { useState, useEffect } from "react";
+import basestyle from "./Base.module.css";
+import loginstyle from "./Login.module.css";
+import axios from "axios";
+import { useNavigate, NavLink } from "react-router-dom";
+const Login = ({ setUserState }) => {
+  const navigate = useNavigate();
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+  const [user, setUserDetails] = useState({
+    email: "",
+    password: "",
   });
 
-  const authCtx = useContext(AuthContext);
-
-  const emailInputRef = useRef();
-  const passwordInputRef = useRef();
-
-  useEffect(() => {
-    console.log('EFFECT RUNNING');
-
-    return () => {
-      console.log('EFFECT CLEANUP');
-    };
-  }, []);
-
-  const { isValid: emailIsValid } = emailState;
-  const { isValid: passwordIsValid } = passwordState;
-
-  useEffect(() => {
-    const identifier = setTimeout(() => {
-      console.log('Checking form validity!');
-      setFormIsValid(emailIsValid && passwordIsValid);
-    }, 500);
-
-    return () => {
-      console.log('CLEANUP');
-      clearTimeout(identifier);
-    };
-  }, [emailIsValid, passwordIsValid]);
-
-  const emailChangeHandler = (event) => {
-    dispatchEmail({ type: 'USER_INPUT', val: event.target.value });
-
-    // setFormIsValid(
-    //   event.target.value.includes('@') && passwordState.isValid
-    // );
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    setUserDetails({
+      ...user,
+      [name]: value,
+    });
   };
-
-  const passwordChangeHandler = (event) => {
-    dispatchPassword({ type: 'USER_INPUT', val: event.target.value });
-
-    // setFormIsValid(emailState.isValid && event.target.value.trim().length > 6);
-  };
-
-  const validateEmailHandler = () => {
-    dispatchEmail({ type: 'INPUT_BLUR' });
-  };
-
-  const validatePasswordHandler = () => {
-    dispatchPassword({ type: 'INPUT_BLUR' });
-  };
-
-  const submitHandler = (event) => {
-    event.preventDefault();
-    if (formIsValid) {
-      authCtx.onLogin(emailState.value, passwordState.value);
-    } else if (!emailIsValid) {
-      emailInputRef.current.focus();
-    } else {
-      passwordInputRef.current.focus();
+  const validateForm = (values) => {
+    const error = {};
+    const regex = /^[^\s+@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!values.email) {
+      error.email = "Email is required";
+    } else if (!regex.test(values.email)) {
+      error.email = "Please enter a valid email address";
     }
+    if (!values.password) {
+      error.password = "Password is required";
+    }
+    return error;
   };
 
+  const loginHandler = (e) => {
+    e.preventDefault();
+    setFormErrors(validateForm(user));
+    setIsSubmit(true);
+    // if (!formErrors) {
+
+    // }
+  };
+
+  useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(user);
+      axios.post("http://localhost:3000/login", user).then((res) => {
+        alert(res.data.message);
+        setUserState(res.data.user);
+        navigate("/", { replace: true });
+      });
+    }
+  }, [formErrors]);
   return (
-    <Card className={classes.login}>
-      <form onSubmit={submitHandler}>
-        <Input
-          ref={emailInputRef}
-          id="email"
-          label="E-Mail"
+    <div className={loginstyle.login}>
+      <form>
+        <h1>Login</h1>
+        <input
           type="email"
-          isValid={emailIsValid}
-          value={emailState.value}
-          onChange={emailChangeHandler}
-          onBlur={validateEmailHandler}
+          name="email"
+          id="email"
+          placeholder="Email"
+          onChange={changeHandler}
+          value={user.email}
         />
-        <Input
-          ref={passwordInputRef}
-          id="password"
-          label="Password"
+        <p className={basestyle.error}>{formErrors.email}</p>
+        <input
           type="password"
-          isValid={passwordIsValid}
-          value={passwordState.value}
-          onChange={passwordChangeHandler}
-          onBlur={validatePasswordHandler}
+          name="password"
+          id="password"
+          placeholder="Password"
+          onChange={changeHandler}
+          value={user.password}
         />
-        <div className={classes.actions}>
-          <Button type="submit" className={classes.btn}>
-            Login
-          </Button>
-        </div>
+        <p className={basestyle.error}>{formErrors.password}</p>
+        <button className={basestyle.button_common} onClick={loginHandler}>
+          Login
+        </button>
       </form>
-    </Card>
+      <NavLink to="/signup">Not yet registered? Register Now</NavLink>
+    </div>
   );
 };
-
 export default Login;
-
-
-
-
-
-import React from "react";
-
-export default function About() {
-  return (
-    <section className="section about-section">
-      <h1 className="section-title">about us</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-        repudiandae architecto qui adipisci in officiis, aperiam sequi atque
-        perferendis eos, autem maiores nisi saepe quisquam hic odio consectetur
-        nobis veritatis quasi explicabo obcaecati doloremque? Placeat ratione
-        hic aspernatur error blanditiis?
-      </p>
-    </section>
-  );
-}

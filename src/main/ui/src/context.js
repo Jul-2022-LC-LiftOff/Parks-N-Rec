@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useCallback } from "react";
 
-const url = `https://developer.nps.gov/api/v1/parks?StateCode="all"&limit=468&api_key=ABWZc9qTpwdEzXasClnO4MLAyxYugwYZeNj0GFxi`;
+const url = `https://developer.nps.gov/api/v1/parks?StateCode="all"&limit=468&api_key=NkiGiiHbsRIOwi7BDs6MZG4UAcAsclMOR0Xo1Q7g`;
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import Park from "./Park";
 import Loading from "./Loading";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context";
 
 export default function ParkList() {
   const { parks, loading } = useGlobalContext();
@@ -16,9 +16,9 @@ export default function ParkList() {
   return (
     <section className="section">
       <h2 className="section-title">parks</h2>
-      <div className="cocktails-center">
+      <div className="parks-center">
         {parks.map((item) => {
-          return <Cocktail key={item.id} {...item} />;
+          return <Park key={item.id} {...item} />;
         })}
       </div>
     </section>
