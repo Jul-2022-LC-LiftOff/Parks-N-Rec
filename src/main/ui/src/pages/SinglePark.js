@@ -22,7 +22,7 @@ export default function SinglePark() {
             code: parkCode,
             detaisl: description,
             image: images,
-          } = data.drinks[0];
+          } = data.images[0];
 
           const newPark = {
             id,

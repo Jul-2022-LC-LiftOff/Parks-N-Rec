@@ -15,7 +15,7 @@ export default function ParkList() {
   }
   return (
     <section className="section">
-      <h2 className="section-title">parks</h2>
+      <h2 className="section-title">The National Parks</h2>
       <div className="parks-center">
         {parks.map((item) => {
           return <Park key={item.id} {...item} />;

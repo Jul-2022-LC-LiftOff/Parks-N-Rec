@@ -68,7 +68,7 @@ const Register = () => {
     <>
       <div className={registerstyle.register}>
         <form>
-          <h1>Create your account</h1>
+          <h1>Create a New Account</h1>
 
 
           <p className={basestyle.error}>{formErrors.lname}</p>

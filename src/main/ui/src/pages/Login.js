@@ -22,6 +22,9 @@ const Login = ({ setUserState }) => {
   const validateForm = (values) => {
     const error = {};
     const regex = /^[^\s+@]+@[^\s@]+\.[^\s@]{2,}$/i;
+      if (!values.fname) {
+          error.fname = "First Name is required";
+        }
     if (!values.email) {
       error.email = "Email is required";
     } else if (!regex.test(values.email)) {
@@ -54,8 +57,9 @@ const Login = ({ setUserState }) => {
   }, [formErrors]);
   return (
     <div className={loginstyle.login}>
-      <form>
-        <h1>Login</h1>
+      <form className="login-form">
+         <h1>Login</h1>
+
         <input
           type="email"
           name="email"
