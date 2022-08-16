@@ -1,12 +1,15 @@
 import SearchName from './components/SearchName';
+
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
     <h1>Search Parks </h1>
       <header className="App-header">
-        <SearchName />
+//        <SearchName />
+        <ParkProfile />
       </header>
     </div>
   );
