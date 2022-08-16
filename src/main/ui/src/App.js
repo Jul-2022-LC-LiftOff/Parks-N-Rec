@@ -1,5 +1,4 @@
-import SearchName from './components/SearchName';
-
+import SearchName from './components/SearchName/SearchName';
 import './App.css';
 
 
@@ -8,8 +7,7 @@ function App() {
     <div className="App">
     <h1>Search Parks </h1>
       <header className="App-header">
-//        <SearchName />
-        <ParkProfile />
+        <SearchName />
       </header>
     </div>
   );
