@@ -1,0 +1,17 @@
+figcaption {
+position: absolute;
+bottom:1rem;
+margin: 0 2rem;
+color: white;
+background-color: rgb(26, 26, 0, 0.73);
+font-size: 25px;
+font-family: "Garamond", serif;
+}
+
+h2 {
+font-family: "Garamond", serif;
+}
+
+.card {
+
+}
