@@ -9,6 +9,12 @@ h2 {
 font-family: "Garamond", serif;
 }
 
-body {
-    background: hsla(120, 100%, 75%, 0.2) !important;
+
+.carousel-image {
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+height: 750px;
+width: 70%;
 }
+
