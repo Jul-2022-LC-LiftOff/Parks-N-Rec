@@ -12,13 +12,15 @@ return (
 <ParkPicCarousel />
 </Container>
 
+<Container className="park-description">
+<p>Brief park description from API?</p>
+</Container>
 
 
 {/*header for the cards*/}
-
-<div>
-<h2 className="text-center font-weight-bold">Learn more about {"ParkName"}:</h2>
-</div>
+<Container className="learn-more-header">
+<h2 className="font-weight-bold">Learn more about {"ParkName"}</h2>
+</Container>
 
 {/*cards of info*/}
 <Container className="info-cards">

@@ -7,8 +7,13 @@ font-family: "Garamond", serif;
 
 h2 {
 font-family: "Garamond", serif;
+font-size: 50px;
+text-align: center;
 }
 
+p {
+text-align: center;
+}
 
 .carousel-image {
 display: block;
@@ -18,6 +23,11 @@ height: 750px;
 width: 70%;
 }
 
+.learn-more-header {
+padding: 100px 50px 50px 100px;
+}
 
-
+.park-description {
+padding: 10px, 50px, 50px, 100px;
+}
 
