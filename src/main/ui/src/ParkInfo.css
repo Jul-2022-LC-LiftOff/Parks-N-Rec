@@ -1,7 +1,4 @@
-figcaption {
-position: absolute;
-bottom:1rem;
-margin: 0 2rem;
+.welcome-notice {
 color: white;
 background-color: rgb(26, 26, 0, 0.73);
 font-size: 25px;
@@ -12,6 +9,6 @@ h2 {
 font-family: "Garamond", serif;
 }
 
-.card {
-
+body {
+    background: hsla(120, 100%, 75%, 0.2) !important;
 }
