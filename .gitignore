@@ -38,3 +38,5 @@ out/
 
 ### API ###
 .apikey.js
+
+node_modules/
