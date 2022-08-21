@@ -9,9 +9,6 @@
         setNoteText(event.target.value);
     };
 
-
-
-
 // Add warning that text needs to be added?
     const handleSaveClick = () => {
         if(noteText.trim().length > 0){
