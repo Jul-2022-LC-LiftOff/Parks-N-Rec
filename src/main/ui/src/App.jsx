@@ -1,6 +1,5 @@
-import ParkNotes from './components/ParkNotes';
+import ParkNotes from './components/Notes/ParkNotes';
 import {useState} from 'react';
-import { nanoid } from 'nanoid'
 
     const App = () => {
         const[notes, setNotes] = useState([
