@@ -5,13 +5,12 @@ import SearchBar from "./searchBar";
 import StateDropdown from "./StateDropdown";
 
 export const Header = () => {
-	// const [query, setQuery] = useState
 	return (
 		<Navbar variant="light" bg="light" expand="lg">
 			<Container fluid>
 				<Navbar.Brand href="#home">Park It</Navbar.Brand>
-				<Navbar.Toggle aria-controls="navbar-dark-example" />
-				<Navbar.Collapse id="navbar-dark-example">
+				<Navbar.Toggle aria-controls="navbar" />
+				<Navbar.Collapse id="navbar">
 					<Nav>
 						<SearchBar />
 						<StateDropdown />
