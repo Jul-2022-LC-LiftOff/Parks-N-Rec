@@ -1,14 +1,12 @@
  import {useState} from 'react';
 
-
- const AddNote = ({ handleAddNote }) => {
+export default function AddNote({handleAddNote}) {
     const [noteText, setNoteText] = useState('');
     //target event value is the user input. setNoteText will become target event value. It will be updated anytime the user types
 
     const handleChange = (event) => {
         setNoteText(event.target.value);
-    };
-
+};
 
 // Add warning that text needs to be added?
     const handleSaveClick = () => {
@@ -39,4 +37,4 @@
     );
  };
 
- export default AddNote;
+
