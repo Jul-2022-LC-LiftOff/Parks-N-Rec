@@ -1,33 +1,25 @@
 import React from 'react';
 import {useState} from 'react'
 
-export default function SearchName() {
+//connecting with the api & setting the "searchTerm"
+export default function SearchByName() {
   const [data, setData] = React.useState([]);
   const [searchTerm, setSearchTerm] = useState('')
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
   React.useEffect(() => {
-    let url = `https://developer.nps.gov/api/v1/parks?StateCode="all"&limit=469&api_key=iemcdp722ZKWNmS5oMOwf64LiOd3fw6XSsq9tzUf`;
+    let url = `https://developer.nps.gov/api/v1/parks?StateCode="all"&limit=20&api_key=iemcdp722ZKWNmS5oMOwf64LiOd3fw6XSsq9tzUf`;
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
         setData(json.data);
-        console.log('data!: ', json);
-        data.fullName.forEach(v => {
-        console.log("name: " + v.fullName)
-        })
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [searchTerm]);
 
 
-    const handleChange = (e) => {
-        e.preventDefault();
-        setData(e.target.value);
-    };
+
 
     if (data.length > 0) {
-    let url = data.filter((i)  => {
+    data.filter((i)  => {
         return i.fullName.match(data);
     });
     }
@@ -36,6 +28,14 @@ export default function SearchName() {
         e.preventDefault();
         setSearchTerm(e.target.value)
         }
+
+    function filterParkNames(park) {
+        if (searchTerm === ""){
+            return park
+        } if (park.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return park
+       }
+    }
 
 return (
     <div>
@@ -49,18 +49,23 @@ return (
 
 
 
-      {}
+
       {data.filter((park)=> {
-        if (searchTerm == ""){
-            return park
-        } else if (park.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
-            return park
-        }
-      }).map((park, key) => {
+        return filterParkNames(park)
+      })
+      .map((park, key) => {
         return (
+        <article className='park'>
+            <div>
           <p key={key}>
-            {park.fullName}
+            <h2>{park.fullName}</h2>
+            <br />
+            {park.states}
+            <br />
+            {park.description}
           </p>
+          </div>
+          </article>
         )
       })}
     </div>
