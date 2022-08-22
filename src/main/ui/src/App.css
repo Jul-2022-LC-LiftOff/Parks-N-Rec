@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+<<<<<<< HEAD
 .park-data {
  background: var(--primaryLightColor);
   padding: 0.25rem 0.5rem;
@@ -49,3 +50,8 @@
     border-radius: var(--mainBorderRadius);
 
   }
+=======
+.table {
+width: 100%;
+}
+>>>>>>> f00781046249b22b66470b2757d767a1c5c24fae

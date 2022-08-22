@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import SearchByName from './components/SearchByName';
+=======
+import SearchName from './components/SearchName/SearchName';
+>>>>>>> f00781046249b22b66470b2757d767a1c5c24fae
 import './App.css';
 
 
