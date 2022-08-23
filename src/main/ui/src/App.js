@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import ParkNotes from './components/Notes/ParkNotes';
+import {useState} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    const App = () => {
+        const[notes, setNotes] = useState([
+        ]);
 
-export default App;
+        const addNote = (text) => {
+            const date = new Date();
+            const newNote = {
+                text: text,
+                date: date.toLocaleDateString()
+            }
+         //spread operator (...) expands an array into its elements. Will create new array instead of updating old array
+            const newNotes = [...notes, newNote];
+            setNotes(newNotes);
+        };
+
+        return ( <div className="container">
+             <ParkNotes notes={notes} handleAddNote={addNote}/>
+        </div>
+
+        );
+    };
+
+    export default App;
