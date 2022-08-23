@@ -11,15 +11,9 @@ export default function SearchByName() {
       .then((response) => response.json())
       .then((json) => {
         setData(json.data);
-
-        console.log('data!: ', json);
-
       })
       .catch((error) => console.log(error));
   }, [searchTerm]);
-
-
-
 
      function handleSearch(e) {
             e.preventDefault();
@@ -31,8 +25,6 @@ export default function SearchByName() {
         return i.fullName.match(data);
     });
     }
-
-
 
     function filterParkNames(park) {
         if (searchTerm === ""){
@@ -51,17 +43,11 @@ return (
             onChange = {handleSearch}
         />
 
-
-
-
-
-
       {data.filter((park)=> {
         return filterParkNames(park)
       })
       .map((park, key) => {
         return (
-        <article className='park'>
             <div>
           <p key={key}>
             <h2>{park.fullName}</h2>
@@ -71,33 +57,11 @@ return (
             {park.description}
           </p>
           </div>
-          </article>
-
-           type="text"
-         placeholder="Search parks by name"
-          onChange = {handleSearch}
-      />
-
-     {data.filter((park)=> {
-       if (searchTerm == ""){
-            return park
-        } else if (park.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
-            return park
-      }
-  }).map((park, key) => {
-       return (
-          < div key={key}>
-             {park.fullName}
-             <p>locations: {park.states}</p>
-             <p> About: {park.description} </p>
-             <br />
-           </ div>
-
         )
-      })}
+        })
+        }
+
      </div>
-
-
   );
 };
 
