@@ -4,7 +4,6 @@ import "./App.css";
 import { Header } from "./components/header/Header";
 
 const App = () => {
-	<Header />;
 	const [notes, setNotes] = useState([]);
 
 	const addNote = (text) => {
@@ -20,6 +19,7 @@ const App = () => {
 
 	return (
 		<div className="container">
+			<Header />
 			<ParkNotes notes={notes} handleAddNote={addNote} />
 		</div>
 	);
