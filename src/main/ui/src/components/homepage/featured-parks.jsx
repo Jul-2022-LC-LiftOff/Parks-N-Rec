@@ -2,9 +2,26 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
+import { API_KEY, API_URL } from "../../api";
+import { useEffect, useState } from "react";
 
 export default function FeaturedParksCards() {
+	const [featuredPark, setFeaturedPark] = useState(null);
+
+	// useEffect(() => {
+	// 	const url = `{$API_URL}parks`
+	// 	const fetchData = async () => {
+	// 		try {
+	// 			const response = await fetch(url);
+	// 			const json = await response.json();
+	// 			setFeaturedPark(json);
+	// 			} catch (error) {
+	// 			console.log("error", error);
+	// 			}
+
+	// }, });
+	// }
+
 	return (
 		<container className="fluid  p-3">
 			<h1 m-3> Featured Parks</h1>
