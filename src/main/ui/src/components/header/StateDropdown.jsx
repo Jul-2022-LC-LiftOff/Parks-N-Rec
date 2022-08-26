@@ -7,8 +7,8 @@ export default function StateDropdown() {
 	return (
 		<Nav>
 			<NavDropdown id="nav-dropdown" title="View by State" menuVariant="dark">
-				{states.map((item) => (
-					<NavDropdown.Item href="" key={item.id}>
+				{states.map((item, index) => (
+					<NavDropdown.Item href="" key={index}>
 						{item.name}{" "}
 					</NavDropdown.Item>
 				))}
