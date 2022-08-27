@@ -1,4 +1,4 @@
-import SearchByName from './components/SearchByName';
+import SearchByName from './components/SearchByName/SearchByName';
 import './App.css';
 
 function App() {
