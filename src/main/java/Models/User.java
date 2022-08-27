@@ -6,15 +6,19 @@ import java.util.Objects;
 
 
 @Entity
+@Table
 public class User {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotBlank
+    @Column(name="username")
     private String username;
 
     @NotBlank
+    @Column(name="password")
     private String password;
 
    public User() {}
