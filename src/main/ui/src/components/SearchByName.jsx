@@ -48,14 +48,12 @@ return (
       })
       .map((park, key) => {
         return (
-            <div>
-          <p key={key}>
+            <div key={key}>
             <h2>{park.fullName}</h2>
             <br />
             {park.states}
             <br />
             {park.description}
-          </p>
           </div>
         )
         })
