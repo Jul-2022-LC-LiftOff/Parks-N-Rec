@@ -6,12 +6,11 @@ export default function SearchByName() {
   const [data, setData] = React.useState([]);
   const [searchTerm, setSearchTerm] = useState('')
   React.useEffect(() => {
-    let url = `https://developer.nps.gov/api/v1/parks?StateCode="all"&limit=20&api_key=iemcdp722ZKWNmS5oMOwf64LiOd3fw6XSsq9tzUf`;
+    let url = `https://developer.nps.gov/api/v1/parks?StateCode="all"&limit=469&api_key=iemcdp722ZKWNmS5oMOwf64LiOd3fw6XSsq9tzUf`;
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
         setData(json.data);
-        console.log('data!: ', json);
       })
       .catch((error) => console.log(error));
   }, [searchTerm]);
