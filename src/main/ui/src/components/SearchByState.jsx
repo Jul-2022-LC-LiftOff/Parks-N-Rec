@@ -13,39 +13,37 @@ export default function SearchByState() {
             console.log('data!: ', json);
         })
     .catch((error) => console.log(error));
-}, []);
+}, [searchTerm]);
 
-const handleChange = (e) => {
-    e.preventDefault();
-    setData(e.target.value);
-};
+    function handleSearch(e) {
+        e.preventDefault();
+        setSearchTerm(e.target.value);
+    }
 
-if (data.length > 0) {
-    let url = data.filter((i) => {
-        return i.states.match(data);
-    });
-}
+    if (data.length > 0) {
+        let url = data.filter((i) => {
+            return i.states.match(data);
+        });
+    }
 
-function handleSearch(e) {
-    e.preventDefault();
-    setSearchTerm(e.target.value);
-
-}
+    function filterParkStates(park) {
+        if (searchTerm === "") {
+            return park
+        } if (park.states.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return park
+        }
+    }
 
 return (
 <div>
-<input
-type="text"
-placeholder = "Search Parks By State"
-onChange = {handleSearch}
+    <input
+        type="text"
+        placeholder = "Search Parks By State"
+        onChange = {handleSearch}
 />
 
     {data.filter((park) => {
-        if (searchTerm == "") {
-          return park
-          } else if (park.states.toLowerCase().includes(searchTerm.toLowerCase())) {
-            return park
-          }
+        return filterParkStates(park)
         }).map((park, key) => {
             return (
                 <p key={key}>
