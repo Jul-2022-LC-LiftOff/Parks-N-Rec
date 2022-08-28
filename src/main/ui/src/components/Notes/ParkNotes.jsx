@@ -1,6 +1,7 @@
 import Note from './Note';
 import AddNote from './AddNote';
 
+
 export default function ParkNotes({ notes, handleAddNote }) {
     return (
         <div className='notes-list'>
