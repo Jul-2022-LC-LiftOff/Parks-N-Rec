@@ -1,6 +1,6 @@
 .welcome-notice {
 color: white;
-background-color: rgb(26, 26, 0, 0.73);
+background-color: rgb(42, 71, 42, 0.73);
 font-size: 25px;
 font-family: "Garamond", serif;
 }
@@ -9,6 +9,8 @@ h2 {
 font-family: "Garamond", serif;
 font-size: 50px;
 text-align: center;
+background-color: rgb(42, 71, 42, 0.73);
+color: black;
 }
 
 p {
@@ -31,3 +33,6 @@ padding: 100px 50px 50px 100px;
 padding: 10px, 50px, 50px, 100px;
 }
 
+.card {
+size: 18rem;
+}
