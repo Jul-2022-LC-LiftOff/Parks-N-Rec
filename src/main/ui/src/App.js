@@ -1,3 +1,4 @@
+import SearchByName from "./components/SearchByName/SearchByName";
 import ParkNotes from "./components/Notes/ParkNotes";
 import { useState } from "react";
 import "./App.css";
@@ -21,6 +22,7 @@ const App = () => {
 		<div className="container">
 			<Header />
 			<ParkNotes notes={notes} handleAddNote={addNote} />
+			<SearchByName />
 		</div>
 	);
 };

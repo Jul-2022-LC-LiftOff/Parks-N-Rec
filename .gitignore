@@ -36,3 +36,8 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### API ###
+.apikey.js
+
+node_modules/
