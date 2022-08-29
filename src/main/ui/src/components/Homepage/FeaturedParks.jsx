@@ -1,5 +1,5 @@
 import React from "react";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import { API_KEY } from "../../api";
 import { useEffect, useState } from "react";
 import ParkCard from "./ParkCard";
