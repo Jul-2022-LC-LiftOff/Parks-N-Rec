@@ -1,5 +1,9 @@
 import React from 'react';
 import {useState} from 'react'
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
 
 //connecting with the api & setting the "searchTerm"
 export default function SearchByName() {
@@ -29,16 +33,16 @@ export default function SearchByName() {
 
 
     function filterParkNames(park) {
-        if (searchTerm === ""){
-            return park
-        } if (park.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
-            return park
-       }
-    }
+            if (searchTerm === ""){
+                return park
+            } if (park.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                return  park
+           }
+        }
 
 return (
 
-     <div>
+     <div className="park">
              <input
                  type="text"
                  placeholder="Search parks by name"
@@ -49,14 +53,34 @@ return (
              return filterParkNames(park)
            })
            .map((park, key) => {
+
+
+
              return (
-                 <div key={key}>
-                 <h2>{park.fullName}</h2>
-                 <br />
-                 {park.states}
-                 <br />
-                 {park.description}
-               </div>
+
+              <Row xs={1} md={2} className="g-4" key={key} >
+
+                   {Array.from({ length: 4 }).map((_, idx) => (
+                     <Col>
+                       <Card>
+                         <Card.Img variant="top" src="holder.js/100px160" />
+                         <Card.Body>
+                         <Card.Title>{park.fullName}</Card.Title>
+                          <Card.Title>  {park.states}</Card.Title>
+
+                           <Card.Text>
+                                {park.description}
+                           </Card.Text>
+                            <Button variant="primary">Go somewhere</Button>
+                         </Card.Body>
+                       </Card>
+                     </Col>
+                   ))}
+
+                 </Row>
+
+
+
              )
              })
              }
