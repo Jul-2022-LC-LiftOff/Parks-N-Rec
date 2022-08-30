@@ -1,6 +1,6 @@
-package Repository;
+package com.liftoff.parksnrec.Repository;
 
-import Models.User;
+import com.liftoff.parksnrec.Models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

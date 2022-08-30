@@ -1,4 +1,4 @@
-package Models;
+package com.liftoff.parksnrec.Models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -21,11 +21,16 @@ public class User {
     @Column(name="password")
     private String password;
 
+    @NotBlank
+    @Column(name="email")
+    private String email;
+
    public User() {}
 
-    public User (String username, String password) {
+    public User (String username, String password, String email) {
        this.username = username;
        this.password = password;
+       this.email = email;
     }
 
     public Long getId() {
@@ -52,25 +57,34 @@ public class User {
         this.password = password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(username, user.username) && Objects.equals(password, user.password);
+        return id == user.id && username.equals(user.username) && password.equals(user.password) && email.equals(user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password);
+        return Objects.hash(id, username, password, email);
     }
 
     @Override
     public String toString() {
-        return "Login{" +
-                "id=" + this.id +
-                ", username='" + this.username + '\'' +
-                ", password='" + this.password + '\'' +
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

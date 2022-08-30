@@ -1,7 +1,7 @@
-package Controllers;
+package com.liftoff.parksnrec.Controllers;
 
-import Models.User;
-import Repository.UserRepo;
+import com.liftoff.parksnrec.Models.User;
+import com.liftoff.parksnrec.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
