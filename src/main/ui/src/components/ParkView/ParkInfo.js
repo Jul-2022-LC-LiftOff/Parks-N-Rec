@@ -1,21 +1,29 @@
 import React from 'react';
 import './ParkInfo.css';
 import ParkPicCarousel from './carousel.js';
-import {Container} from "react-bootstrap";
-import ParkList from "./ParkData.js";
+import {Container} from 'react-bootstrap';
+import {Header} from '../Header/Header.jsx';
+import HandleInfo from './HandleInfo.js';
+
+
 
 
 
 const ParkInfo = () => {
 return (
 <body className="whole-page">
+
+<div>
+<Header />
+</div>
+
 {/*park image carousel with 3 images*/}
 <Container className="carousel-container">
 <ParkPicCarousel />
 </Container>
 
 <Container className="park-description">
-<p>Brief park description from API?</p>
+<HandleInfo />
 </Container>
 
 
@@ -82,11 +90,6 @@ return (
                </div>
 </div>
    </div>
-
-
-<div>
-<ParkList />
-</div>
 
 
 </body>
