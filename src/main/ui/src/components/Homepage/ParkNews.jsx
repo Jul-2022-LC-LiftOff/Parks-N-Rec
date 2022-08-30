@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import Accordion from "react-bootstrap/Accordion";
+import { Accordion } from "react-bootstrap";
 import { API_KEY } from "../../api";
 
 export default function ParkNews() {
@@ -11,7 +11,7 @@ export default function ParkNews() {
 		(async () => {
 			try {
 				const response = await fetch(
-					`https://developer.nps.gov/api/v1/newsreleases?parkCode=all&api_key=${API_KEY}`
+					`https://developer.nps.gov/api/v1/newsreleases?parkCode=all&limit=5&api_key=${API_KEY}`
 				);
 				newsData = (await response.json()).data;
 			} catch (error) {
@@ -26,32 +26,20 @@ export default function ParkNews() {
 	return (
 		<div>
 			<h2>Recent NPS News</h2>
-			<Accordion defaultActiveKey="0">
-				<Accordion.Item eventKey="0">
-					<Accordion.Header>Accordion Item #1</Accordion.Header>
-					<Accordion.Body>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-						culpa qui officia deserunt mollit anim id est laborum.
-					</Accordion.Body>
-				</Accordion.Item>
-				<Accordion.Item eventKey="1">
-					<Accordion.Header>Accordion Item #2</Accordion.Header>
-					<Accordion.Body>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-						culpa qui officia deserunt mollit anim id est laborum.
-					</Accordion.Body>
-				</Accordion.Item>
-			</Accordion>
+			{npsNews.map((news, index) => {
+				return (
+					<Accordion defaultActiveKey="index">
+						<Accordion.Item eventKey="index">
+							<Accordion.Header>{news.title}</Accordion.Header>
+							<Accordion.Body>
+								{news.abstract}
+								<br></br>
+								<a href={news.url}>Keep Reading</a>
+							</Accordion.Body>
+						</Accordion.Item>
+					</Accordion>
+				);
+			})}
 		</div>
 	);
 }
