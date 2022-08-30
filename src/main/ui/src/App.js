@@ -1,26 +1,13 @@
-import ParkNotes from './components/Notes/ParkNotes';
-import {useState} from 'react';
+import Login from './components/Login/Login'
 
-    const App = () => {
-        const[notes, setNotes] = useState([
-        ]);
 
-        const addNote = (text) => {
-            const date = new Date();
-            const newNote = {
-                text: text,
-                date: date.toLocaleDateString()
-            }
-         //spread operator (...) expands an array into its elements. Will create new array instead of updating old array
-            const newNotes = [...notes, newNote];
-            setNotes(newNotes);
-        };
+    function App(){
+        return(
+            <div classname="App">
 
-        return ( <div className="container">
-             <ParkNotes notes={notes} handleAddNote={addNote}/>
-        </div>
-
+             <Login />
+            </div>
         );
-    };
+    }
 
     export default App;

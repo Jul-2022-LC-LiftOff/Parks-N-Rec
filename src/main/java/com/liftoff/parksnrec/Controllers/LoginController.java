@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/login")
+@CrossOrigin
 public class LoginController {
 
     @Autowired
