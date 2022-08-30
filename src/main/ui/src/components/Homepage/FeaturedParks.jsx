@@ -1,12 +1,13 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { API_KEY } from "../../api";
-import { useEffect, useState } from "react";
 import ParkCard from "./ParkCard";
 import Container from "react-bootstrap/Container";
 
 export default function FeaturedParksCards() {
 	const [featuredParks, setFeaturedParks] = useState([]);
+
+	//featured parks hard coded for now. eventually set parkCode as a function? to pull three random parks weekly or on load in an array then plug the array into the fetch. Jay - do I need to do finish that before merging?
 
 	useEffect(() => {
 		let parkData = [];
