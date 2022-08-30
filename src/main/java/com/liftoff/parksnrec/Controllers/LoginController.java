@@ -1,30 +1,28 @@
 package com.liftoff.parksnrec.Controllers;
 
 import com.liftoff.parksnrec.Models.User;
-import com.liftoff.parksnrec.Repository.UserRepo;
+import com.liftoff.parksnrec.Service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/login")
 public class LoginController {
 
     @Autowired
-    private UserRepo userRepo;
+    private LoginService loginService;
 
-    @GetMapping("/")
-    public String getPage() { return "Welcome";}
+    @PostMapping("/add")
+    public String add(@RequestBody User user){
+        loginService.saveUser(user);
+        return "New user is added";
+    }
 
-    @GetMapping("/users")
-    public List<User> getUsers() {return userRepo.findAll(); }
-
-    @PostMapping("/users/{id}")
-    public String saveLogin(User user) {
-        userRepo.save(user);
-        return "Login saved...";
+    @GetMapping("/getAll")
+    public List<User> getAllUsers(){
+        return loginService.getAllUsers();
     }
 
 }
