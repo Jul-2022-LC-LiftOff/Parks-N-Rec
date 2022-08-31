@@ -3,12 +3,18 @@ import SearchByName from "./components/SearchByName/SearchByName";
 import ParkNotes from "./components/Notes/ParkNotes";
 import { useState } from "react";
 import "./App.css";
-import './index.css'
+import './index.css';
 import { Header } from "./components/Header/Header";
 import SignUp from "./components/Login/SignUp";
 
+
 const App = () => {
+
+  const [userstate, setUserState] = useState({});
+
+
 	const [notes, setNotes] = useState([]);
+
 
 	const addNote = (text) => {
 		const date = new Date();
@@ -23,14 +29,11 @@ const App = () => {
 
 	return (
 		<div className="container">
-			<Header />
-			<ParkNotes notes={notes} handleAddNote={addNote} />
-			<SearchByName />
-			<sign-up/>
-		</div>
+        			<Header />
+        			<ParkNotes notes={notes} handleAddNote={addNote} />
+        			<SearchByName />
 
-
-
+        		</div>
 
 
 
