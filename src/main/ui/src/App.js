@@ -1,9 +1,11 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import SearchByName from "./components/SearchByName/SearchByName";
 import ParkNotes from "./components/Notes/ParkNotes";
 import { useState } from "react";
 import "./App.css";
 import './index.css'
 import { Header } from "./components/Header/Header";
+import SignUp from "./components/Login/SignUp";
 
 const App = () => {
 	const [notes, setNotes] = useState([]);
@@ -24,8 +26,14 @@ const App = () => {
 			<Header />
 			<ParkNotes notes={notes} handleAddNote={addNote} />
 			<SearchByName />
-
+			<sign-up/>
 		</div>
+
+
+
+
+
+
 	);
 };
 

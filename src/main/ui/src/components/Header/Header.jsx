@@ -3,6 +3,10 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import SearchBar from "../SearchBar/SearchBar";
 import StateDropdown from "./StateDropdown";
+import Button from 'react-bootstrap/Button';
+import './Button.css'
+
+
 
 
 export const Header = () => {
@@ -16,8 +20,10 @@ export const Header = () => {
 						<SearchBar />
 						<StateDropdown />
 					</Nav>
+					 <Button variant="primary" >sign-up</Button>{' '}
 				</Navbar.Collapse>
 			</Container>
+
 		</Navbar>
 	);
 };

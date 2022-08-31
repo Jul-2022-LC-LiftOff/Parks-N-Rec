@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 
+
 //connecting with the api & setting the "searchTerm"
 export default function SearchByName() {
   const [data, setData] = React.useState([]);
@@ -40,51 +41,44 @@ export default function SearchByName() {
            }
         }
 
-return (
+    return (
+        <div>
+          <input
+            type="text"
+            placeholder="Search parks by name"
+            onChange={handleSearch}
+          />
 
-     <div className="park">
-             <input
-                 type="text"
-                 placeholder="Search parks by name"
-                 onChange = {handleSearch}
-             />
+          {data
+            .filter((park) => {
+              return filterParkNames(park);
+            })
+            .map((park, key) => {
+              return (
+                <div key={key}>
+                  <Row xs={1} md={2} className="g-4" >
 
-           {data.filter((park)=> {
-             return filterParkNames(park)
-           })
-           .map((park, key) => {
+                       {Array.from({ length: 2 }).map((_, idx) => (
+                         <Col  >
+                           <Card  >
+                             <Card.Img variant="top" src={park.images[0].url} />
+                             <Card.Body>
+                             <Card.Title>{park.fullName}</Card.Title>
+                              <Card.Title>  {park.states}</Card.Title>
 
+                               <Card.Text>
+                                    {park.description}
+                               </Card.Text>
+                                <Button variant="primary">Go somewhere</Button>
+                             </Card.Body>
+                           </Card>
+                         </Col>
+                       ))}
 
-
-             return (
-
-              <Row xs={1} md={2} className="g-4" key={key} >
-
-                   {Array.from({ length: 4 }).map((_, idx) => (
-                     <Col>
-                       <Card>
-                         <Card.Img variant="top" src="holder.js/100px160" />
-                         <Card.Body>
-                         <Card.Title>{park.fullName}</Card.Title>
-                          <Card.Title>  {park.states}</Card.Title>
-
-                           <Card.Text>
-                                {park.description}
-                           </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                         </Card.Body>
-                       </Card>
-                     </Col>
-                   ))}
-
-                 </Row>
-
-
-
-             )
-             })
-             }
-
-          </div>
-       );
+                     </Row>
+                </div>
+              );
+            })}
+        </div>
+      );
      };
