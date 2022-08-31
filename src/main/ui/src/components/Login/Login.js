@@ -46,7 +46,7 @@ export default function Login() {
              onChange= {(e) => setEmail(e.target.value)}
               />
         <br />
-        <button type="submit" value="Submit" onClick={handleClick}>Submit</button>
+        <button type="submit" value="Submit" onClick={handleClick}>Register</button>
     </form>
 
 

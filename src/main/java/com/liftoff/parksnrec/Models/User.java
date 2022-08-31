@@ -1,7 +1,9 @@
 package com.liftoff.parksnrec.Models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 
@@ -15,14 +17,17 @@ public class User {
 
     @NotBlank
     @Column(name="username")
+    @Size(min = 4, max = 20, message = "Invalid username. Must be between 4 and 20 characters.")
     private String username;
 
     @NotBlank
     @Column(name="password")
+    @Size(min = 5, max = 30, message = "Invalid password. Must be between 5 and 30 characters.")
     private String password;
 
     @NotBlank
     @Column(name="email")
+    @Email
     private String email;
 
    public User() {}
