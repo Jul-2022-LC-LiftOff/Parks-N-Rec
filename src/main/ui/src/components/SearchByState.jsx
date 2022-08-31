@@ -10,7 +10,6 @@ export default function SearchByState() {
         .then((response) => response.json())
         .then((json) => {
             setData(json.data);
-            console.log('data!: ', json);
         })
     .catch((error) => console.log(error));
 }, [searchTerm]);
