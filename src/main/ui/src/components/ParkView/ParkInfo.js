@@ -5,6 +5,7 @@ import {Header} from '../Header/Header.jsx';
 import Carousel from 'react-bootstrap/Carousel';
 import useState from 'react';
 import Button from 'react-bootstrap/Button';
+import AddNote from '../Notes/AddNote.jsx';
 
 
 
@@ -138,6 +139,10 @@ return (
                </div>
 </div>
    </div>
+
+   <Container>
+   <AddNote/>
+   </Container>
 
 </div>
 
