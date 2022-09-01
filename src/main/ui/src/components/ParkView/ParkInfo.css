@@ -14,8 +14,8 @@ color: black;
 }
 
 p {
-text-align: left;
-font-family: "Garamond", serif;
+text-align: center;
+font-family: "Georgia", serif;
 font-size: 25px;
 }
 
@@ -39,8 +39,16 @@ size: 18rem;
 background-color: rgb(160, 75, 19, 0.8);
 padding: 50px 50px 50px 100px;
 font-family: "Georgia", serif;
+text-align: center;
 }
 
 .carousel-container {
 padding: 50px 50px 50px 100px;
 }
+
+.visited-checkbox {
+background-color: rgb(228, 159, 113);
+padding: 50px 50px 50px 100px;
+text-align: center;
+}
+

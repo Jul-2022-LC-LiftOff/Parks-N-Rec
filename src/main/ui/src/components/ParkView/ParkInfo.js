@@ -92,7 +92,6 @@ return (
      alt="gps on phone" />
       <div class="card-body">
         <h5 class="card-title">Location</h5>
-        <h7 class="card-text">How to get there</h7>
         <a href={this.state.directionsUrl} class="btn btn-success">Directions</a>
       </div>
   </div>
