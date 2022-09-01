@@ -20,7 +20,7 @@ export const Header = () => {
 						<SearchBar />
 						<StateDropdown />
 					</Nav>
-					 <Button variant="primary" >sign-up</Button>{' '}
+					<a href="login" className="btn btn-info" role="button">Login</a>
 				</Navbar.Collapse>
 			</Container>
 
