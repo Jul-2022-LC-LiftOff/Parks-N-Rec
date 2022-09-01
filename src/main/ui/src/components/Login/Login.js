@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import './login.css';
 export default function Login() {
 
         const [username,setName]=useState('')
@@ -23,31 +23,35 @@ export default function Login() {
 
 
   return (
-
-    <form>
-        <label for="username">username:</label>
-            <input type="text"
-             id="username"
-             value={username}
-             onChange= {(e) => setName(e.target.value)}
-              />
-        <br />
-        <label for="password">password:</label>
-            <input type="text"
-             id="password"
-             value={password}
-             onChange= {(e) => setPassword(e.target.value)}
-               />
-        <br />
-        <label for="email">email:</label>
-            <input type="text"
-             id="email"
-             value={email}
-             onChange= {(e) => setEmail(e.target.value)}
+    <div className="form">
+        <form>
+            <label for="username">username:</label>
+                <input
+                    type="text"
+                    id="username"
+                    value={username}
+                    onChange= {(e) => setName(e.target.value)}
+                />
+            <br />
+            <label for="password">password:</label>
+                <input
+                    type="text"
+                    id="password"
+                    value={password}
+                    onChange= {(e) => setPassword(e.target.value)}
+                />
+            <br />
+            <label for="email">email:</label>
+                <input
+                    type="text"
+                    id="email"
+                    value={email}
+                    onChange= {(e) => setEmail(e.target.value)}
               />
         <br />
         <button type="submit" value="Submit" onClick={handleClick}>Register</button>
-    </form>
+        </form>
+    </div>
 
 
   );
