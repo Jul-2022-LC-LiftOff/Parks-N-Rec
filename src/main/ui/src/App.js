@@ -1,10 +1,9 @@
-import SearchByState from './components/SearchByState';
 import "./App.css";
 
-
-
+import SearchByState from "./components/SearchByState/SearchByState";
 
 const App = () => {
+
 
 	return (
 		<div className="container">
@@ -12,6 +11,5 @@ const App = () => {
 		</div>
 	);
 };
-
 
 export default App;
