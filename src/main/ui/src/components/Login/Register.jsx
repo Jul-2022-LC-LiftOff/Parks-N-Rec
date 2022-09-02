@@ -58,11 +58,14 @@ const Register = () => {
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       console.log(user);
-      axios.post("http://localhost:3000/signup/", user).then((res) => {
-        alert(res.data.message);
-        navigate("/login", { replace: true });
-      });
-    }
+         fetch("http://localhost:8080/login/add", {
+                         method: "POST",
+                         headers:{"Content-Type":"application/json"},
+                         body: JSON.stringify(login)
+
+                     }).then(() => {
+                         console.log("New user added")
+                     })
   }, [formErrors]);
   return (
     <>
