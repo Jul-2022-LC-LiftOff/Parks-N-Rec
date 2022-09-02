@@ -13,8 +13,9 @@ export default function ParkNews() {
 			.then((response) => response.json())
 			.then((json) => {
 				setNpsNews(json.data);
-			});
-	}, [npsNews]);
+			})
+			.catch((error) => console.log(error));
+	}, []);
 
 	return (
 		<div>

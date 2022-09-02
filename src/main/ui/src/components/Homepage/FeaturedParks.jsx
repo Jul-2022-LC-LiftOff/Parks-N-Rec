@@ -13,7 +13,7 @@ export default function FeaturedParks() {
 			.then((json) => {
 				setFeaturedParks(json.data);
 			});
-	}, [featuredParks]);
+	}, []);
 
 	return (
 		<Container className="fluid  p-3">
