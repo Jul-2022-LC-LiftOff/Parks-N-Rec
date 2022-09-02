@@ -20,7 +20,7 @@ export default function SearchByState() {
     }
 
     if (data.length > 0) {
-        let url = data.filter((i) => {
+        data.filter((i) => {
             return i.states.match(data);
         });
     }
@@ -39,20 +39,22 @@ return (
         type="text"
         placeholder = "Search Parks By State"
         onChange = {handleSearch}
-/>
+    />
 
     {data.filter((park) => {
         return filterParkStates(park)
-        }).map((park, key) => {
+        })
+        .map((park, key) => {
             return (
-                <p key={key}>
+                <div key={key}>
                 {park.states}
                 <br/>
                 {park.fullName}
-                </p>
+                </div>
             )
-            })}
-</div>
+            })
+            }
+    </div>
 );
 };
 
