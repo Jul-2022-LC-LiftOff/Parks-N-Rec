@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
-export default function Hero() {
+export default function HeroImageAndSearch() {
 	return (
 		<div
 			className="bg-image "

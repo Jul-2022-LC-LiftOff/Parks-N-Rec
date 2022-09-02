@@ -1,17 +1,17 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import Hero from "./Hero";
+import HeroImageAndSearch from "./HeroImageAndSearch";
 import FeaturedParksCards from "./FeaturedParks";
-import ViewByStateFullList from "./ViewByState";
+import ViewByState from "./ViewByState";
 import ParkNews from "./ParkNews";
 
 export default function Homepage() {
 	return (
 		<div>
-			<Hero />
+			<HeroImageAndSearch />
 			<FeaturedParksCards />
 			<ParkNews />
-			<ViewByStateFullList />
+			<ViewByState />
 		</div>
 	);
 }
