@@ -1,16 +1,19 @@
 package Models;
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.Objects;
+
+
 
 @Entity
 public class Notes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long park_id;
 
-    @NotBlank
+    private long author_id;
+
+
     private String note;
 
     public Notes() {};
@@ -19,8 +22,12 @@ public class Notes {
         this.note = note;
     }
 
-    public long getId() {
-        return id;
+    public long getPark_id() {
+        return park_id;
+    }
+
+    public long getAuthor_id() {
+        return author_id;
     }
 
     public String getNote() {
@@ -36,21 +43,21 @@ public class Notes {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Notes notes = (Notes) o;
-        return id == notes.id && note.equals(notes.note);
+        return park_id == notes.park_id && author_id == notes.author_id && note.equals(notes.note);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, note);
+        return Objects.hash(park_id, author_id, note);
     }
+
 
     @Override
     public String toString() {
         return "Notes{" +
-                "id=" + id +
+                "park_id=" + park_id +
+                ", author_id=" + author_id +
                 ", note='" + note + '\'' +
                 '}';
     }
-
-
 }

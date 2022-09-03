@@ -1,2 +1,4 @@
-package Repository;public interface NotesRepository {
+package Repository;
+
+public interface NotesRepository {
 }
