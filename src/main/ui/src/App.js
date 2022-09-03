@@ -1,7 +1,7 @@
 import SearchByName from "./components/SearchByName/SearchByName";
 import ParkNotes from "./components/Notes/ParkNotes";
 import { useState } from "react";
-import { nanoid } from "nanoid";
+
 import "./App.css";
 import { Header } from "./components/Header/Header";
 
@@ -10,7 +10,6 @@ const App = () => {
 	const addNote = (text) => {
 		const date = new Date();
 		const newNote = {
-		    id: nanoid(),
 			text: text,
 			date: date.toLocaleDateString(),
 		};
