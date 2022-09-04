@@ -1,4 +1,4 @@
-package Controllers;
+package com.liftoff.parksnrec.Controllers;
 
 import Repository.NotesRepository;
 import org.springframework.beans.factory.annotation.Autowired;

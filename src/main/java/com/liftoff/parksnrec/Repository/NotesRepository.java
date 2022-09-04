@@ -1,4 +1,4 @@
-package Repository;
+package com.liftoff.parksnrec.Repository;
 
 import Models.Notes;
 import org.springframework.data.repository.CrudRepository;

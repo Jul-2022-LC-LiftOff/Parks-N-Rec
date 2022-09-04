@@ -1,5 +1,9 @@
-package Models;
-import javax.persistence.*;
+package com.liftoff.parksnrec.Models;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
@@ -16,7 +20,7 @@ public class Notes {
 
     public Notes() {};
 
-    public Notes (String note) {
+    public Notes(String note) {
         this.note = note;
     }
 
