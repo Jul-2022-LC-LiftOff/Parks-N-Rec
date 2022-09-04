@@ -2,8 +2,6 @@ package Models;
 import javax.persistence.*;
 import java.util.Objects;
 
-
-
 @Entity
 public class Notes {
 
