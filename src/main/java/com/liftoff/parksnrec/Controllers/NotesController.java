@@ -1,6 +1,6 @@
 package com.liftoff.parksnrec.Controllers;
 
-import Repository.NotesRepository;
+import com.liftoff.parksnrec.Repository.NotesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

@@ -1,6 +1,7 @@
 package com.liftoff.parksnrec.Repository;
 
-import Models.Notes;
+
+import com.liftoff.parksnrec.Models.Notes;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
