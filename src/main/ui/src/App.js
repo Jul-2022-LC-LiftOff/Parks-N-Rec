@@ -13,7 +13,6 @@ const App = () => {
 			text: text,
 			date: date.toLocaleDateString(),
 		};
-		//spread operator (...) expands an array into its elements. Will create new array instead of updating old array
 		const newNotes = [...notes, newNote];
 		setNotes(newNotes);
 	};

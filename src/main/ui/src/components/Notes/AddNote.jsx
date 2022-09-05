@@ -5,33 +5,37 @@ export default function AddNote({handleAddNote}) {
     //target event value is the user input. setNoteText will become target event value. It will be updated anytime the user types
 
     const handleChange = (event) => {
+              event.preventDefault();
         setNoteText(event.target.value);
 
-};
+    };
 
-    const handleSaveClick = () => {
+//     const handleSaveClick = () => {
+//         if(noteText.trim().length > 0){
+//           handleAddNote(noteText);
+//           //returns add note text to blank box
+//           setNoteText('')
+//         }
+//     };
+
+    const handleSaveClick = (event) => {
+         event.preventDefault();
+         const noteInfo={noteText}
+         console.log(noteInfo);
+           fetch("http://localhost:8080/notes/addNotes",{
+              method: "POST",
+              headers:{"Content-Type":"application/json"},
+              body:JSON.stringify(noteText)
+              }).then(()=>{
+                console.log("New Note Added")
+              })
+
         if(noteText.trim().length > 0){
           handleAddNote(noteText);
           //returns add note text to blank box
           setNoteText('')
         }
     };
-
-//     const handleSaveClick = () => {
-//         if(noteText.trim().length > 0){
-//           handleAddNote(noteText);
-//           console.log(noteText);
-//           fetch("http://localhost:8080/notes/addNotes",{
-//           method: "POST",
-//           headers:{"Content-Type:":"application/json"},
-//           body:JSON.stringify(noteText)
-//           }).then(()=>{
-//           console.log("New Note Added")
-//           })
-//           //returns add note text to blank box
-//           setNoteText('')
-//         }
-//     };
 
 
 
