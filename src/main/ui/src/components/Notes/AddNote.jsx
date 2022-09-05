@@ -6,9 +6,9 @@ export default function AddNote({handleAddNote}) {
 
     const handleChange = (event) => {
         setNoteText(event.target.value);
+
 };
 
-// Add warning that text needs to be added?
     const handleSaveClick = () => {
         if(noteText.trim().length > 0){
           handleAddNote(noteText);
@@ -16,6 +16,24 @@ export default function AddNote({handleAddNote}) {
           setNoteText('')
         }
     };
+
+//     const handleSaveClick = () => {
+//         if(noteText.trim().length > 0){
+//           handleAddNote(noteText);
+//           console.log(noteText);
+//           fetch("http://localhost:8080/notes/addNotes",{
+//           method: "POST",
+//           headers:{"Content-Type:":"application/json"},
+//           body:JSON.stringify(noteText)
+//           }).then(()=>{
+//           console.log("New Note Added")
+//           })
+//           //returns add note text to blank box
+//           setNoteText('')
+//         }
+//     };
+
+
 
     return(
     // provides text box to add new note and button to trigger save note event
