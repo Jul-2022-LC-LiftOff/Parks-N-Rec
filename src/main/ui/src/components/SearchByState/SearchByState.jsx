@@ -16,8 +16,8 @@ export default function SearchByState() {
  }, [selectState]);
 
      if (data.length > 0) {
-         data.filter((i) => {
-             return i.states.match(data);
+         data.filter((parkApi) => {
+             return parkApi.states.match(data);
          });
      }
 
