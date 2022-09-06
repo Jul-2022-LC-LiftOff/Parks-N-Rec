@@ -14,7 +14,11 @@ export default function SearchBar() {
 				<Button aria-label="search" variant="primary" type="submit">
 					Search
 				</Button>
+
+
 			</InputGroup>
+
+
 		</div>
 	);
 }

@@ -30,9 +30,15 @@ const App = () => {
 	};
 
 	return (
+
+
 		<div className="container">
 
         			 <Router>
+
+
+
+
 
 
 
@@ -60,12 +66,16 @@ const App = () => {
                                   path="/login"
                                   element={<Login setUserState={setUserState} />}
                                 ></Route>
-                                <Route path="/signup" element={<Register />}></Route>
+                                <Route path="/register" element={<Register />}></Route>
                               </Routes>
 
-                              	 <Header />
-                                                           			<ParkNotes notes={notes} handleAddNote={addNote} />
-                                                           			<SearchByName />
+                                  	 <Header />
+                                                                                         			<ParkNotes notes={notes} handleAddNote={addNote} />
+                                                                                         			<SearchByName />
+
+
+
+
 
                             </Router>
 

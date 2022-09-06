@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import basestyle from "./Base.module.css";
 import loginstyle from "./Login.module.css";
-import { useNavigate, NavLink } from "react-router-dom";
-const Login = ({ setUserState }) => {
-  const navigate = useNavigate();
+import { NavLink } from "react-router-dom";
+export default function Login() {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   const [user, setUserDetails] = useState({
@@ -39,24 +38,18 @@ const Login = ({ setUserState }) => {
     e.preventDefault();
     setFormErrors(validateForm(user));
     setIsSubmit(true);
-    // if (!formErrors) {
 
-    // }
-  };
+     fetch("http://localhost:8080/user/add", {
+                        method: "POST",
+                        headers:{"Content-Type":"application/json"},
+                        body: JSON.stringify(user)
 
-  useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(user);
-         fetch("http://localhost:8080/login/add", {
-                         method: "POST",
-                         headers:{"Content-Type":"application/json"},
-                         body: JSON.stringify(login)
+                    }).then(() => {
+                        console.log("New user added")
+                    })
+  }
 
-                     }).then(() => {
-                         console.log("New user added")
-                     })
-    }
-  }, [formErrors]);
+
   return (
     <div className={loginstyle.login}>
       <form className="login-form">
@@ -84,8 +77,7 @@ const Login = ({ setUserState }) => {
           Login
         </button>
       </form>
-      <NavLink to="/signup">Not yet registered? Register Now</NavLink>
+      <NavLink to="/register">Not yet registered? Register Now</NavLink>
     </div>
   );
 };
-export default Login;

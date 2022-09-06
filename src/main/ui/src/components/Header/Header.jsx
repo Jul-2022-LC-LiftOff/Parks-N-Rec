@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import SearchBar from "../SearchBar/SearchBar";
 import StateDropdown from "./StateDropdown";
 import Button from 'react-bootstrap/Button';
-import './Button.css'
+
 
 
 
@@ -20,8 +20,11 @@ export const Header = () => {
 						<SearchBar />
 						<StateDropdown />
 					</Nav>
-					<a href="login" className="btn btn-info" role="button">Login</a>
-				</Navbar.Collapse>
+					<div style={{ display: "block", height: 49 }}>
+                <Button href="login" variant="primary"  >Login</Button>
+                </div>
+
+ 		</Navbar.Collapse>
 			</Container>
 
 		</Navbar>
