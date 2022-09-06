@@ -37,7 +37,7 @@ return (
         <select name="stateSelecter" value={selectState} onChange={e=> setSelect(e.target.value)}>
             {
                 ParkData.map (data => (
-                 <option key={data.abbreviation}> {data.abbreviation} </option>
+                 <option key={data.abbreviation} value={data.abbreviation}> {data.name} </option>
                 ))
             }
         </select>
