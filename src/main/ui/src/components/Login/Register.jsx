@@ -11,7 +11,7 @@ export default function Register (){
 
        const handleClick=(e)=>{
            e.preventDefault()
-           const register={password,email}
+           const register={password,email,veryPassword}
            console.log(register)
                fetch("http://localhost:8080/register/add", {
                    method: "POST",
