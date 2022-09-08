@@ -23,8 +23,6 @@ const App = () => {
 	return (
 		<div className="container">
 			<Header />
-			<Login />
-			<Register />
 			<ParkNotes notes={notes} handleAddNote={addNote} />
 			<SearchByName />
 		</div>
