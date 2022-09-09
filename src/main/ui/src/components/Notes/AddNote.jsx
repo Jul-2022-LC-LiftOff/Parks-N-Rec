@@ -22,7 +22,8 @@ export default function AddNote({handleAddNote}) {
          event.preventDefault();
          const noteInfo={noteText}
          console.log(noteInfo);
-           fetch("http://localhost:3000/notes/addNotes",{
+//            fetch("http://localhost:3000/notes/addNotes", {
+           fetch("http://localhost:3000/notes/addNotes", {
               method: "POST",
               headers:{"Content-Type":"application/json"},
               body:JSON.stringify(noteText)
