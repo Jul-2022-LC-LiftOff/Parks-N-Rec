@@ -2,20 +2,51 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { states } from "../../data";
+import {useState} from 'react';
 
 export default function StateDropdown() {
+        const [data, setData] = React.useState([]);
+        const [selectState, setSelect] = useState('');
+         React.useEffect(() => {
+         let url = `https://developer.nps.gov/api/v1/parks?parkCode="all"&limit=469&api_key=JMZizGv6gAcjBzoD4TbqW9RQSe9K8fEt9Cdb2Zta`;
+         fetch(url)
+             .then((response) => response.json())
+             .then((json) => {
+                 setData(json.data);
+             })
+         .catch((error) => console.log(error));
+     }, [selectState]);
+
+         if (data.length > 0) {
+             data.filter((parkApi) => {
+                 return parkApi.states.match(data);
+             });
+         }
+
+         function filterParkStates(park) {
+             if (selectState === "") {
+                return park
+            } if (park.states.toLowerCase().includes(selectState.toLowerCase())) {
+                 return park
+             }
+       }
+
 	return (
 		<Nav>
-			<NavDropdown id="nav-dropdown" title="View by State" menuVariant="dark">
-				{states.map((item, index) => (
-					<NavDropdown.Item href="" key={index}>
-						{item.name}{" "}
-					</NavDropdown.Item>
-				))}
 
-				<NavDropdown.Divider />
-				<NavDropdown.Item href="">View All Parks</NavDropdown.Item>
-			</NavDropdown>
+
+
+                <NavDropdown name="stateSelecter" value={selectState} title="View by state" onChange={e=> setSelect(e.target.value)}>
+                   {
+                     states.map (data => (
+                        <NavDropdown.Item key={data.abbreviation} value={data.abbreviation}> {data.name} </NavDropdown.Item>
+                         ))
+                   }
+                </NavDropdown>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="">View All Parks</NavDropdown.Item>
+
+
 		</Nav>
 	);
 }
