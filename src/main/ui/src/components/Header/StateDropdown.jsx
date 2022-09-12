@@ -33,20 +33,15 @@ export default function StateDropdown() {
 
 	return (
 		<Nav>
-
-
-
                 <NavDropdown name="stateSelecter" value={selectState} title="View by state" onChange={e=> setSelect(e.target.value)}>
                    {
                      states.map (data => (
                         <NavDropdown.Item key={data.abbreviation} value={data.abbreviation}> {data.name} </NavDropdown.Item>
                          ))
                    }
-                </NavDropdown>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="">View All Parks</NavDropdown.Item>
-
-
+                </NavDropdown>
 		</Nav>
 	);
 }
