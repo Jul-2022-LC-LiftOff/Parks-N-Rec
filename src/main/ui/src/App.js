@@ -1,13 +1,16 @@
 import "./App.css";
+import { Header } from "./components/Header/Header";
+import Homepage from "./components/Homepage/Homepage";
 
-import SearchByState from "./components/SearchByState/SearchByState";
 
 const App = () => {
 
 
 	return (
 		<div className="container">
-			<SearchByState />
+			<Header />
+			<Homepage />
+			<ParkNotes notes={notes} handleAddNote={addNote} />
 		</div>
 	);
 };
