@@ -35,6 +35,7 @@ return (
     <div>
         <label htmlFor="stateSelecter"> View parks by state: </label>
         <select name="stateSelecter" value={selectState} onChange={e=> setSelect(e.target.value)}>
+            <option value="none" selected="selected"> Select a State </option>
             {
                 ParkData.map (data => (
                  <option key={data.abbreviation} value={data.abbreviation}> {data.name} </option>
