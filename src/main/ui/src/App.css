@@ -3,6 +3,8 @@
 }
 
 
+
+
 .park-data {
  background: var(--primaryLightColor);
   padding: 0.25rem 0.5rem;
@@ -54,4 +56,5 @@
 .table {
 width: 100%;
 }
+
 
