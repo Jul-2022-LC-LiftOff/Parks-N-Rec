@@ -10,20 +10,11 @@ export default function AddNote({handleAddNote}) {
 
     };
 
-//     const handleSaveClick = () => {
-//         if(noteText.trim().length > 0){
-//           handleAddNote(noteText);
-//           //returns add note text to blank box
-//           setNoteText('')
-//         }
-//     };
-
     const handleSaveClick = (event) => {
          event.preventDefault();
          const noteInfo={noteText}
          console.log(noteInfo);
-//            fetch("http://localhost:3000/notes/addNotes", {
-           fetch("http://localhost:8080/notes/addNotes", {
+           fetch("http://localhost:3306/notes/addNotes", {
               method: "POST",
               headers:{"Content-Type":"application/json"},
               body:JSON.stringify(noteText)
@@ -42,20 +33,23 @@ export default function AddNote({handleAddNote}) {
 
     return(
     // provides text box to add new note and button to trigger save note event
+
         <div className="note new">
-            <textarea
-            rows="8"
-            cols="10"
-            placeholder="Type to add notes about this park"
-            value={noteText}
-            onChange={handleChange}
-            >
-            </textarea>
 
-            <div className="note=footer">
+                        <textarea
+                        rows="8"
+                        cols="10"
+                        placeholder="Type to add notes about this park"
+                        value={noteText}
+                        onChange={handleChange}
+                        >
+                        </textarea>
 
-                <button className="save" onClick={handleSaveClick}>Save Note</button>
-            </div>
+                        <div className="note=footer">
+
+                            <button className="save" onClick={handleSaveClick}>Save Note</button>
+                        </div>
+
         </div>
     );
  };
