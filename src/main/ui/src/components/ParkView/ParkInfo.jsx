@@ -45,7 +45,7 @@ return (
     {parkInfo.map((parks, key) => {
     return (
      <Carousel.Item key={key}>
-          <img className="carousel-image" src={parks.images.url} alt="slide" />
+          <img className="carousel-image" src={parks.images[key].url} alt="slide" />
            <Carousel.Caption>
            <h3 className="welcome-notice">Welcome to Beautiful {parkName}</h3>
            </Carousel.Caption>
