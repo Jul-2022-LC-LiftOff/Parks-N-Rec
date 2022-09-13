@@ -1,7 +1,6 @@
 import SearchByName from "./components/SearchByName/SearchByName";
 import ParkNotes from "./components/Notes/ParkNotes";
 import { useState } from "react";
-
 import "./App.css";
 import { Header } from "./components/Header/Header";
 

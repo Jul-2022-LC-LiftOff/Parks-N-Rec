@@ -2,7 +2,6 @@
 
 export default function AddNote({handleAddNote}) {
     const [noteText, setNoteText] = useState('');
-    //target event value is the user input. setNoteText will become target event value. It will be updated anytime the user types
 
     const handleChange = (event) => {
               event.preventDefault();
@@ -14,7 +13,7 @@ export default function AddNote({handleAddNote}) {
          event.preventDefault();
          const noteInfo={noteText}
          console.log(noteInfo);
-           fetch("http://localhost:3306/notes/addNotes", {
+           fetch("http://localhost:8080/notes/addNotes", {
               method: "POST",
               headers:{"Content-Type":"application/json"},
               body:JSON.stringify(noteText)
@@ -24,7 +23,6 @@ export default function AddNote({handleAddNote}) {
 
         if(noteText.trim().length > 0){
           handleAddNote(noteText);
-          //returns add note text to blank box
           setNoteText('')
         }
     };
@@ -32,8 +30,6 @@ export default function AddNote({handleAddNote}) {
 
 
     return(
-    // provides text box to add new note and button to trigger save note event
-
         <div className="note new">
 
                         <textarea
