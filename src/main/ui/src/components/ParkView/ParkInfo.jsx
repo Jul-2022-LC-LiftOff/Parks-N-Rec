@@ -16,7 +16,7 @@ export default function ParkInfo() {
 const [parkInfo, setParkInfo] = React.useState([]);
 
  React.useEffect(() => {
-let url = "https://developer.nps.gov/api/v1/parks?api_key=IJ1FjAb4SkwSyXOqFhyqxTM3xg66eDcMQoDjKS16";
+let url = "https://developer.nps.gov/api/v1/parks?parkCode=yell&api_key=IJ1FjAb4SkwSyXOqFhyqxTM3xg66eDcMQoDjKS16";
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
@@ -28,12 +28,7 @@ let url = "https://developer.nps.gov/api/v1/parks?api_key=IJ1FjAb4SkwSyXOqFhyqxT
 
 const parkName = parkInfo.map((parks, key) => {
 return (
-<div key={key}> <p>{parks.fullName} </p> </div>
-)})
-
-const parkImages = parkInfo.map((parks, key) => {
-return (
-<div key={key}> <img className="carousel-image" src={parks.images.url} alt="slide" /> </div>
+<div key={key}> {parks.fullName} </div>
 )})
 
 const parkDescription = parkInfo.map((parks, key) => {
@@ -47,26 +42,15 @@ return (
 
     <Container className="carousel-container">
     <Carousel>
-     <Carousel.Item>
-          {parkImages}
+    {parkInfo.map((parks, key) => {
+    return (
+     <Carousel.Item key={key}>
+          <img className="carousel-image" src={parks.images.url} alt="slide" />
            <Carousel.Caption>
            <h3 className="welcome-notice">Welcome to Beautiful {parkName}</h3>
            </Carousel.Caption>
          </Carousel.Item>
-
-     <Carousel.Item>
-          {parkImages}
-           <Carousel.Caption>
-           <h3 className="welcome-notice">Welcome to Beautiful {parkName}</h3>
-           </Carousel.Caption>
-     </Carousel.Item>
-
-     <Carousel.Item>
-      {parkImages}
-           <Carousel.Caption>
-           <h3 className="welcome-notice">Welcome to Beautiful {parkName}</h3>
-           </Carousel.Caption>
-     </Carousel.Item>
+         )})}
     </Carousel>
     </Container>
 
@@ -96,7 +80,6 @@ return (
   </div>
    </div>
      </div>
-
 
  <div className="col">
   <div className="card h-50">
