@@ -1,30 +1,58 @@
-import { React, useState, useEffect } from "react";
-import ParkCard from "../Homepage/ParkCard";
+import React, { useState, useEffect } from "react";
+import { slice } from "lodash";
 import { API_KEY } from "../../api";
-import { Container } from "react-bootstrap";
-import searchTerm from "../SearchByName/SearchByName";
 import ResultCard from "./ResultCard";
+import searchTerm from "../SearchByName/SearchByName";
 
 export default function ResultsDisplay() {
-	const [searchResults, setSearchResults] = useState([]);
-
-	useEffect(() => {
+	const [post, setPost] = useState([]);
+	const [isCompleted, setIsCompleted] = useState(false);
+	const [index, setIndex] = useState(5);
+	const initialPosts = slice(post, 0, index);
+	const getData = () => {
 		fetch(
 			`https://developer.nps.gov/api/v1/parks?StateCode="all"&limit=469&api_key=${API_KEY}`
 		)
-			.then((response) => response.json())
-			.then((json) => {
-				setSearchResults(json.data);
-			});
+			.then((res) => res.json())
+			.then((json) => setPost(json.data))
+			.catch((e) => console.log(e));
+	};
+
+	const loadMore = () => {
+		setIndex(index + 5);
+		console.log(index);
+		if (index >= post.length) {
+			setIsCompleted(true);
+		} else {
+			setIsCompleted(false);
+		}
+	};
+
+	useEffect(() => {
+		getData();
 	}, []);
 
 	return (
-		<Container className="fluid  p-3">
-			<h1>Search Results for {searchTerm}</h1>
-
-			{searchResults.map((park, index) => {
-				return <ResultCard parkData={park} key={index} />;
+		<div>
+			<h2 className="mb-3">Search results for {searchTerm} </h2>
+			{initialPosts.map((parkData, index) => {
+				return <ResultCard parkData={parkData} key={index} />;
 			})}
-		</Container>
+			<div className="d-grid mt-3 mb-5">
+				{isCompleted ? (
+					<button
+						onClick={loadMore}
+						type="button"
+						className="btn btn-danger disabled"
+					>
+						That's It
+					</button>
+				) : (
+					<button onClick={loadMore} type="button" className="btn btn-danger">
+						Load More +
+					</button>
+				)}
+			</div>
+		</div>
 	);
 }
