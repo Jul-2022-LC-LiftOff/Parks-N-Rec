@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { states } from "../../data";
 import {useState} from 'react';
+import { Link } from "react-router-dom";
 
 export default function StateDropdown() {
         const [data, setData] = React.useState([]);
@@ -23,20 +24,12 @@ export default function StateDropdown() {
              });
          }
 
-         function filterParkStates(park) {
-             if (selectState === "") {
-                return park
-            } if (park.states.toLowerCase().includes(selectState.toLowerCase())) {
-                 return park
-             }
-       }
-
 	return (
 		<Nav>
-                <NavDropdown name="stateSelecter" value={selectState} title="View by state" onChange={e=> setSelect(e.target.value)}>
+                <NavDropdown name="stateSelecter"  value={selectState} title="View by state" onChange={e=> setSelect(e.target.value)}>
                    {
                      states.map (data => (
-                        <NavDropdown.Item key={data.abbreviation} value={data.abbreviation}> {data.name} </NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/results" key={data.abbreviation} value={data.abbreviation}> {data.name} </NavDropdown.Item>
                          ))
                    }
                     <NavDropdown.Divider />
