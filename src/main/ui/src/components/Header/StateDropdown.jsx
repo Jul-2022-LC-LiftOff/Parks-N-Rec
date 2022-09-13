@@ -5,7 +5,7 @@ import { states } from "../../data";
 import {useState} from 'react';
 import { Link } from "react-router-dom";
 
-export default function StateDropdown() {
+export default function StateDropdown(props) {
         const [data, setData] = React.useState([]);
         const [selectState, setSelect] = useState('');
          React.useEffect(() => {
@@ -26,15 +26,19 @@ export default function StateDropdown() {
 
 	return (
 		<Nav>
-                <NavDropdown name="stateSelecter"  value={selectState} title="View by state" onChange={e=> setSelect(e.target.value)}>
+                <NavDropdown name="stateSelecter"  title="View by state" >
                    {
                      states.map (data => (
-                        <NavDropdown.Item as={Link} to="/results" key={data.abbreviation} value={data.abbreviation}> {data.name} </NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/results" key={data.abbreviation} onChange={e=> setSelect(e.target.value)} value={props.selectState}> {data.name} </NavDropdown.Item>
                          ))
                    }
+
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="">View All Parks</NavDropdown.Item>
                 </NavDropdown>
+
 		</Nav>
+
 	);
+console.log(props.selectState)
 }

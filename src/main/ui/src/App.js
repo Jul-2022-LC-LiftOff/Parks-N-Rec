@@ -20,10 +20,11 @@ const App = () => {
             <Route path="/" element={ <Homepage /> } />
             <Route path="/home" element={ <Homepage /> } />
             <Route path="/login" element={ <Login /> } />
-            <Route path="/results" element={ <Results /> } />
+            <Route path="/results" element={ <Results /> }  />
           </Routes>
 	    </div>
 	  </>
+
 	);
 };
 
