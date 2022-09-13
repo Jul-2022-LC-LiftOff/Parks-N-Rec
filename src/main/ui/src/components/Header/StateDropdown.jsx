@@ -23,22 +23,19 @@ export default function StateDropdown(props) {
                  return parkApi.states.match(data);
              });
          }
-
+        console.log({selectState})
 	return (
 		<Nav>
                 <NavDropdown name="stateSelecter"  title="View by state" >
                    {
                      states.map (data => (
-                        <NavDropdown.Item as={Link} to="/results" key={data.abbreviation} onChange={e=> setSelect(e.target.value)} value={props.selectState}> {data.name} </NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/results" key={data.abbreviation} onChange={e=> setSelect(e.target.value)} value={data.name}> {data.name} </NavDropdown.Item>
                          ))
                    }
-
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="">View All Parks</NavDropdown.Item>
                 </NavDropdown>
 
 		</Nav>
-
 	);
-console.log(props.selectState)
 }
