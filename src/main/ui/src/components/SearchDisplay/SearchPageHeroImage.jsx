@@ -19,9 +19,6 @@ export default function SearchPageHeroImage() {
 					<div className="text-white">
 						<h1 className="mb-3">Search Again</h1>
 						<SearchBar />
-						{/* <a className="btn btn-outline-light btn-lg" href="#!" role="button">
-							Search
-						</a> */}
 					</div>
 				</div>
 			</div>
