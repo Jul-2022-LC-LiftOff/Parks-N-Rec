@@ -19,6 +19,7 @@ const App = () => {
 	return (
 		<div className="container">
 			<Header />
+			//add date here>!!!
 			<ParkNotes notes={notes} handleAddNote={addNote} />
 			<SearchByName />
 		</div>
