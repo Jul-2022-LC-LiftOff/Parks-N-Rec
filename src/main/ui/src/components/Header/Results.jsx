@@ -1,8 +1,10 @@
 import React from "react";
 
 export default function Results({state}) {
+console.log({state})
 return(
-    <h1>this is the results page {state}</h1>
+    <h1>welcome to {state}</h1>
+
 )
 
 }
