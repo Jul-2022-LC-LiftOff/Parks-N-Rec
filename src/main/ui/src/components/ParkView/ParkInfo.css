@@ -52,3 +52,14 @@ padding: 50px 50px 50px 100px;
 text-align: center;
 }
 
+.parkImages {
+padding: 50px 50px 50px 100px;
+}
+
+.image-cards {
+  margin-left: auto;
+  margin-right: auto;
+height: 75%;
+width: 100%;
+
+}

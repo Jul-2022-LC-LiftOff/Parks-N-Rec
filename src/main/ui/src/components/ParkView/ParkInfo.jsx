@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import {useState} from 'react';
 import {useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
-import Carousel from 'react-bootstrap/Carousel';
+import {Card} from 'react-bootstrap';
 import {Container} from 'react-bootstrap';
+import {Image} from 'react-bootstrap';
 import AddNote from '../Notes/AddNote.jsx';
 import {Header} from '../Header/Header.jsx';
 import './ParkInfo.css';
@@ -48,27 +49,24 @@ const parkWebsite = parkInfo.map((parks, key) => {
 return (
 <div key={key}> {parks.url}</div>)})
 
+const parkImages = parkInfo.map((parks, key) => {
+  return (<div>{parks.images.slice(0,1).map((images, key) => {
+return (<div key={key}> <Card className="image-cards">
+<Card.Img className="img-fluid" src={images.url} />
+<Card.ImgOverlay  className="h-100 d-flex flex-column justify-content-end">
+<Card.Text className="welcome-notice">Welcome to Beautiful {parkName}</Card.Text>
+</Card.ImgOverlay>
+</Card>
+
+          </div>)})}
+          </div>)})
+
 return (
 <div>
 <Header />
 
-<Container className="carousel-container">
-<Carousel>
-<Carousel.Item>
-    {parkInfo.map((parks, key) => {
-    return (
-    <div key={key}> {parks.images.map((images, key) => {
-return (<div>
-          <img className="carousel-image" src={images.url} alt="slide" />
-           <Carousel.Caption>
-           <h3 className="welcome-notice">Welcome to Beautiful {parkName}</h3>
-           </Carousel.Caption>
-</div>
-         )})}
-   </div>
-         )})}
-</Carousel.Item>
-                  </Carousel>
+<Container className="parkImages">
+<div>{parkImages}</div>
 </Container>
 
 <Container className="park-description">
