@@ -2,12 +2,10 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { states } from "../../data";
-import {useState} from 'react';
 import { Link } from "react-router-dom";
 
-export default function StateDropdown(props) {
+       function StateDropdown({state},{setState}) {
         const [data, setData] = React.useState([]);
-        const [selectState, setSelect] = useState('');
          React.useEffect(() => {
          let url = `https://developer.nps.gov/api/v1/parks?parkCode="all"&limit=469&api_key=JMZizGv6gAcjBzoD4TbqW9RQSe9K8fEt9Cdb2Zta`;
          fetch(url)
@@ -16,26 +14,32 @@ export default function StateDropdown(props) {
                  setData(json.data);
              })
          .catch((error) => console.log(error));
-     }, [selectState]);
+     }, []);
 
          if (data.length > 0) {
              data.filter((parkApi) => {
                  return parkApi.states.match(data);
              });
+
+         const handleChange = (e) => {
+            const selectedState = e.target.value;
+            setState(selectedState);
          }
-        console.log({selectState})
+
 	return (
 		<Nav>
-                <NavDropdown name="stateSelecter"  title="View by state" >
+                <NavDropdown name="stateSelecter"  title="View by state" onChange={handleChange} value={state}>
                    {
                      states.map (data => (
-                        <NavDropdown.Item as={Link} to="/results" key={data.abbreviation} onChange={e=> setSelect(e.target.value)} value={data.name}> {data.name} </NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/results" key={data.abbreviation} > {data.name} </NavDropdown.Item>
                          ))
                    }
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="">View All Parks</NavDropdown.Item>
                 </NavDropdown>
-
 		</Nav>
 	);
+};
 }
+
+export default StateDropdown;
