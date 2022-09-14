@@ -15,8 +15,10 @@ export default function ParkInfo() {
 
 const [parkInfo, setParkInfo] = React.useState([]);
 
- React.useEffect(() => {
-let url = "https://developer.nps.gov/api/v1/parks?parkCode=yell&api_key=IJ1FjAb4SkwSyXOqFhyqxTM3xg66eDcMQoDjKS16";
+React.useEffect(() => {
+//parkCode should change depending on user choice
+let parkCode="yell"
+let url = "https://developer.nps.gov/api/v1/parks?parkCode="+parkCode+"&api_key=IJ1FjAb4SkwSyXOqFhyqxTM3xg66eDcMQoDjKS16";
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
@@ -24,7 +26,6 @@ let url = "https://developer.nps.gov/api/v1/parks?parkCode=yell&api_key=IJ1FjAb4
       })
       .catch((error) => console.log(error));
   }, []);
-
 
 const parkName = parkInfo.map((parks, key) => {
 return (
@@ -36,23 +37,40 @@ return (
 <div key={key}> {parks.description}</div>
 )})
 
+const parkWeather = parkInfo.map((parks, key) => {
+return (
+<div key={key}> {parks.weatherInfo}</div>)})
+
+const parkDirectionsUrl = parkInfo.map((parks, key) => {
+return (
+<div key={key}> {parks.directionsUrl}</div>)})
+
+const parkWebsite = parkInfo.map((parks, key) => {
+return (
+<div key={key}> {parks.url}</div>)})
+
 return (
 <div>
 <Header />
 
-    <Container className="carousel-container">
-    <Carousel>
+<Container className="carousel-container">
+<Carousel>
+<Carousel.Item>
     {parkInfo.map((parks, key) => {
     return (
-     <Carousel.Item key={key}>
-          <img className="carousel-image" src={parks.images[key].url} alt="slide" />
+    <div key={key}> {parks.images.map((images, key) => {
+return (<div>
+          <img className="carousel-image" src={images.url} alt="slide" />
            <Carousel.Caption>
            <h3 className="welcome-notice">Welcome to Beautiful {parkName}</h3>
            </Carousel.Caption>
-         </Carousel.Item>
+</div>
          )})}
-    </Carousel>
-    </Container>
+   </div>
+         )})}
+</Carousel.Item>
+                  </Carousel>
+</Container>
 
 <Container className="park-description">
 <div> {parkDescription} </div>
@@ -67,6 +85,7 @@ return (
 <h2 className="font-weight-bold">Learn more about {parkName}</h2>
 </Container>
 
+<Container>
 <div className="row row-cols-1 row-cols-md-4 g-4">
 <div className="col">
   <div className="card h-50">
@@ -75,7 +94,7 @@ return (
      alt="gps on phone" />
       <div className="card-body">
         <h5 className="card-title">Location</h5>
-        <a href="" className="btn btn-success">Directions</a>
+        <a href={parkDirectionsUrl} className="btn btn-success">Directions</a>
       </div>
   </div>
    </div>
@@ -88,7 +107,7 @@ return (
      alt="Card image cap" />
       <div className="card-body">
         <h5 className="card-title">Visit the Website</h5>
-        <a href="" className="btn btn-success">Official Website</a>
+        <a href={parkWebsite} className="btn btn-success">Official Website</a>
       </div>
     </div>
    </div>
@@ -101,7 +120,7 @@ return (
        alt="safety cone" />
         <div className="card-body">
           <h5 className="card-title">Park Alerts</h5>
-          <h7 className="card-text">Connect to API</h7>
+          <h6 className="card-text">Choose something, alerts not included in API</h6>
         </div>
       </div>
 </div>
@@ -114,12 +133,13 @@ return (
            alt="umbrellas" />
             <div className="card-body">
               <h5 className="card-title">Weather</h5>
-              <h7 className="card-text">{}</h7>
+              <h6 className="card-text">{parkWeather}</h6>
             </div>
           </div>
                </div>
 </div>
    </div>
+</Container>
 
    <Container>
    <AddNote/>
