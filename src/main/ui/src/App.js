@@ -4,15 +4,16 @@ import Homepage from "./components/Homepage/Homepage";
 import Login from "./components/Header/Login.jsx";
 import { Route, Routes } from "react-router-dom"
 import Results from "./components/Header/Results.jsx";
-import { useState } from 'react';
+
 
 
 
 const App = () => {
-          const [state, setState] = useState('');
+
 	return (
-	  <>
+	  <div>
         <Header />
+
            <div>
               <Routes>
                 <Route
@@ -21,19 +22,19 @@ const App = () => {
                 />
                 <Route
                   path="/home"
-                  element={<Homepage setState={setState} state={state} />}
+                  element={<Homepage  />}
                 />
                 <Route
                   path="/login"
                   element={ <Login /> }
                 />
                 <Route
-                  path="/results"
-                  element={ <Results state={state} />}
+                    path="/results"
+                    element={ <Results />}
                 />
               </Routes>
            </div>
-	  </>
+	  </div>
 
 	);
 };

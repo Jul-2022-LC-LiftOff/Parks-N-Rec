@@ -6,8 +6,8 @@ import SearchBar from "../SearchBar/SearchBar";
 import StateDropdown from "./StateDropdown";
 
 
-
 export const Header = () => {
+
 	return (
 		<Navbar variant="light" bg="light" expand="lg">
 			<Container fluid>
@@ -16,7 +16,7 @@ export const Header = () => {
 				<Navbar.Collapse id="navbar">
 					<Nav>
 						<SearchBar />
-						<StateDropdown />
+						<StateDropdown/>
 					</Nav>
 				</Navbar.Collapse>
                 <Link to='/login' className='login-page'> Login | Register </Link>

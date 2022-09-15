@@ -1,28 +1,40 @@
 import React from "react";
-import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { states } from "../../data";
 import { Link } from "react-router-dom";
+import { useState } from 'react';
 
-       function StateDropdown({setState, state}) {
 
-         const handleChange = (e) => {
-            const selectedState = e.target.value;
+       function StateDropdown() {
+            const [state, setState] = useState('');
+//          const handleChange = (e) => {
+//             console.log("selected is " + e);
+//          }
+
+         const handleChange=(e) => {
+             const selectedState = e.target.value;
             setState(selectedState);
          }
 
+        console.log("the state is " + {state})
 	return (
-		<Nav>
-                <NavDropdown name="stateSelecter"  title="View by state" >
-                   {
-                     states.map (data => (
-                        <NavDropdown.Item as={Link} to="/results" onChange={handleChange} value={state} key={data.abbreviation} > {data.name} </NavDropdown.Item>
-                         ))
-                   }
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="">View All Parks</NavDropdown.Item>
-                </NavDropdown>
-		</Nav>
+
+
+        <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" value={state}
+        onChange={(e) => {
+                 const selectedState = e.target.value;
+                 setState(selectedState);
+                 }}
+        >
+
+          <option to='/results'> Search by State </option>
+            {
+                states.map (data => (
+                <option  value={data.name}  key={data.abbreviation}> {data.name} </option>
+                    ))
+            }
+        </select>
+
+
 	);
 };
 
