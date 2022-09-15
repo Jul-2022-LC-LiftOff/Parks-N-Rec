@@ -5,8 +5,6 @@ import Button from 'react-bootstrap/Button';
 import {Card} from 'react-bootstrap';
 import {Container} from 'react-bootstrap';
 import {Image} from 'react-bootstrap';
-import AddNote from '../Notes/AddNote.jsx';
-import {Header} from '../Header/Header.jsx';
 import './ParkInfo.css';
 
 
@@ -63,7 +61,7 @@ return (<div key={key}> <Card className="image-cards">
 
 return (
 <div className="overall-div">
-<Header />
+
 
 <Container className="parkImages">
 <div>{parkImages}</div>
@@ -138,9 +136,7 @@ return (
    </div>
 </Container>
 
-   <Container className="notes-container">
-   <AddNote/>
-   </Container>
+
    </div>
 
 
