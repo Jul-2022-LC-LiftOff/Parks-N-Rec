@@ -6,21 +6,21 @@ export default function ProfileHeroImage({ parkInfo }) {
 		<div
 			className="bg-image "
 			style={{
-				backgroundImage: `url(${parkInfo?.images.url})`,
-				height: 500,
+				backgroundImage: `url(${parkInfo?.images[0].url})`,
+				height: "50vh",
+				backgroundSize: "Cover",
 			}}
 		>
 			<div
 				className="mask bg-gradient"
-				style={{ backgroundColor: "rgba(0, 0, 0, 0.2)", height: 500 }}
+				style={{ backgroundColor: "rgba(0, 0, 0, 0.2)", height: "50vh" }}
 			>
 				<div className="d-flex justify-content-center align-items-center bg-image h-100">
 					<div className="text-white">
-						<h1 className="mb-3">Find Your Park</h1>
-						{/* <SearchBar /> */}
-						<a className="btn btn-outline-light btn-lg" href="#!" role="button">
-							Search
-						</a>
+						<h1 className="mt-6 center">
+							Welcome to beautiful <br />
+							{parkInfo?.fullName}
+						</h1>
 					</div>
 				</div>
 			</div>

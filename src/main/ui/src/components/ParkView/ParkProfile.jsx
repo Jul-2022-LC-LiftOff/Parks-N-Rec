@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { Container, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "./ParkInfo.css";
 import ProfileHeroImage from "./ProfileHeroImage";
 
@@ -21,55 +21,14 @@ export default function ParkInfo() {
 			.catch((error) => console.log(error));
 	}, []);
 
-	// <Card className="image-cards">
-	// {parkInfo.images?.map((images, key) => {
-	// 	return (
-	// 		<div key={key}>
-	// 			{" "}
-	// 				<Card.Img className="img-fluid" src={images.url} />
-	// 				<Card.ImgOverlay className="h-100 d-flex flex-column justify-content-end">
-	// 					<Card.Text className="welcome-notice">
-	// 						Welcome to Beautiful {parkInfo.fullName}
-	// 					</Card.Text>
-	// 				</Card.ImgOverlay>
-	// 		</div>
-	// 	);
-	// })};
-	// 	</Card>
-
 	return (
 		<div className="overall-div">
-			<div
-				className="bg-image "
-				style={{
-					backgroundImage: `url(${parkInfo?.images[0].url})`,
-					height: 500,
-				}}
-			>
-				<div
-					className="mask bg-gradient"
-					style={{ backgroundColor: "rgba(0, 0, 0, 0.2)", height: 500 }}
-				>
-					<div className="d-flex justify-content-center align-items-center bg-image h-100">
-						<div className="text-white">
-							<h1 className="mb-3">Find Your Park</h1>
-							{/* <SearchBar /> */}
-							<a
-								className="btn btn-outline-light btn-lg"
-								href="#!"
-								role="button"
-							>
-								Search
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
+			<ProfileHeroImage parkInfo={parkInfo} />
 			<Container className="park-description">
 				<div> {parkInfo.description} </div>
 			</Container>
 
-			<Container className="visited-checkbox">
+			{/* <Container className="visited-checkbox">
 				<div className="have-you-been">
 					{" "}
 					Have you been to {parkInfo.fullName}?
@@ -77,7 +36,7 @@ export default function ParkInfo() {
 				<Button variant="outline-success" size="lg">
 					Visited
 				</Button>
-			</Container>
+			</Container> */}
 
 			{/* <Container className="learn-more-header">
 				<h2 className="font-weight-bold">Learn more about {parkName}</h2>
