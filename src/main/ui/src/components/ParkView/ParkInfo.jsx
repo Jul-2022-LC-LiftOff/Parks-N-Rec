@@ -50,7 +50,7 @@ return (
 <div key={key}> {parks.url}</div>)})
 
 const parkImages = parkInfo.map((parks, key) => {
-  return (<div>{parks.images.slice(0,1).map((images, key) => {
+  return (<div key={key}>{parks.images.slice(0,1).map((images, key) => {
 return (<div key={key}> <Card className="image-cards">
 <Card.Img className="img-fluid" src={images.url} />
 <Card.ImgOverlay  className="h-100 d-flex flex-column justify-content-end">
@@ -62,7 +62,7 @@ return (<div key={key}> <Card className="image-cards">
           </div>)})
 
 return (
-<div>
+<div className="overall-div">
 <Header />
 
 <Container className="parkImages">
@@ -74,7 +74,7 @@ return (
 </Container>
 
     <Container className="visited-checkbox">
-    <p> Have you been to {parkName}?</p>
+    <div className="have-you-been"> Have you been to {parkName}?</div>
     <Button variant="outline-success" size="lg">Visited</Button>
     </Container>
 
@@ -82,7 +82,7 @@ return (
 <h2 className="font-weight-bold">Learn more about {parkName}</h2>
 </Container>
 
-<Container>
+<Container className="cards-container">
 <div className="row row-cols-1 row-cols-md-4 g-4">
 <div className="col">
   <div className="card h-50">
@@ -138,7 +138,7 @@ return (
    </div>
 </Container>
 
-   <Container>
+   <Container className="notes-container">
    <AddNote/>
    </Container>
    </div>
