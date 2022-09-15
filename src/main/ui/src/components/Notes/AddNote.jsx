@@ -5,58 +5,35 @@ export default function AddNote({handleAddNote}) {
 
     const handleChange = (event) => {
               event.preventDefault();
-//               fetch("http://localhost:8080/notes/addNotes", {
-//                 method: "POST",
-//                 headers:{"Content-Type":"application/json",
-//                 'Accept': 'application/json'
-//                 },
-//                 body:JSON.stringify(noteText)
-//              })
-//             .then((res)=>{
-//                  res.json()
-//                  console.log(res.json())
-//             })
+             fetch("http://localhost:8080/notes/addNotes", {
+                method: "POST",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify(noteText)
+                }).then((res)=>{
+                  console.log(res)
+                })
         setNoteText(event.target.value);
     };
-
-//     const handleSaveClick = (event) => {
-//          event.preventDefault();
-//          const noteInfo={noteText}
-//          console.log(noteInfo);
-//            fetch("http://localhost:8080/notes/addNotes", {
-//               method: "POST",
-//               headers:{"Content-Type":"application/json"},
-//               body:JSON.stringify(noteText)
-//               }).then(()=>{
-//                 console.log("New Note Added")
-//               })
-//         if(noteText.trim().length > 0){
-//           handleAddNote(noteText);
-//           setNoteText('')
-//         }
-//     };
 
 
     const handleSaveClick = (event) => {
          event.preventDefault();
          const noteInfo={noteText}
+         console.log(noteInfo);
            fetch("http://localhost:8080/notes/addNotes", {
               method: "POST",
-              headers:{"Content-Type":"application/json",
-              'Accept': 'application/json'
-              },
+              headers:{"Content-Type":"application/json"},
               body:JSON.stringify(noteText)
-           })
-           .then((res)=>{
-                console.log(res)
-                handleAddNote(noteText);
+              }).then(()=>{
                 console.log("New Note Added")
-           })
+              })
         if(noteText.trim().length > 0){
-
+          handleAddNote(noteText);
           setNoteText('')
         }
     };
+
+
 
 return(
     <div className="note new">
