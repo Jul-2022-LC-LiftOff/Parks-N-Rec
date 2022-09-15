@@ -5,15 +5,17 @@ export default function AddNote({handleAddNote}) {
 
     const handleChange = (event) => {
               event.preventDefault();
-             fetch("http://localhost:8080/notes/addNotes", {
-                method: "POST",
-                headers:{"Content-Type":"application/json"},
-                body:JSON.stringify(noteText)
-                }).then((res)=>{
-                  console.log(res)
-                })
+//            fetch("http://localhost:8080/notes/addNotes", {
+//               headers:{"Content-Type":"application/json"},
+//               mode:'no-cores'
+//               }).then((response) => response.json())
+//               .then((json) => {
+//                 console.log(json.data);
+//               })
         setNoteText(event.target.value);
     };
+
+
 
 
     const handleSaveClick = (event) => {
@@ -26,7 +28,11 @@ export default function AddNote({handleAddNote}) {
               body:JSON.stringify(noteText)
               }).then(()=>{
                 console.log("New Note Added")
+              }).then((response) => response.json())
+              .then((json) => {
+              console.log(json.data)
               })
+              //just trying to print json data
         if(noteText.trim().length > 0){
           handleAddNote(noteText);
           setNoteText('')
