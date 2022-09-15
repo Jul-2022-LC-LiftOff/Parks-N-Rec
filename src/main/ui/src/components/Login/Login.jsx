@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Login() {
   const [formErrors, setFormErrors] = useState({});
@@ -51,10 +52,10 @@ export default function Login() {
 
   return (
     <div>
-      <div style={{ display: 'block', height: 49 }}>
-        <Button href="login" variant="primary" onClick={handleShow}>
+      <div  style={{ display: 'block', height: 49 }}>
+        <Button  href="login" variant="primary" onClick={handleShow}>
           Login
-        </Button>
+        </Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </div>
 
       {/* log in modal - same as your form but uses a pre-made react-bootstrap component so it works as a popup */}
@@ -91,9 +92,10 @@ export default function Login() {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={loginHandler}>
+          <Button  variant="primary" onClick={loginHandler}>
             Sign In
           </Button>
+
         </Modal.Footer>
       </Modal>
     </div>

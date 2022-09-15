@@ -54,7 +54,7 @@ export default function SearchByName() {
           return (
             <div key={key}>
               <Row xs={2} md={2} className="g-4">
-                {Array.from({ length: 2 }).map((_, idx) => (
+                {Array.from({ length: 1 }).map((_, idx) => (
                   <Col>
                     <Card>
                       <Card.Img variant="top" src={park.images[0].url} />
