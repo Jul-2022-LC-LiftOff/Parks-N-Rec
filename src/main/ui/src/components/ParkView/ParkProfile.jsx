@@ -1,16 +1,12 @@
-import React, { Component } from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import Button from "react-bootstrap/Button";
-import { Card } from "react-bootstrap";
-import { Container } from "react-bootstrap";
-import { Image } from "react-bootstrap";
+import { React, useState, useEffect } from "react";
+import { Container, Button } from "react-bootstrap";
 import "./ParkInfo.css";
+import ProfileHeroImage from "./ProfileHeroImage";
 
 export default function ParkInfo() {
-	const [parkInfo, setParkInfo] = React.useState([]);
+	const [parkInfo, setParkInfo] = useState([]);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		//parkCode should change depending on user choice
 		let parkCode = "yell";
 		let url =
@@ -20,73 +16,72 @@ export default function ParkInfo() {
 		fetch(url)
 			.then((response) => response.json())
 			.then((json) => {
-				setParkInfo(json.data);
+				setParkInfo(json.data[0]);
 			})
 			.catch((error) => console.log(error));
 	}, []);
 
-	const parkName = parkInfo.map((parks, key) => {
-		return <div key={key}> {parks.fullName} </div>;
-	});
-
-	const parkDescription = parkInfo.map((parks, key) => {
-		return <div key={key}> {parks.description}</div>;
-	});
-
-	const parkWeather = parkInfo.map((parks, key) => {
-		return <div key={key}> {parks.weatherInfo}</div>;
-	});
-
-	const parkDirectionsUrl = parkInfo.map((parks, key) => {
-		return <div key={key}> {parks.directionsUrl}</div>;
-	});
-
-	const parkWebsite = parkInfo.map((parks, key) => {
-		return <div key={key}> {parks.url}</div>;
-	});
-
-	const parkImages = parkInfo.map((parks, key) => {
-		return (
-			<div key={key}>
-				{parks.images.slice(0, 1).map((images, key) => {
-					return (
-						<div key={key}>
-							{" "}
-							<Card className="image-cards">
-								<Card.Img className="img-fluid" src={images.url} />
-								<Card.ImgOverlay className="h-100 d-flex flex-column justify-content-end">
-									<Card.Text className="welcome-notice">
-										Welcome to Beautiful {parkName}
-									</Card.Text>
-								</Card.ImgOverlay>
-							</Card>
-						</div>
-					);
-				})}
-			</div>
-		);
-	});
+	// <Card className="image-cards">
+	// {parkInfo.images?.map((images, key) => {
+	// 	return (
+	// 		<div key={key}>
+	// 			{" "}
+	// 				<Card.Img className="img-fluid" src={images.url} />
+	// 				<Card.ImgOverlay className="h-100 d-flex flex-column justify-content-end">
+	// 					<Card.Text className="welcome-notice">
+	// 						Welcome to Beautiful {parkInfo.fullName}
+	// 					</Card.Text>
+	// 				</Card.ImgOverlay>
+	// 		</div>
+	// 	);
+	// })};
+	// 	</Card>
 
 	return (
 		<div className="overall-div">
-			<Container className="parkImages">
-				<div>{parkImages}</div>
-			</Container>
-
+			<div
+				className="bg-image "
+				style={{
+					backgroundImage: `url(${parkInfo?.images[0].url})`,
+					height: 500,
+				}}
+			>
+				<div
+					className="mask bg-gradient"
+					style={{ backgroundColor: "rgba(0, 0, 0, 0.2)", height: 500 }}
+				>
+					<div className="d-flex justify-content-center align-items-center bg-image h-100">
+						<div className="text-white">
+							<h1 className="mb-3">Find Your Park</h1>
+							{/* <SearchBar /> */}
+							<a
+								className="btn btn-outline-light btn-lg"
+								href="#!"
+								role="button"
+							>
+								Search
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
 			<Container className="park-description">
-				<div> {parkDescription} </div>
+				<div> {parkInfo.description} </div>
 			</Container>
 
 			<Container className="visited-checkbox">
-				<div className="have-you-been"> Have you been to {parkName}?</div>
+				<div className="have-you-been">
+					{" "}
+					Have you been to {parkInfo.fullName}?
+				</div>
 				<Button variant="outline-success" size="lg">
 					Visited
 				</Button>
 			</Container>
 
-			<Container className="learn-more-header">
+			{/* <Container className="learn-more-header">
 				<h2 className="font-weight-bold">Learn more about {parkName}</h2>
-			</Container>
+			</Container> */}
 
 			<Container className="cards-container">
 				<div className="row row-cols-1 row-cols-md-4 g-4">
@@ -100,9 +95,9 @@ export default function ParkInfo() {
 								/>
 								<div className="card-body">
 									<h5 className="card-title">Location</h5>
-									<a href={parkDirectionsUrl} className="btn btn-success">
+									{/* <a href={parkDirectionsUrl} className="btn btn-success">
 										Directions
-									</a>
+									</a> */}
 								</div>
 							</div>
 						</div>
@@ -118,9 +113,9 @@ export default function ParkInfo() {
 								/>
 								<div className="card-body">
 									<h5 className="card-title">Visit the Website</h5>
-									<a href={parkWebsite} className="btn btn-success">
+									{/* <a href={parkWebsite} className="btn btn-success">
 										Official Website
-									</a>
+									</a> */}
 								</div>
 							</div>
 						</div>
@@ -154,7 +149,7 @@ export default function ParkInfo() {
 								/>
 								<div className="card-body">
 									<h5 className="card-title">Weather</h5>
-									<h6 className="card-text">{parkWeather}</h6>
+									{/* <h6 className="card-text">{parkWeather}</h6> */}
 								</div>
 							</div>
 						</div>
