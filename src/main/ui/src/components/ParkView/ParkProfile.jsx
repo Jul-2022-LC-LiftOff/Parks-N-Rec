@@ -2,13 +2,15 @@ import { React, useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import "./ParkInfo.css";
 import ProfileHeroImage from "./ProfileHeroImage";
+import ThingsToDoAccordion from "./ThingsToDoAccordion";
+import VisitedParkSwitch from "./VisitedParkSwitch";
 
 export default function ParkInfo() {
 	const [parkInfo, setParkInfo] = useState([]);
 
+	let parkCode = "yell";
 	useEffect(() => {
 		//parkCode should change depending on user choice
-		let parkCode = "yell";
 		let url =
 			"https://developer.nps.gov/api/v1/parks?parkCode=" +
 			parkCode +
@@ -27,20 +29,9 @@ export default function ParkInfo() {
 			<Container className="park-description">
 				<div> {parkInfo.description} </div>
 			</Container>
+			<VisitedParkSwitch />
 
-			{/* <Container className="visited-checkbox">
-				<div className="have-you-been">
-					{" "}
-					Have you been to {parkInfo.fullName}?
-				</div>
-				<Button variant="outline-success" size="lg">
-					Visited
-				</Button>
-			</Container> */}
-
-			{/* <Container className="learn-more-header">
-				<h2 className="font-weight-bold">Learn more about {parkName}</h2>
-			</Container> */}
+			<ThingsToDoAccordion parkCode={parkCode} parkInfo={parkInfo} />
 
 			<Container className="cards-container">
 				<div className="row row-cols-1 row-cols-md-4 g-4">
@@ -114,6 +105,11 @@ export default function ParkInfo() {
 						</div>
 					</div>
 				</div>
+				<Container className="learn-more-header">
+					<a className="font-weight-bold" href={parkInfo?.url}>
+						Learn more about {parkInfo?.fullName} on the NPS website.
+					</a>
+				</Container>
 			</Container>
 		</div>
 	);
