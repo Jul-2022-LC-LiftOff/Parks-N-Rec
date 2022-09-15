@@ -15,11 +15,25 @@ public class Park {
     @Column(name="parkName")
     public String parkName;
 
+    @NotBlank
+    @Column(name="visited")
+    public Boolean Visited;
+
     public Park() {
     }
 
+
     public Park(String parkName) {
         this.parkName = parkName;
+    }
+
+
+    public Boolean getVisited() {
+        return Visited;
+    }
+
+    public void setVisited(Boolean visited) {
+        Visited = visited;
     }
 
     public Long getId() {
@@ -43,12 +57,12 @@ public class Park {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Park park = (Park) o;
-        return id.equals(park.id) && parkName.equals(park.parkName);
+        return Objects.equals(id, park.id) && Objects.equals(parkName, park.parkName) && Objects.equals(Visited, park.Visited);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, parkName);
+        return Objects.hash(id, parkName, Visited);
     }
 
     @Override
@@ -56,6 +70,7 @@ public class Park {
         return "Park{" +
                 "id=" + id +
                 ", parkName='" + parkName + '\'' +
+                ", Visited=" + Visited +
                 '}';
     }
 }
