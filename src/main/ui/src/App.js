@@ -1,13 +1,12 @@
-import './App.css';
-import ParkInfo from './components/ParkView/ParkInfo.jsx';
-
+import "./App.css";
+import ParkInfo from "./components/ParkView/ParkInfo.jsx";
 
 function App() {
   return (
-<div>
-<ParkInfo />
-</div>
-    )
+    <div>
+      <ParkInfo />
+    </div>
+  );
 }
 
 export default App;
