@@ -15,10 +15,10 @@ public class visitedParksController {
     @Autowired
     private VisitedParksService visitedParksService;
 
-    @PostMapping("/add")
+    @PostMapping("/parkAdded")
     public String add(@RequestBody VisitedParks visitedParks){
         visitedParksService.saveParks(visitedParks);
-        return "New user is added";
+        return "New visited park is added";
     }
 
     @GetMapping("/getAll")
