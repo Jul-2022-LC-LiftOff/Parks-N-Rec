@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { slice } from "lodash";
 import { API_KEY } from "../../api";
+import LoadMoreButton from "./LoadMoreButton";
 import ResultCard from "./ResultCard";
 import searchTerm from "../SearchByName/SearchByName";
 
@@ -38,21 +39,7 @@ export default function ResultsDisplay() {
 			{initialPosts.map((parkData, index) => {
 				return <ResultCard parkData={parkData} key={index} />;
 			})}
-			<div className="d-grid mt-3 mb-5">
-				{isCompleted ? (
-					<button
-						onClick={loadMore}
-						type="button"
-						className="btn btn-danger disabled"
-					>
-						That's It
-					</button>
-				) : (
-					<button onClick={loadMore} type="button" className="btn btn-danger">
-						Load More +
-					</button>
-				)}
-			</div>
+			<LoadMoreButton isCompleted={isCompleted} loadMore={loadMore} />
 		</div>
 	);
 }
