@@ -1,10 +1,12 @@
-
 .App {
   text-align: center;
 }
 
+
+
+
 .park-data {
-  background: var(--primaryLightColor);
+ background: var(--primaryLightColor);
   padding: 0.25rem 0.5rem;
   border-radius: var(--mainBorderRadius);
   color: var(--primaryColor);
@@ -25,113 +27,33 @@
   .cocktails-center {
     grid-template-columns: repeat(auto-fill, minmax(338.8px, 1fr));
   }
-}
+  }
 
-.section {
-  padding: 5rem 0;
-}
+  .section {
+    padding: 5rem 0;
+  }
 
-.section-title {
-  font-size: 2rem;
-  text-transform: capitalize;
-  letter-spacing: var(--mainSpacing);
-  text-align: center;
-  margin-bottom: 3.5rem;
-  margin-top: 1rem;
-}
+  .section-title {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: var(--mainSpacing);
+    text-align: center;
+    margin-bottom: 3.5rem;
+    margin-top: 1rem;
+  }
 
-.park {
-  background: var(--mainWhite);
-  margin-bottom: 2rem;
-  box-shadow: var(--lightShadow);
-  transition: var(--mainTransition);
-  display: grid;
-  grid-template-rows: auto 1fr;
-  border-radius: var(--mainBorderRadius);
-}
+  .park {
+    background: var(--mainWhite);
+    margin-bottom: 2rem;
+    box-shadow: var(--lightShadow);
+    transition: var(--mainTransition);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    border-radius: var(--mainBorderRadius);
+
+  }
 
 .table {
-  width: 100%;
-}
-.login {
-  width: 400px;
-  background: #fff;
-  border: 1px solid #dddfe2;
-  box-shadow: 0 2px 4px rgb(0 0 10 / 64%), 0 8px 16px rgb(0 10 0 / 34%);
-  border-radius: 8px;
-  align-items: center;
-  text-align: center;
-
-  width: var(--smallWidth);
-  margin: 70px auto;
-  max-width: var(--maxWidth);
-  background: var(--mainWhite);
-  padding: 2rem 2.5rem;
-  text-transform: capitalize;
-  border-radius: var(--mainBorderRadius);
-  box-shadow: var(--lightShadow);
+width: 100%;
 }
 
-.login > form input {
-  border-radius: 20px;
-  border: 2px solid lightgrey;
-  outline: none;
-  color: #1d2129;
-  margin: 2% 0;
-  width: 90%;
-  padding: 12px;
-  font-size: 16px;
-}
-
-.profile {
-  width: 400px;
-  background: #fff;
-  border: 1px solid #dddfe2;
-  box-shadow: 0 2px 4px rgb(0 0 10 / 64%), 0 8px 16px rgb(0 10 0 / 34%);
-  border-radius: 8px;
-  padding: 1rem;
-  align-items: center;
-  text-align: center;
-}
-
-.profile > form input {
-  border-radius: 20px;
-  border: 2px solid lightgrey;
-  outline: none;
-  color: #1d2129;
-  margin: 2% 0;
-  width: 90%;
-  padding: 12px;
-  font-size: 16px;
-}
-
-.register {
-  width: 400px;
-  background: #fff;
-  border: 1px solid #dddfe2;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-  border-radius: 8px;
-  padding: 1rem;
-  align-items: center;
-  text-align: center;
-
-  width: var(--smallWidth);
-  margin: 70px auto;
-  max-width: var(--maxWidth);
-  background: var(--mainWhite);
-  padding: 2rem 2.5rem;
-  text-transform: capitalize;
-  border-radius: var(--mainBorderRadius);
-  box-shadow: var(--lightShadow);
-}
-
-.register > form input {
-  border-radius: 20px;
-  border: 2px solid lightgrey;
-  outline: none;
-  color: #1d2129;
-  margin: 2% 0;
-  width: 90%;
-  padding: 12px;
-  font-size: 16px;
-}

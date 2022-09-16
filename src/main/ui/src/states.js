@@ -8,10 +8,6 @@ export const states = [
 		abbreviation: "AK",
 	},
 	{
-		name: "American Samoa",
-		abbreviation: "AS",
-	},
-	{
 		name: "Arizona",
 		abbreviation: "AZ",
 	},
@@ -36,24 +32,12 @@ export const states = [
 		abbreviation: "DE",
 	},
 	{
-		name: "District Of Columbia",
-		abbreviation: "DC",
-	},
-	{
-		name: "Federated States Of Micronesia",
-		abbreviation: "FM",
-	},
-	{
 		name: "Florida",
 		abbreviation: "FL",
 	},
 	{
 		name: "Georgia",
 		abbreviation: "GA",
-	},
-	{
-		name: "Guam",
-		abbreviation: "GU",
 	},
 	{
 		name: "Hawaii",
@@ -90,10 +74,6 @@ export const states = [
 	{
 		name: "Maine",
 		abbreviation: "ME",
-	},
-	{
-		name: "Marshall Islands",
-		abbreviation: "MH",
 	},
 	{
 		name: "Maryland",
@@ -156,10 +136,6 @@ export const states = [
 		abbreviation: "ND",
 	},
 	{
-		name: "Northern Mariana Islands",
-		abbreviation: "MP",
-	},
-	{
 		name: "Ohio",
 		abbreviation: "OH",
 	},
@@ -172,16 +148,8 @@ export const states = [
 		abbreviation: "OR",
 	},
 	{
-		name: "Palau",
-		abbreviation: "PW",
-	},
-	{
 		name: "Pennsylvania",
 		abbreviation: "PA",
-	},
-	{
-		name: "Puerto Rico",
-		abbreviation: "PR",
 	},
 	{
 		name: "Rhode Island",
@@ -212,16 +180,16 @@ export const states = [
 		abbreviation: "VT",
 	},
 	{
-		name: "Virgin Islands",
-		abbreviation: "VI",
-	},
-	{
 		name: "Virginia",
 		abbreviation: "VA",
 	},
 	{
 		name: "Washington",
 		abbreviation: "WA",
+	},
+	{
+		name: "Washington D.C.",
+		abbreviation: "DC",
 	},
 	{
 		name: "West Virginia",
