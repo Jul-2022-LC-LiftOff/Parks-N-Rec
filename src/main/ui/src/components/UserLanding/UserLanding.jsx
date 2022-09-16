@@ -21,8 +21,23 @@ export default function UserLanding() {
                 body: JSON.stringify(userInfo)
             }).then(() => {
                 setUserLanding(userInfo)
+                console.log(userInfo)
             })
     }
+
+//     const handleChange=(e)=> {
+//         e.preventDefault()
+//         const userInfo = {userLanding}
+//         console.log(userInfo)
+//             fetch("http://localhost:8080/user/parkAdded", {
+//                 method: "POST",
+//                 headers:{"Content-Type":"application/json"},
+//                 body: JSON.stringify(userInfo)
+//             }).then((response) => response.json())
+//             .then((json)=> {
+//                 setUserLanding(json.data);
+//             })
+//     }, []);
 
     return (
     <div className = "landingPage">
