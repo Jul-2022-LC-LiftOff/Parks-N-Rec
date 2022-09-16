@@ -3,6 +3,7 @@ import ParkNotes from "./components/Notes/ParkNotes";
 import { useState } from "react";
 import "./App.css";
 import { Header } from "./components/Header/Header";
+import UserLanding from "./components/UserLanding/UserLanding";
 
 const App = () => {
 	const [notes, setNotes] = useState([]);
@@ -23,6 +24,7 @@ const App = () => {
 			<Header />
 			<ParkNotes notes={notes} handleAddNote={addNote} />
 			<SearchByName />
+			<UserLanding />
 		</div>
 	);
 };
