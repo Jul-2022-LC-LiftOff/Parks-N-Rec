@@ -19,7 +19,15 @@ export default function UserLanding() {
     }
 
     return <div className = "landingPage">
-        <h1>Testing</h1>
-    </div>;
+                <textarea>
+                    Testing
+                </textarea>
+           </div>;
+
+    <div className="note=footer">
+
+                <input type="checkbox" onChange={handleCheckBox} id="visited" name="visited">
+    </div>
 
 }
+
