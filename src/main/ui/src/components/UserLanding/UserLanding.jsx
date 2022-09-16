@@ -24,10 +24,5 @@ export default function UserLanding() {
                 </textarea>
            </div>;
 
-    <div className="note=footer">
-
-                <input type="checkbox" onChange={handleCheckBox} id="visited" name="visited">
-    </div>
-
 }
 
