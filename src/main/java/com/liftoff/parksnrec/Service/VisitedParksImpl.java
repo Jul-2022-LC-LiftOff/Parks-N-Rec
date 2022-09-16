@@ -18,8 +18,14 @@ public class VisitedParksImpl implements VisitedParksService{
         return visitedParksRepo.save(visitedParks);
     }
 
+//    @Override
+//    public List<VisitedParks> getAllUsers(){
+//        return visitedParksRepo.findAll();
+//    }
+//}
+
     @Override
-    public List<VisitedParks> getAllUsers(){
+    public List<VisitedParks> getAllParks(){
         return visitedParksRepo.findAll();
     }
 }
