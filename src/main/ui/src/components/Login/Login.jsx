@@ -55,7 +55,7 @@ export default function Login() {
       <div  style={{ display: 'block', height: 49 }}>
         <Button  href="login" variant="primary" onClick={handleShow}>
           Login
-        </Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </div>
 
       {/* log in modal - same as your form but uses a pre-made react-bootstrap component so it works as a popup */}
