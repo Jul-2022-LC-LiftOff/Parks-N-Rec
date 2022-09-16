@@ -5,20 +5,18 @@ import { useEffect } from "react";
 export default function UserLanding() {
     const [userLanding, setUserLanding] = React.useState([]);
 
-    React.useEffect(() => {
-        const landingInfo = {userLanding}
-        console.log(landingInfo)
-            fetch('http://localhost:8080/user/add', {
+    const handleCheckBox=(e)=> {
+        e.preventDefault()
+        const userInfo = {userLanding}
+        console.log(userInfo)
+            fetch("http://localhost:8080/user/parkAdded", {
                 method: "POST",
                 headers:{"Content-Type":"application/json"},
-                body: JSON.stringify
+                body: JSON.stringify(userInfo)
+            }).then(() => {
+                console.log("New Park added")
             })
-            .then((response) => response.json())
-            .then((json) => {
-                console.log(json.data);
-            })
-            .catch((error) => console.log(error))
-    }, []);
+    }
 
     return <div className = "landingPage">
         <h1>Testing</h1>
