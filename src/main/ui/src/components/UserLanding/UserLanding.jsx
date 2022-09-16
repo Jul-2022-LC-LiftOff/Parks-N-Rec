@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export default function UserLanding() {
     const [checked, setChecked] = React.useState([]);
     const [userLanding, setUserLanding] = React.useState([]);
-    const [username, setUserName ] = = React.useState([]);
+
 
     const handleCheckBox = () => {
               setChecked(!checked);
@@ -22,35 +22,16 @@ export default function UserLanding() {
                 body: JSON.stringify(userInfo)
             }).then(() => {
                 setUserLanding(userInfo)
-                console.log(userInfo)
+                console.log(userLanding)
             })
     }
 
-//     const handleChange=(e)=> {
-//         e.preventDefault()
-//         const userInfo = {userLanding}
-//         console.log(userInfo)
-//             fetch("http://localhost:8080/user/parkAdded", {
-//                 method: "POST",
-//                 headers:{"Content-Type":"application/json"},
-//                 body: JSON.stringify(userInfo)
-//             }).then((response) => response.json())
-//             .then((json)=> {
-//                 setUserLanding(json.data);
-//             })
-//     }, []);
 
     return (
     <div className = "landingPage">
         <h1>
            TestingTesting
         </h1>
-        <input
-            type="text"
-            id="username"
-            value={username}
-            onChange= {(e) => setName(e.target.value)}
-        />
 
 {/*         <label> */}
 {/*             <input type = "checkbox" checked={value} onChange = {handleCheckBox} /> */}
