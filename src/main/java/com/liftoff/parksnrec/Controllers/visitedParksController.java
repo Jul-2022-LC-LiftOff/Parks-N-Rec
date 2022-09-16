@@ -16,13 +16,13 @@ public class visitedParksController {
     private VisitedParksService visitedParksService;
 
     @PostMapping("/add")
-    public String add(@RequestBody VisitedParks visitedparks){
+    public String add(@RequestBody VisitedParks visitedParks){
         visitedParksService.saveParks(visitedParks);
         return "New user is added";
     }
 
     @GetMapping("/getAll")
-    public List<VisitedParks> getAllUsers(){
+    public List<VisitedParks> getAllParks(){
         return visitedParksService.getAllParks();
     }
 }
