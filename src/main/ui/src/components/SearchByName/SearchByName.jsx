@@ -54,6 +54,11 @@ return (
              return (
                  <Col xs={true} sm={true} md={3} lg={3} className="d-inline-flex m-3 h-100">
                    <Card className="resultCard">
+                   <Card.Img
+                   		variant="top"
+                   		src={park.images[0].url}
+                   		href={park.url}
+                   />
                        <Card.Body>
                          <p> {park.name} </p>
                          <p>{park.description}</p>
