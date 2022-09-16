@@ -8,5 +8,8 @@ export default function UserLanding() {
     React.useEffect(() => {
 
     }
+    return <div className = "landingPage">
+        <h1>Testing</h1>
+    </div>;
 
 }
