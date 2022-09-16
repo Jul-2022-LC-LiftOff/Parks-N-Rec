@@ -6,7 +6,11 @@ export default function UserLanding() {
     const [userLanding, setUserLanding] = React.useState([]);
 
     React.useEffect(() => {
-        fetch('http://localhost:3306/user/add')
+        fetch('http://localhost:3306/user/add', {
+        method: "POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify
+        })
             .then((response) => response.json())
             .then((json) => {
                 console.log(json.data);
