@@ -5,6 +5,7 @@ import { useEffect } from "react";
 export default function UserLanding() {
     const [checked, setChecked] = React.useState([]);
     const [userLanding, setUserLanding] = React.useState([]);
+    const [username, setUserName ] = = React.useState([]);
 
     const handleCheckBox = () => {
               setChecked(!checked);
@@ -44,6 +45,12 @@ export default function UserLanding() {
         <h1>
            TestingTesting
         </h1>
+        <input
+            type="text"
+            id="username"
+            value={username}
+            onChange= {(e) => setName(e.target.value)}
+        />
 
 {/*         <label> */}
 {/*             <input type = "checkbox" checked={value} onChange = {handleCheckBox} /> */}
