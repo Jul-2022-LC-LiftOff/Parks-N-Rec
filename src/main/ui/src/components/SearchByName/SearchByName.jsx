@@ -1,5 +1,7 @@
 import React from 'react';
 import {useState} from 'react'
+import { Card, Col } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 //connecting with the api & setting the "searchTerm"
 export default function SearchByName() {
@@ -50,13 +52,15 @@ return (
            })
            .map((park, key) => {
              return (
-                 <div key={key}>
-                 <h2>{park.fullName}</h2>
-                 <br />
-                 {park.states}
-                 <br />
-                 {park.description}
-               </div>
+                 <Col xs={true} sm={true} md={3} lg={3} className="d-inline-flex m-3 h-100">
+                   <Card className="resultCard">
+                       <Card.Body>
+                         <p> {park.name} </p>
+                         <p>{park.description}</p>
+                         <a href={park.url}>Visit Park site</a>
+                       </Card.Body>
+                   </Card>
+                 </Col>
              )
              })
              }

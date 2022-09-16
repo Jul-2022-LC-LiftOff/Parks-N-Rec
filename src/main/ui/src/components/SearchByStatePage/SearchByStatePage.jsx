@@ -1,6 +1,10 @@
 import React from 'react';
 import {useState} from 'react';
 import ParkData from './data.json';
+import './styles.css'
+import { Card, Col } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
     export default function SearchByStatePage(){
          const [data, setData] = React.useState([]);
@@ -10,6 +14,7 @@ import ParkData from './data.json';
              fetch(url)
                  .then((response) => response.json())
                  .then((json) => {
+                 console.log(json.data)
                      setData(json.data);
                  })
              .catch((error) => console.log(error));
@@ -33,8 +38,7 @@ import ParkData from './data.json';
         <div>
 
             <div>
-                <label htmlFor="stateSelecter"> View parks by state: </label>
-                <select name="stateSelecter" value={selectState} onChange={e=> setSelect(e.target.value)}>
+                <select name="stateSelecter" value={selectState} onChange={e=> setSelect(e.target.value)} className="search">
                     <option value="none" defaultValue="selectedState"> Select a State </option>
                     {
                         ParkData.map (data => (
@@ -47,11 +51,16 @@ import ParkData from './data.json';
                          })
                          .map((park, key) => {
                              return (
-                                 <div key={key}>
-                                 {park.states}
-                                 <br/>
-                                 {park.fullName}
-                                 </div>
+                                <Col xs={true} sm={true} md={3} lg={3} className="d-inline-flex m-3 h-100">
+                                	<Card className="resultCard">
+                                		<Card.Body>
+                                			<p> {park.name} </p>
+                                			<p>{park.description}</p>
+                                			<a href={park.url}>Visit Park site</a>
+                                		</Card.Body>
+                                	</Card>
+                                </Col>
+
                              )
                              })
                             }
