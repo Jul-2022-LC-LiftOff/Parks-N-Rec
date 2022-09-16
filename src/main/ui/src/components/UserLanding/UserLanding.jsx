@@ -3,9 +3,15 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 export default function UserLanding() {
+    const [checked, setChecked] = React.useState([]);
     const [userLanding, setUserLanding] = React.useState([]);
 
-    const handleCheckBox=(e)=> {
+    const handleCheckBox = () => {
+              setChecked(!checked);
+              handleChange()
+         };
+
+    const handleChange=(e)=> {
         e.preventDefault()
         const userInfo = {userLanding}
         console.log(userInfo)
@@ -14,15 +20,20 @@ export default function UserLanding() {
                 headers:{"Content-Type":"application/json"},
                 body: JSON.stringify(userInfo)
             }).then(() => {
-                console.log("New Park added")
+                setUserLanding(userInfo)
             })
     }
 
-    return <div className = "landingPage">
-                <textarea>
-                    Testing
-                </textarea>
-           </div>;
+    return (
+    <div className = "landingPage">
+        <h1>
+           Testing
+        </h1>
 
+{/*         <label> */}
+{/*             <input type = "checkbox" checked={value} onChange = {handleCheckBox} /> */}
+{/*         </label> */}
+    </div>
+);
 }
 
