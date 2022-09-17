@@ -9,21 +9,22 @@ export default function UserLanding() {
 
     const handleCheckBox = () => {
               setChecked(!checked);
-              handleChange()
          };
 
     const handleChange=(e)=> {
+        handleCheckBox()
         e.preventDefault()
         const userInfo = {userLanding}
         console.log(userInfo)
-            fetch("http://localhost:8080/user/parkAdded", {
+            fetch("http://localhost:3000/user/parkAdded", {
                 method: "POST",
-                headers:{"Content-Type":"application/json"},
+                headers:{"Content-Type": "application/json"},
                 body: JSON.stringify(userInfo)
             }).then(() => {
                 setUserLanding(userInfo)
-                console.log(userLanding)
+                console.log(userInfo)
             })
+            .catch((error) => console.log(error))
     }
 
 
@@ -33,9 +34,9 @@ export default function UserLanding() {
            TestingTesting
         </h1>
 
-{/*         <label> */}
-{/*             <input type = "checkbox" checked={value} onChange = {handleCheckBox} /> */}
-{/*         </label> */}
+        <label>
+            <input type = "checkbox" checked={checked} onChange = {handleChange} />
+        </label>
     </div>
 );
 }
