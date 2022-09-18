@@ -17,15 +17,16 @@ export default function UserLanding() {
         const userInfo = {userLanding}
         console.log(userInfo)
             fetch("http://localhost:3000/user/parkAdded", {
-                method: "POST",
+                method: "GET",
                 headers:{"Content-Type": "application/json"},
-                body: JSON.stringify(userInfo)
             }).then(() => {
                 setUserLanding(userInfo)
+                console.log(userLanding + "Hello")
                 console.log(userInfo)
             })
             .catch((error) => console.log(error))
     }
+
 
 
     return (
