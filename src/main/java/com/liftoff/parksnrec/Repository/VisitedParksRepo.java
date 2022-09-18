@@ -1,4 +1,7 @@
 package com.liftoff.parksnrec.Repository;
 
-public class VisitedParksRepo {
+import com.liftoff.parksnrec.Models.VisitedParks;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public class VisitedParksRepo  extends JpaRepository <VisitedParks,Long> {
 }
