@@ -23,7 +23,7 @@ const App = () => {
 		<div className="container">
 			<Header />
 			<ParkNotes notes={notes} handleAddNote={addNote} />
-			<SearchByName />
+
 			<UserLanding />
 		</div>
 	);
