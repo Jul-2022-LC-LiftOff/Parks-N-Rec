@@ -3,7 +3,6 @@ import {useState} from 'react'
 import { Card, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-//connecting with the api & setting the "searchTerm"
 export default function SearchByName() {
   const [data, setData] = React.useState([]);
   const [searchTerm, setSearchTerm] = useState('')
@@ -51,7 +50,7 @@ return (
            })
            .map((park, key) => {
              return (
-                 <Col xs={true} sm={true} md={3} lg={3} className="d-inline-flex m-3 h-100">
+                 <Col xs={true} sm={true} md={3} lg={3} className="d-inline-flex m-3 h-100" key={key}>
                    <Card className="resultCard">
                    <Card.Img
                    		variant="top"
