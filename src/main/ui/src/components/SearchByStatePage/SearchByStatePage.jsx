@@ -89,6 +89,7 @@ export default function SearchByStatePage() {
 							md={3}
 							lg={3}
 							className="d-inline-flex m-3 h-100"
+							
 						>
 							<Card className="resultCard" key={key}>
 								<Card.Img
