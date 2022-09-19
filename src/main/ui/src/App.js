@@ -1,10 +1,17 @@
 import "./App.css";
 import ParkProfile from "./components/ParkView/ParkProfile.jsx";
+import { Header } from "./components/Header/Header";
+import Homepage from "./components/Homepage/Homepage";
 
-function App() {
+const App = () => {
 	return (
+
 		<div>
 			<ParkProfile />
+		<div className="container">
+			<Header />
+			<Homepage />
+			<SearchByName />
 		</div>
 	);
 }
