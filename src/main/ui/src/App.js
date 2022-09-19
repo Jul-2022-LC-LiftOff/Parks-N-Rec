@@ -9,7 +9,7 @@ import SearchByStatePage from './components/SearchByStatePage/SearchByStatePage'
 
 const App = () => {
   return (
-    <div className="container">
+    <div>
       <div>
          <Header />
         <Routes>
