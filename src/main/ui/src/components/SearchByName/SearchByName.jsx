@@ -29,7 +29,6 @@ export default function SearchByName() {
     });
     }
 
-
     function filterParkNames(park) {
         if (searchTerm === ""){
             return park
@@ -39,7 +38,6 @@ export default function SearchByName() {
     }
 
 return (
-
      <div>
         <div>
              <input
@@ -70,7 +68,6 @@ return (
              )
              })
              }
-
           </div>
        );
      };
