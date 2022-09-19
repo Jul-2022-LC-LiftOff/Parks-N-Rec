@@ -1,4 +1,5 @@
 import Login from './components/Login/Login'
+import Info from './components/GetLoginInfo/GetInfo'
 
 
     function App(){
@@ -6,6 +7,7 @@ import Login from './components/Login/Login'
             <div className="App">
 
              <Login />
+             <Info />
             </div>
         );
     }
