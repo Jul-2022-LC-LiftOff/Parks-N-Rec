@@ -99,7 +99,8 @@ export default function SearchByStatePage() {
 								/>
 								<Card.Body>
 									<p> {park.name} </p>
-									<p>{park.description}</p>
+									<small className="text-muted">{park.description}</small>{" "}
+									<br />
 									<a href={park.url}>Visit Park site</a>
 								</Card.Body>
 							</Card>
