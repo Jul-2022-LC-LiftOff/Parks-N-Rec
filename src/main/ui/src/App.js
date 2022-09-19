@@ -1,4 +1,3 @@
-
 import SearchByName from "./components/SearchByName/SearchByName";
 import ParkNotes from "./components/Notes/ParkNotes";
 import { useState } from "react";
