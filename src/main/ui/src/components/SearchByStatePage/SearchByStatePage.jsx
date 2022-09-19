@@ -13,7 +13,6 @@ export default function SearchByStatePage() {
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
-        console.log(json.data);
         setData(json.data);
       })
       .catch((error) => console.log(error));
@@ -36,7 +35,7 @@ export default function SearchByStatePage() {
 
   return (
     <div>
-      <div>
+      <div className="search">
         <select
           name="stateSelecter"
           value={selectState}

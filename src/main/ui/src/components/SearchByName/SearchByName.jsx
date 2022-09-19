@@ -41,12 +41,13 @@ export default function SearchByName() {
 return (
 
      <div>
+        <div>
              <input
                  type="text"
                  placeholder="Search parks by name"
                  onChange = {handleSearch}
              />
-
+        </div>
            {data.filter((park)=> {
              return filterParkNames(park)
            })
