@@ -28,7 +28,7 @@ import './login.css';
 
   return (
     <div>
-    <p> heres is here to show data from the DB: </p>
+    <p> this is here to show data from the DB: remove line 30-40 </p>
       {users.length > 0 && (
         <ul>
           {users.map(user => (
