@@ -7,10 +7,10 @@ const App = () => {
   return (
     <div>
       <ParkProfile />
-      {/* <div className="container">
-			<Header />
-			<Homepage />
-			<SearchByName /> */}
+      <div className="container">
+        <Header />
+        <Homepage />
+      </div>
     </div>
   );
 };
