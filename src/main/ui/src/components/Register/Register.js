@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import './login.css';
-export default function Login() {
+import './Register.css';
+export default function Register() {
 
         const [username,setName]=useState('')
         const [password,setPassword]=useState('')

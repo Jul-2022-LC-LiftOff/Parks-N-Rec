@@ -1,5 +1,5 @@
-import Login from './components/Login/Login'
-import Info from './components/GetLoginInfo/GetInfo'
+
+import Login from './components/GetLoginInfo/GetInfo'
 
 
     function App(){
@@ -7,7 +7,6 @@ import Info from './components/GetLoginInfo/GetInfo'
             <div className="App">
 
              <Login />
-             <Info />
             </div>
         );
     }
