@@ -10,15 +10,15 @@ import SearchByStatePage from './components/SearchByStatePage/SearchByStatePage'
 const App = () => {
   return (
     <div>
-          <Header />
-          <div>
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/home" element={<Homepage />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/results" element={<Results />} />
-              <Route path="/searchByName" element={<SearchByName />} />
-              <Route path="/searchByState" element={<SearchByStatePage />} />
+      <Header />
+      <div>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/home" element={<Homepage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="/searchByName" element={<SearchByName />} />
+          <Route path="/searchByState" element={<SearchByStatePage />} />
         </Routes>
       </div>
     </div>

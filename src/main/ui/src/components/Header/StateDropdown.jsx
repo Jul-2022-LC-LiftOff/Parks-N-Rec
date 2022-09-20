@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { states } from '../../data';
+import { Link } from 'react-router-dom';
 
 export default function StateDropdown() {
   return (
@@ -19,3 +19,5 @@ export default function StateDropdown() {
     </Nav>
   );
 }
+
+export default StateDropdown;

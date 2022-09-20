@@ -10,16 +10,18 @@ export const Header = () => {
   return (
     <Navbar variant="light" bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#home">Park It</Navbar.Brand>
+        <Navbar.Brand href="/Home">Park It</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar" />
         <Navbar.Collapse id="navbar">
           <Nav>
             <SearchBar />
             <StateDropdown />
           </Nav>
-          <Login />
-          <Register />
         </Navbar.Collapse>
+        <Link to="/login" className="login-page">
+          {' '}
+          Login | Register{' '}
+        </Link>
       </Container>
     </Navbar>
   );
