@@ -2,40 +2,64 @@ import React, {useEffect, useState} from 'react'
 import './login.css';
 
     export default function GetInfo() {
-        const [data, setData] = React.useState([]);
-         React.useEffect(() => {
-           let url = `http://localhost:8080/login/getAll`;
-           fetch(url)
-             .then((response) => response.json())
-             .then((json) => {
-                console.log(json)
-               setData(json.data);
-             })
-             .catch((error) => console.log(error));
-         }, [setData]);
+  const [users, setUsers] = useState([])
 
+//calls on backend controller
+  const fetchData = () => {
+    fetch("http://localhost:8080/login/getAll")
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        console.log("data", data)
+        setUsers(data)
+      })
+  }
 
+  useEffect(() => {
+    fetchData()
+  }, [])
 
+    function handleLogin(e) {
+        e.preventDefault();
 
-
-
-        return(
-            <div>
-                <form>
-                   <label htmlFor="username">email:</label>
-                     <input
-                       type="text"
-                       id="username"
-                     />
-                     <br />
-                   <label htmlFor="username">Password:</label>
-                     <input
-                       type="text"
-                       id="username"
-                     />
-
-                   <button type="submit" value="Submit">sign in</button>
-                </form>
-            </div>
-        )
     }
+
+
+  return (
+    <div>
+    <p> heres is here to show data from the DB: </p>
+      {users.length > 0 && (
+        <ul>
+          {users.map(user => (
+            <li key={user.id}>{user.username}</li>
+          ))}
+        </ul>
+      )}
+
+
+
+
+      <br/>
+      <div className="form" onSubmit={handleLogin}>
+        <form>
+          <label for="username">Email:</label>
+            <input
+              type="text"
+              id="username"
+              value="username"
+            />
+            <br />
+           <label for="username">Password:</label>
+            <input
+              type="text"
+              id="username"
+              value="password"
+            />
+            <br />
+            <button type="submit" value="Submit" >Login</button>
+        </form>
+      </div>
+    </div>
+  )
+}
