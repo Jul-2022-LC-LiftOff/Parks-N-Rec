@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
-import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function Login() {
+export default function Register() {
   const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
+  const [setIsSubmit] = useState(false);
   const [user, setUserDetails] = useState({
     email: '',
-    password: ''
+    password: '',
+    verifyPassword: ''
   });
 
   const changeHandler = (e) => {
@@ -21,21 +21,27 @@ export default function Login() {
   const validateForm = (values) => {
     const error = {};
     const regex = /^[^\s+@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    if (!values.fname) {
-      error.fname = 'First Name is required';
-    }
+
     if (!values.email) {
       error.email = 'Email is required';
     } else if (!regex.test(values.email)) {
-      error.email = 'Please enter a valid email address';
+      error.email = 'This is not a valid email format!';
     }
     if (!values.password) {
       error.password = 'Password is required';
+    } else if (values.password.length < 4) {
+      error.password = 'Password must be more than 4 characters';
+    } else if (values.password.length > 10) {
+      error.password = 'Password cannot exceed more than 10 characters';
+    }
+    if (!values.verifyPassword) {
+      error.verifyPassword = 'Confirm Password is required';
+    } else if (values.verifyPassword !== values.password) {
+      error.verifyPassword = 'Confirm password and password should be same';
     }
     return error;
   };
-
-  const loginHandler = (e) => {
+  const signupHandler = (e) => {
     e.preventDefault();
     setFormErrors(validateForm(user));
     setIsSubmit(true);
@@ -52,16 +58,15 @@ export default function Login() {
 
   return (
     <div>
-      <div  style={{ display: 'block', height: 49 }}>
-        <Button  href="login" variant="primary" onClick={handleShow}>
-          Login
-        </Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div style={{ display: 'block', height: 49 }}>
+        <Button href="Register" variant="primary" onClick={handleShow}>
+          Sign Up
+        </Button>
       </div>
 
-      {/* log in modal - same as your form but uses a pre-made react-bootstrap component so it works as a popup */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Log in</Modal.Title>
+          <Modal.Title>Sign Up</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -89,13 +94,24 @@ export default function Login() {
               />
               <p>{formErrors.password}</p>
             </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Verify Password</Form.Label>
+              <Form.Control
+                type="password"
+                name="verifyPassword"
+                id="verifyPassword"
+                placeholder="Confirm Password"
+                onChange={changeHandler}
+                value={user.verifyPassword}
+              />
+              <p>{formErrors.verifyPassword}</p>
+            </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button  variant="primary" onClick={loginHandler}>
-            Sign In
+          <Button variant="primary" onClick={signupHandler}>
+            Sign Up
           </Button>
-
         </Modal.Footer>
       </Modal>
     </div>

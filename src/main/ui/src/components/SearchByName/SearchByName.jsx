@@ -1,7 +1,11 @@
 import React from 'react';
-import { useState } from 'react';
-import { Card, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {  useState } from 'react';
+import { Card, Col  } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';;
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
 
 //connecting with the api & setting the "searchTerm"
 export default function SearchByName() {
