@@ -1,10 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
+import { Card, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+//connecting with the api & setting the "searchTerm"
 export default function SearchByName() {
   const [data, setData] = React.useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -40,36 +39,59 @@ export default function SearchByName() {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Search parks by name"
-        onChange={handleSearch}
-      />
-
+      <div
+        className="bg-image "
+        style={{
+          backgroundImage: "url('https://i.imgur.com/8IuucQZ.jpg')",
+          height: 500
+        }}
+      >
+        <div
+          className="mask bg-gradient"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', height: 500 }}
+        >
+          <div className="d-flex justify-content-center align-items-center bg-image h-100">
+            <div className="text-white">
+              <h1 className="mb-3">Find Your Park</h1>
+              <div>
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Search by park name"
+                  onChange={handleSearch}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       {data
         .filter((park) => {
           return filterParkNames(park);
         })
         .map((park, key) => {
           return (
-            <div key={key}>
-              <Row xs={2} md={2} className="g-4">
-                {Array.from({ length: 1 }).map((_, idx) => (
-                  <Col>
-                    <Card>
-                      <Card.Img variant="top" src={park.images[0].url} />
-                      <Card.Body>
-                        <Card.Title>{park.fullName}</Card.Title>
-                        <Card.Title> {park.states}</Card.Title>
-
-                        <Card.Text>{park.description}</Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            </div>
+            <Col
+              xs={true}
+              sm={true}
+              md={3}
+              lg={3}
+              className="d-inline-flex m-3 h-100"
+              key={key}
+            >
+              <Card className="resultCard">
+                <Card.Img
+                  variant="top"
+                  src={park.images[0].url}
+                  href={park.url}
+                />
+                <Card.Body>
+                  <p> {park.name} </p>
+                  <p>{park.description}</p>
+                  <a href={park.url}>Visit Park site</a>
+                </Card.Body>
+              </Card>
+            </Col>
           );
         })}
     </div>
