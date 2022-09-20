@@ -1,21 +1,23 @@
-import React from "react";
-import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { states } from "../../data";
+import React from 'react';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 
-export default function StateDropdown() {
-	return (
-		<Nav>
-			<NavDropdown id="nav-dropdown" title="View by State" menuVariant="dark">
-				{states.map((item, index) => (
-					<NavDropdown.Item href="" key={index}>
-						{item.name}{" "}
-					</NavDropdown.Item>
-				))}
-
-				<NavDropdown.Divider />
-				<NavDropdown.Item href="">View All Parks</NavDropdown.Item>
-			</NavDropdown>
-		</Nav>
-	);
+function StateDropdown() {
+  return (
+    <Nav>
+      <NavDropdown name="stateSelecter" title="Search">
+        <NavDropdown.Item as={Link} to="/SearchByName">
+          {' '}
+          Search by name{' '}
+        </NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/SearchByState">
+          {' '}
+          Search by state{' '}
+        </NavDropdown.Item>
+      </NavDropdown>
+    </Nav>
+  );
 }
+
+export default StateDropdown;

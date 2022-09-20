@@ -1,38 +1,34 @@
 import React from "react";
 import { useState } from "react";
+import ParkData from "./data.json";
+import "./styles.css";
 import { Card, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-//connecting with the api & setting the "searchTerm"
-export default function SearchByName() {
+export default function SearchByStatePage() {
 	const [data, setData] = React.useState([]);
-	const [searchTerm, setSearchTerm] = useState("");
+	const [selectState, setSelect] = useState("");
 	React.useEffect(() => {
-		let url = `https://developer.nps.gov/api/v1/parks?StateCode="all"&limit=469&api_key=iemcdp722ZKWNmS5oMOwf64LiOd3fw6XSsq9tzUf`;
+		let url = `https://developer.nps.gov/api/v1/parks?parkCode="all"&limit=469&api_key=JMZizGv6gAcjBzoD4TbqW9RQSe9K8fEt9Cdb2Zta`;
 		fetch(url)
 			.then((response) => response.json())
 			.then((json) => {
 				setData(json.data);
 			})
 			.catch((error) => console.log(error));
-	}, [searchTerm]);
-
-	function handleSearch(e) {
-		e.preventDefault();
-		setSearchTerm(e.target.value);
-	}
+	}, [selectState]);
 
 	if (data.length > 0) {
-		data.filter((i) => {
-			return i.fullName.match(data);
+		data.filter((parkApi) => {
+			return parkApi.states.match(data);
 		});
 	}
 
-	function filterParkNames(park) {
-		if (searchTerm === "") {
+	function filterParkStates(park) {
+		if (selectState === "") {
 			return park;
 		}
-		if (park.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
+		if (park.states.toLowerCase().includes(selectState.toLowerCase())) {
 			return park;
 		}
 	}
@@ -52,14 +48,25 @@ export default function SearchByName() {
 				>
 					<div className="d-flex justify-content-center align-items-center bg-image h-100">
 						<div className="text-white">
-							<h1 className="mb-3">Find Your Park</h1>
-							<div>
-								<input
-									className="form-control"
-									type="text"
-									placeholder="Search by park name"
-									onChange={handleSearch}
-								/>
+							<h1 className="mb-3">Welcome to</h1>
+							<div className="search">
+								<select
+									name="stateSelecter"
+									value={selectState}
+									onChange={(e) => setSelect(e.target.value)}
+									className="search form-select"
+								>
+									<option value="none" defaultValue="selectedState">
+										{" "}
+										Select a State{" "}
+									</option>
+									{ParkData.map((data) => (
+										<option key={data.abbreviation} value={data.abbreviation}>
+											{" "}
+											{data.name}{" "}
+										</option>
+									))}
+								</select>
 							</div>
 						</div>
 					</div>
@@ -67,7 +74,7 @@ export default function SearchByName() {
 			</div>
 			{data
 				.filter((park) => {
-					return filterParkNames(park);
+					return filterParkStates(park);
 				})
 				.map((park, key) => {
 					return (
