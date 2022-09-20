@@ -11,7 +11,7 @@ const App = () => {
 		<div className="container">
 			<Header />
 			<Homepage />
-			<SearchByName />
+        </div>
 		</div>
 	);
 }
