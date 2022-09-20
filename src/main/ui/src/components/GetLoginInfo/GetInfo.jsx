@@ -2,21 +2,21 @@ import React, {useEffect, useState} from 'react'
 import './login.css';
 
     export default function GetInfo() {
-        const [data, setData] = React.useState([])
-        React.useEffect(() => {
-            const url = 'http://localhost:8080/login/getAll'
-            fetch(url).then((data) => {
-                return data.json();
-            }).then((json) => {
-                console.log("data",json)
-            })
+        const [data, setData] = React.useState([]);
+         React.useEffect(() => {
+           let url = `http://localhost:8080/login/getAll`;
+           fetch(url)
+             .then((response) => response.json())
+             .then((json) => {
+                console.log(json)
+               setData(json.data);
+             })
+             .catch((error) => console.log(error));
+         }, [setData]);
 
 
-        })
 
-        const handleSubmit= () => {
 
-        }
 
 
         return(
@@ -34,7 +34,7 @@ import './login.css';
                        id="username"
                      />
 
-                   <button type="submit" value="Submit" onSubmit={handleSubmit}>sign in</button>
+                   <button type="submit" value="Submit">sign in</button>
                 </form>
             </div>
         )
