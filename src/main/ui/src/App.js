@@ -4,16 +4,15 @@ import { Header } from "./components/Header/Header";
 import Homepage from "./components/Homepage/Homepage";
 
 const App = () => {
-	return (
-
-		<div>
-			<ParkProfile />
-		<div className="container">
+  return (
+    <div>
+      <ParkProfile />
+      {/* <div className="container">
 			<Header />
 			<Homepage />
-			<SearchByName />
-		</div>
-	);
-}
+			<SearchByName /> */}
+    </div>
+  );
+};
 
 export default App;

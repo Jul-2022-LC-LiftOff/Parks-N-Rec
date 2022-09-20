@@ -53,42 +53,6 @@ export default function ParkInfo() {
             </div>
           </div>
 
-          {/* <div className="col">
-            <div className="card h-50">
-              <div className="card text-white bg-dark mb-3">
-                <img
-                  className="img-fluid"
-                  src="https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fHdlYnNpdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-                  alt="Card image cap"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">Visit the Website</h5>
-                  <a href={parkInfo.url} className="btn btn-success">
-                    Official Website
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div> */}
-
-          {/* <div className="col">
-            <div className="card h-50">
-              <div className="card text-white bg-dark mb-3">
-                <img
-                  className="img-fluid"
-                  src="https://images.unsplash.com/photo-1602562775100-bdff2108c7d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YWxlcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-                  alt="safety cone"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">Park Alerts</h5>
-                  <h6 className="card-text">
-                    Choose something, alerts not included in API
-                  </h6>
-                </div>
-              </div>
-            </div>
-          </div> */}
-
           <div className="col">
             <div className="card h-50">
               <div className="card text-white bg-dark mb-3">
