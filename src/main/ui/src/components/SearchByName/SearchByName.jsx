@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 
+//connecting with the api & setting the "searchTerm"
 export default function SearchByName() {
   const [data, setData] = React.useState([]);
   const [searchTerm, setSearchTerm] = useState('');
