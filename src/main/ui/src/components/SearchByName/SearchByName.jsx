@@ -86,7 +86,7 @@ export default function SearchByName() {
 									href={park.url}
 								/>
 								<Card.Body>
-									<p> {park.name} </p>
+									<a href="/parksInfoPage"> {park.name} </a>
 									<p>{park.description}</p>
 									<a href={park.url}>Visit Park site</a>
 								</Card.Body>

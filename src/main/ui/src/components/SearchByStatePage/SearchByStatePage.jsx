@@ -7,12 +7,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useContext } from "react";
 import { ParkContext } from "../parkContext/ParkContext";
 
-export default function SearchByStatePage() {
+export default function SearchByStatePage({selectState, setSelect}) {
 
 	const msg = useContext(ParkContext)
 
 	const [data, setData] = React.useState([]);
-	const [selectState, setSelect] = useState("");
 	React.useEffect(() => {
 		let url = `https://developer.nps.gov/api/v1/parks?parkCode="all"&limit=469&api_key=JMZizGv6gAcjBzoD4TbqW9RQSe9K8fEt9Cdb2Zta`;
 		fetch(url)
@@ -98,9 +97,10 @@ export default function SearchByStatePage() {
 									href={park.url}
 								/>
 								<Card.Body>
-									<p> {park.name} </p>
+									<a href="/parksInfoPage"> {park.name} </a>
 									<p>{park.description}</p>
 									<a href={park.url}>Visit Park site</a>
+									<p>{msg}</p>
 								</Card.Body>
 							</Card>
 						</Col>

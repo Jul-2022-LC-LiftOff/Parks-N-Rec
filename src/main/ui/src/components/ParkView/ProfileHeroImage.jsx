@@ -1,7 +1,10 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import { ParkContext } from "../parkContext/ParkContext";
+import { useContext } from "react";
 
 export default function ProfileHeroImage({ parkInfo }) {
+  const msg = useContext(ParkContext)
   return (
     <div
       className="bg-image "

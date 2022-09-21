@@ -8,8 +8,12 @@ import SearchByName from "./components/SearchByName/SearchByName";
 import SearchByStatePage from "./components/SearchByStatePage/SearchByStatePage";
 import { ParkContext } from "./components/parkContext/ParkContext";
 import ParksPage from "./components/ParkView/ParkProfile"
+import { useState } from "react";
+
 
 const App = () => {
+    const [selectState, setSelect] = useState("");
+
   return (
     <div>
       <Header />
@@ -21,12 +25,15 @@ const App = () => {
 
           
           <Route path="/searchByState" element={
-            <ParkContext.Provider value="hello from SearchByState">
-          <SearchByStatePage />
+            <ParkContext.Provider value={selectState}>
+          <SearchByStatePage selectState={selectState} setSelect={setSelect} />
           </ParkContext.Provider>
           } 
           />
-          <Route path="/parksInfoPage" element={<ParksPage />} />
+
+
+          <Route path="/parksInfoPage" element={
+          <ParksPage />} />
          
 
           
