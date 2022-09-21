@@ -60,8 +60,7 @@ export default function Register() {
     <div>
       <div style={{ display: 'block', height: 49 }}>
         <Button href="Register" variant="primary" onClick={handleShow}>
-          Sign Up
-        </Button>
+Register        </Button>
       </div>
 
       <Modal show={show} onHide={handleClose}>
@@ -110,8 +109,7 @@ export default function Register() {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={signupHandler}>
-            Sign Up
-          </Button>
+Register          </Button>
         </Modal.Footer>
       </Modal>
     </div>
