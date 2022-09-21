@@ -32,9 +32,8 @@ const App = () => {
           />
 
 
-          <Route path="/parksInfoPage" element={
-          <ParksPage />} />
-         
+          <Route path="/parksInfoPage" element={<ParksPage />} />
+
 
           
           <Route path="/searchByName" element={<SearchByName />} />

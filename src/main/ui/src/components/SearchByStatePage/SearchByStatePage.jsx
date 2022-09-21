@@ -9,7 +9,7 @@ import { ParkContext } from "../parkContext/ParkContext";
 
 export default function SearchByStatePage({selectState, setSelect}) {
 
-	const msg = useContext(ParkContext)
+	const state = useContext(ParkContext)
 
 	const [data, setData] = React.useState([]);
 	React.useEffect(() => {
@@ -52,7 +52,7 @@ export default function SearchByStatePage({selectState, setSelect}) {
 				>
 					<div className="d-flex justify-content-center align-items-center bg-image h-100">
 						<div className="text-white">
-							<h1 className="mb-3">Welcome to {msg}</h1>
+							<h1 className="mb-3">Welcome to {state}</h1>
 							<div className="search">
 								<select
 									name="stateSelecter"
@@ -100,7 +100,7 @@ export default function SearchByStatePage({selectState, setSelect}) {
 									<a href="/parksInfoPage"> {park.name} </a>
 									<p>{park.description}</p>
 									<a href={park.url}>Visit Park site</a>
-									<p>{msg}</p>
+									<p>{state}</p>
 								</Card.Body>
 							</Card>
 						</Col>
