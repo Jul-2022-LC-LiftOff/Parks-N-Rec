@@ -1,29 +1,29 @@
 package com.liftoff.parksnrec.Controllers;
 
 import com.liftoff.parksnrec.Models.User;
-import com.liftoff.parksnrec.Service.RegisterService;
+import com.liftoff.parksnrec.Service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/register")
+@RequestMapping("/login")
 @CrossOrigin
-public class RegisterController {
+public class LoginController {
 
     @Autowired
-    private RegisterService registerService;
+    private LoginService loginService;
 
     @PostMapping("/add")
     public String add(@RequestBody User user){
-        registerService.saveUser(user);
+        loginService.saveUser(user);
         return "New user is added";
     }
 
     @GetMapping("/getAll")
     public List<User> getAllUsers(){
-        return registerService.getAllUsers();
+        return loginService.getAllUsers();
     }
 
 }

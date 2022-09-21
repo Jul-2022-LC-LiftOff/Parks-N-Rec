@@ -74,7 +74,7 @@ export default function Login() {
     if (isValid) {
         const login={password,email}
         console.log(login)
-        fetch("http://localhost:8080/login/add", {
+        fetch("http://localhost:8080/register/add", {
             method: "POST",
             headers:{"Content-Type":"application/json"},
             body: JSON.stringify(login)
