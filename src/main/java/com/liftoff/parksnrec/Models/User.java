@@ -15,10 +15,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotBlank
-    @Column(name="username")
-    @Size(min = 4, max = 20, message = "Invalid username. Must be between 4 and 20 characters.")
-    private String username;
+//    @NotBlank
+//    @Column(name="username")
+//    @Size(min = 4, max = 20, message = "Invalid username. Must be between 4 and 20 characters.")
+//    private String username;
 
     @NotBlank
     @Column(name="password")
@@ -32,8 +32,8 @@ public class User {
 
    public User() {}
 
-    public User (String username, String password, String email) {
-       this.username = username;
+    public User (String password, String email) {
+//       this.username = username;
        this.password = password;
        this.email = email;
     }
@@ -45,14 +45,14 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
+//
+//    public String getUsername() {
+//        return username;
+//    }
+//
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
 
     public String getPassword() {
         return password;
@@ -75,19 +75,19 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && username.equals(user.username) && password.equals(user.password) && email.equals(user.email);
+        return id == user.id && password.equals(user.password) && email.equals(user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, email);
+        return Objects.hash(id, password, email);
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
+//                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 '}';

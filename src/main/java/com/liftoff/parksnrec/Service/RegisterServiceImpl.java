@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Service
-public class LoginServiceImpl implements LoginService{
+public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
     private UserRepo userRepo;

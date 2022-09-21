@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/register")
+@RequestMapping("/login")
 @CrossOrigin
-public class RegisterController {
+public class LoginController {
 
-    @Autowired
-    private RegisterService registerService;
+//    @Autowired
+//    private LoginService loginService;
 
     @PostMapping("/add")
     public String add(@RequestBody User user){
-        registerService.saveUser(user);
+        loginService.saveUser(user);
         return "New user is added";
     }
 

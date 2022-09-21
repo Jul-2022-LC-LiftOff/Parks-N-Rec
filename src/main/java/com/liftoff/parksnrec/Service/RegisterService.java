@@ -4,7 +4,7 @@ import com.liftoff.parksnrec.Models.User;
 
 import java.util.List;
 
-public interface LoginService {
+public interface RegisterService {
 
     public User saveUser(User user);
 
