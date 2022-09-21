@@ -1,24 +1,7 @@
-<<<<<<< HEAD
-import Login from './components/Login/Login'
-import Info from './components/GetLoginInfo/GetInfo'
-
-
-    function App(){
-        return(
-            <div className="App">
-
-             <Login />
-             <Info />
-            </div>
-        );
-    }
-
-    export default App;
-=======
 import './App.css';
 import { Header } from './components/Header/Header';
 import Homepage from './components/Homepage/Homepage';
-import Login from './components/Header/Login.jsx';
+import Register from './components/Header/Register.jsx';
 import { Route, Routes } from 'react-router-dom';
 import Results from './components/Header/Results.jsx';
 import SearchByName from './components/SearchByName/SearchByName';
@@ -32,7 +15,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/home" element={<Homepage />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/Register" element={<Register />} />
           <Route path="/results" element={<Results />} />
           <Route path="/searchByName" element={<SearchByName />} />
           <Route path="/searchByState" element={<SearchByStatePage />} />
@@ -43,4 +26,3 @@ const App = () => {
 };
 
 export default App;
->>>>>>> 571d595541abfd32279729786ed7895dc29e79cb
