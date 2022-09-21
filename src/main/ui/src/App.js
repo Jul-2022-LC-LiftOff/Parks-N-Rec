@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import Results from './components/Header/Results.jsx';
 import SearchByName from './components/SearchByName/SearchByName';
 import SearchByStatePage from './components/SearchByStatePage/SearchByStatePage';
+import Login from './components/Header/Login'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/home" element={<Homepage />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/results" element={<Results />} />
           <Route path="/searchByName" element={<SearchByName />} />

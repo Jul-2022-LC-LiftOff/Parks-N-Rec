@@ -9,19 +9,6 @@ export default function Login() {
   const [email,setEmail]=useState('')
   const [validated, setValidated]=useState("");
 
-//   const [user, setUserDetails] = useState({
-//     email: '',
-//     password: ''
-//   });
-
-//   const changeHandler = (e) => {
-//     const { name, value } = e.target;
-//     setUserDetails({
-//       ...user,
-//       [name]: value
-//     });
-//   };
-
   const validateForm = (email, password, verifyPassword) => {
 
     const error = {};
@@ -47,26 +34,9 @@ export default function Login() {
     return error;
   };
 
-//   const validateForm = (email, password) => {
-//     const error = {};
-//     const regex = /^[^\s+@]+@[^\s@]+\.[^\s@]{2,}$/i;
-//
-//
-//     if (!email) {
-//       error.email = 'Email is required';
-//
-//     } else if (!regex.test(email)) {
-//       error.email = 'Please enter a valid email address';
-//
-//     }
-//     if (!password) {
-//       error.password = 'Password is required';
-//     }
-//     return error;
-//   };
 
 
-  const loginHandler = (e) => {
+  const registerHandler = (e) => {
     e.preventDefault();
     setFormErrors(validateForm(email, password, validated) );
     console.log(isValid);
@@ -150,7 +120,7 @@ export default function Login() {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button  variant="primary" onClick={loginHandler}>
+          <Button  variant="primary" onClick={registerHandler}>
             Sign In
           </Button>
 
