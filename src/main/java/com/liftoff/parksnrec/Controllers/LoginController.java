@@ -1,6 +1,7 @@
 package com.liftoff.parksnrec.Controllers;
 
 import com.liftoff.parksnrec.Models.User;
+import com.liftoff.parksnrec.Service.LoginService;
 import com.liftoff.parksnrec.Service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +13,8 @@ import java.util.List;
 @CrossOrigin
 public class LoginController {
 
-//    @Autowired
-//    private LoginService loginService;
+    @Autowired
+    private LoginService loginService;
 
     @PostMapping("/add")
     public String add(@RequestBody User user){
@@ -23,7 +24,7 @@ public class LoginController {
 
     @GetMapping("/getAll")
     public List<User> getAllUsers(){
-        return registerService.getAllUsers();
+        return loginService.getAllUsers();
     }
 
 }
