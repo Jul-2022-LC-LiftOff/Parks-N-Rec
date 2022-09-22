@@ -70,7 +70,7 @@ export default function Register() {
     <div>
       <div  style={{ display: 'block', height: 49 }}>
         <Button  href="login" variant="primary" onClick={handleShow}>
-          Login
+          Register
         </Button>
       </div>
 

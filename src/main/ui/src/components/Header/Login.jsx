@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from 'react-router-dom';
+import Register from './Register';
 
 export default function Login() {
   const [userInput,setUserInput]=useState({
@@ -92,8 +94,15 @@ const handleSubmit = (e) => {
             </Form.Group>
             <Button type="submit" variant="primary"  >
                         Sign In
-                      </Button>
+            </Button>
+            
+            <div  style={{ display: 'block', height: 49 }}>
+        <Button variant="primary">
+          <Register />
+        </Button>
+        </div>
           </Form>
+            
         </Modal.Body>
       </Modal>
     </div>

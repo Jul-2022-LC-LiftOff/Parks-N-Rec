@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import SearchBar from '../SearchBar/SearchBar';
 import StateDropdown from './StateDropdown';
+import LoginPage from './Login'
 
 export const Header = () => {
   return (
@@ -17,10 +18,7 @@ export const Header = () => {
             <StateDropdown />
           </Nav>
         </Navbar.Collapse>
-        <Link to="/login" className="login-page">
-          {' '}
-          Login | Register{' '}
-        </Link>
+        <LoginPage />
       </Container>
     </Navbar>
   );
