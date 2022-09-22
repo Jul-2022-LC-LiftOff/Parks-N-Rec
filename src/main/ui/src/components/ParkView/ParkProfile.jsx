@@ -4,21 +4,27 @@ import "./ParkInfo.css";
 import ProfileHeroImage from "./ProfileHeroImage";
 import ThingsToDoAccordion from "./ThingsToDoAccordion";
 import VisitedParkSwitch from "./VisitedParkSwitch";
+import { useContext } from "react";
+import { ParkContext } from "../parkContext/ParkContext";
 
-export default function ParkInfo() {
+export default function ParkInfo({parkCode, setParkCode}) {
+
+  const state = useContext(ParkContext)
+
   const [parkInfo, setParkInfo] = useState([]);
 
-  let parkCode = "yell";
+  let Code = {state};
   useEffect(() => {
     //parkCode should change depending on user choice
     let url =
       "https://developer.nps.gov/api/v1/parks?parkCode=" +
-      parkCode +
+      Code +
       "&api_key=IJ1FjAb4SkwSyXOqFhyqxTM3xg66eDcMQoDjKS16";
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
         setParkInfo(json.data[0]);
+
       })
       .catch((error) => console.log(error));
   }, []);

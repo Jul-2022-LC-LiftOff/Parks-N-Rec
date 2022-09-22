@@ -12,7 +12,7 @@ import { useState } from "react";
 
 
 const App = () => {
-    const [selectState, setSelect] = useState("");
+  const [parkCode, setParkCode] = useState("");
 
   return (
     <div>
@@ -25,14 +25,19 @@ const App = () => {
 
           
           <Route path="/searchByState" element={
-            <ParkContext.Provider value={selectState}>
-          <SearchByStatePage selectState={selectState} setSelect={setSelect} />
+            <ParkContext.Provider value={parkCode}>
+          <SearchByStatePage parkCode={parkCode} setParkCode={setParkCode} />
           </ParkContext.Provider>
           } 
           />
 
 
-          <Route path="/parksInfoPage" element={<ParksPage />} />
+          <Route path="/parksInfoPage" element={
+          <ParkContext.Provider value={parkCode}>
+          <ParksPage parkCode={parkCode} setParkCode={setParkCode} />
+          </ParkContext.Provider>
+          }
+           />
 
 
           

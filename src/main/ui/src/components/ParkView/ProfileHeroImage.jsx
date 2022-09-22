@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { ParkContext } from "../parkContext/ParkContext";
 import { useContext } from "react";
 
-export default function ProfileHeroImage({ parkInfo }) {
+export default function ProfileHeroImage({ parkInfo, parkCode, setParkCode } ) {
   const msg = useContext(ParkContext)
   return (
     <div

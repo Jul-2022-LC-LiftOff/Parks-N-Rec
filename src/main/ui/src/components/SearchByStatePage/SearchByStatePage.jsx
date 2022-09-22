@@ -6,18 +6,22 @@ import { Card, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useContext } from "react";
 import { ParkContext } from "../parkContext/ParkContext";
+import ParkCard from "./ParkCard";
 
-export default function SearchByStatePage({selectState, setSelect}) {
+export default function SearchByStatePage({parkCode, setParkCode}) {
 
 	const state = useContext(ParkContext)
 
-	const [data, setData] = React.useState([]);
+	const [data, setData] = useState([]);
+	const [selectState, setSelect] = useState("");
+	
 	React.useEffect(() => {
 		let url = `https://developer.nps.gov/api/v1/parks?parkCode="all"&limit=469&api_key=JMZizGv6gAcjBzoD4TbqW9RQSe9K8fEt9Cdb2Zta`;
 		fetch(url)
 			.then((response) => response.json())
 			.then((json) => {
 				setData(json.data);
+				console.log(data)
 			})
 			.catch((error) => console.log(error));
 	}, [selectState]);
@@ -35,6 +39,10 @@ export default function SearchByStatePage({selectState, setSelect}) {
 		if (park.states.toLowerCase().includes(selectState.toLowerCase())) {
 			return park;
 		}
+	}
+
+	function handleClick(data){
+		setParkCode(data.parkCode)
 	}
 
 	return (
@@ -97,7 +105,7 @@ export default function SearchByStatePage({selectState, setSelect}) {
 									href={park.url}
 								/>
 								<Card.Body>
-									<a href="/parksInfoPage"> {park.name} </a>
+									<a href="/parksInfoPage" value={parkCode} onChange={handleClick}> {park.name} </a>
 									<p>{park.description}</p>
 									<a href={park.url}>Visit Park site</a>
 									<p>{state}</p>
