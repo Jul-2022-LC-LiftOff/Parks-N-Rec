@@ -3,67 +3,47 @@ import { Button, Modal, Form } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Login() {
-  let isValid = true;
-  const [formErrors, setFormErrors] = useState({});
-  const [password,setPassword]=useState('')
-  const [email,setEmail]=useState('')
-  const [validated, setValidated]=useState("");
-    const [user, setUser] = useState([]);
-
-
-useEffect(() =>{
-    loadUsers()
-}, [])
-
-
-const  loadUsers = () => {
-       fetch("http://localhost:8080/user/getAll", {
-                   method: "GET",
-                   headers:{"Content-Type":"application/json"},
-               }).then(() => {
-                    setUser()
-//                    console.log("User data fetched")
-               })
-    }
+  const [userInput,setUserInput]=useState({
+  email: "",
+  password: ""
+  })
+  const [user, setUser] = useState([]);
 
 
 
 
-  const validateForm = (email, password) => {
+  const validateUserInput = (userInput) => {
 
-    const error = {};
-    const regex = /^[^\s+@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    for (const key in user) {
+        if (key.email === userInput.email) {
+        return console.log(userInput.email + key.email + "matched")
 
-
-//     if (!email) {
-//       error.email = 'Email is required';
-//       isValid = false;
-//
-//     } else if (!regex.test(email)) {
-//         error.email = 'Please enter a valid email address';
-//         isValid = false;
-//     }
-//     if (!password) {
-//         isValid = false;
-//         error.password = 'Password is required';
-//     }
-    return error;
-  };
+    }  }
+    };
+// loop through user.email til you find a match to emailInput
+// then compare (&& user.password to passwordInput) or throw incorrect password, redirect back to cleared login page
 
 
 
-  const loginHandler = (e) => {
+
+const handleChange = (e) => {
+setUserInput({...userInput, [e.target.name]:e.target.value});
+}
+
+const handleSubmit = (e) => {
     e.preventDefault();
-    setFormErrors(validateForm(email, password, validated) );
-    console.log(user);
+    validateUserInput(userInput);
+    fetch("http://localhost:8080/login/hi", {
+            method: "POST",
+            headers:{"Content-Type":"application/json"},
+            body: JSON.stringify(userInput)
+        }).then(res => res.json()).then( res => {
+            console.log(res);
+            console.log("New user added")
+        })
+}
 
-    if (isValid) {
 
-    }
-
-//     setIsSubmit(true);
-
-  };
 
   const [show, setShow] = useState(false);
 
@@ -86,7 +66,7 @@ const  loadUsers = () => {
           <Modal.Title>Log in</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -94,10 +74,10 @@ const  loadUsers = () => {
                 name="email"
                 id="email"
                 placeholder="Email"
-                onChange= {(e) => setEmail(e.target.value)}
-                value={email}
+                onChange= {handleChange}
+                value={userInput.email}
               />
-              <p>{formErrors.email}</p>
+{/*               <p>{formErrors.email}</p> */}
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Password</Form.Label>
@@ -106,20 +86,16 @@ const  loadUsers = () => {
                 name="password"
                 id="password"
                 placeholder="Password"
-                onChange= {(e) => setPassword(e.target.value)}
-                value={password}
-              />
-              <p>{formErrors.password}</p>
+                onChange= {handleChange}
+                 value={userInput.password}/>
+{/*               <p>{formErrors.password}</p> */}
             </Form.Group>
+            <Button type="submit" variant="primary"  >
+                        Sign In
+                      </Button>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button  variant="primary" onClick={loginHandler}>
-            Sign In
-          </Button>
-
-        </Modal.Footer>
       </Modal>
     </div>
-  );
-}
+  )
+};

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function Login() {
+export default function Register() {
   let isValid = true;
   const [formErrors, setFormErrors] = useState({});
   const [password,setPassword]=useState('')
@@ -71,13 +71,13 @@ export default function Login() {
       <div  style={{ display: 'block', height: 49 }}>
         <Button  href="login" variant="primary" onClick={handleShow}>
           Login
-        </Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </Button>
       </div>
 
       {/* log in modal - same as your form but uses a pre-made react-bootstrap component so it works as a popup */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Log in</Modal.Title>
+          <Modal.Title>Sign up</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -121,7 +121,7 @@ export default function Login() {
         </Modal.Body>
         <Modal.Footer>
           <Button  variant="primary" onClick={registerHandler}>
-            Sign In
+            Sign Up
           </Button>
 
         </Modal.Footer>
