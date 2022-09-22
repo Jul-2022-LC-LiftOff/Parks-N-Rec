@@ -1,4 +1,6 @@
 import { React, useState, useEffect } from "react";
+import { useContext } from "react";
+import { UserContext } from "../../UserContext";
 import { Container } from "react-bootstrap";
 import "./ParkInfo.css";
 import ProfileHeroImage from "./ProfileHeroImage";
@@ -7,8 +9,9 @@ import VisitedParkSwitch from "./VisitedParkSwitch";
 
 export default function ParkInfo() {
   const [parkInfo, setParkInfo] = useState([]);
+  const { value, setValue } = useContext(UserContext);
 
-  let parkCode = "yell";
+  let parkCode = { value };
   useEffect(() => {
     //parkCode should change depending on user choice
     let url =
