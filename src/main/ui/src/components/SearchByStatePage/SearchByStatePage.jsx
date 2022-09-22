@@ -6,44 +6,43 @@ import { Card, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useContext } from "react";
 import { ParkContext } from "../parkContext/ParkContext";
-import ParkCard from "./ParkCard";
 
-export default function SearchByStatePage({parkCode, setParkCode}) {
+export default function SearchByStatePage() {
 
 	const state = useContext(ParkContext)
 
-	const [data, setData] = useState([]);
-	const [selectState, setSelect] = useState("");
-	
+	const [data, setData] = React.useState([]);
+	const [searchTerm, setSearchTerm] = useState("");
 	React.useEffect(() => {
-		let url = `https://developer.nps.gov/api/v1/parks?parkCode="all"&limit=469&api_key=JMZizGv6gAcjBzoD4TbqW9RQSe9K8fEt9Cdb2Zta`;
+		let url = `https://developer.nps.gov/api/v1/parks?StateCode="all"&limit=469&api_key=iemcdp722ZKWNmS5oMOwf64LiOd3fw6XSsq9tzUf`;
 		fetch(url)
 			.then((response) => response.json())
 			.then((json) => {
 				setData(json.data);
-				console.log(data)
 			})
 			.catch((error) => console.log(error));
-	}, [selectState]);
+	}, [searchTerm]);
+
+	function handleSearch(e) {
+		e.preventDefault();
+		setSearchTerm(e.target.value);
+	}
 
 	if (data.length > 0) {
-		data.filter((parkApi) => {
-			return parkApi.states.match(data);
+		data.filter((i) => {
+			return i.fullName.match(data);
 		});
 	}
 
-	function filterParkStates(park) {
-		if (selectState === "") {
+	function filterParkNames(park) {
+		if (searchTerm === "") {
 			return park;
 		}
-		if (park.states.toLowerCase().includes(selectState.toLowerCase())) {
+		if (park.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
 			return park;
 		}
 	}
 
-	function handleClick(data){
-		setParkCode(data.parkCode)
-	}
 
 	return (
 		<div>
@@ -105,7 +104,7 @@ export default function SearchByStatePage({parkCode, setParkCode}) {
 									href={park.url}
 								/>
 								<Card.Body>
-									<a href="/parksInfoPage" value={parkCode} onChange={handleClick}> {park.name} </a>
+									<a href="/parksInfoPage"> {park.name} </a>
 									<p>{park.description}</p>
 									<a href={park.url}>Visit Park site</a>
 									<p>{state}</p>
