@@ -4,8 +4,13 @@ import ParkData from "./data.json";
 import "./styles.css";
 import { Card, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useContext } from 'react';
+import { ParkContext } from "../parkContext/ParkContext";
+export default function SearchByStatePage({select}) {
 
-export default function SearchByStatePage() {
+	const context = useContext(ParkContext)
+
+
 	const [data, setData] = React.useState([]);
 	const [selectState, setSelect] = useState("");
 	React.useEffect(() => {
@@ -48,7 +53,7 @@ export default function SearchByStatePage() {
 				>
 					<div className="d-flex justify-content-center align-items-center bg-image h-100">
 						<div className="text-white">
-							<h1 className="mb-3">Welcome to</h1>
+							<h1 className="mb-3">Welcome to {context}</h1>
 							<div className="search">
 								<select
 									name="stateSelecter"
