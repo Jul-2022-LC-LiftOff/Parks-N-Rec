@@ -10,7 +10,7 @@ export default function Login() {
 		password: "",
 	});
 	const [formErrors, setFormErrors] = useState(null);
-	const [user, setUser] = useState(null);
+	const [user, setUser] = useState({});
 	const [alertShow, setAlertShow] = useState(false);
 	const [show, setShow] = useState(false);
 
@@ -27,19 +27,20 @@ export default function Login() {
 		})
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res);
-				setUser(res);
-				if (user !== null) {
-					console.log("User signed in");
-					setIsLoggedIn(true);
-					handleClose();
-				} else {
-					console.log("error");
-					setFormErrors("Email or password incorrect.");
-					setAlertShow(true);
-				}
-			});
+			console.log(res);
+			setUser(res);
+				if (res.email === null) {
+                  console.log("error");
+                    setFormErrors("Email or password incorrect.");
+                    setAlertShow(true);
+               } else {
+            	console.log("User signed in");
+                	setIsLoggedIn(true);
+                	handleClose();
+               }
+		});
 	};
+
 
 	const handleClose = () => setShow(false);
 	const handleShow = (event) => {
@@ -76,11 +77,12 @@ export default function Login() {
 					<Modal.Title>Log in</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<Form onSubmit={handleSubmit}>
+					<Form onSubmit ={handleSubmit}>
+					<Alert show={alertShow} variant="danger">
+                    								{formErrors}
+                    							</Alert>
 						<Form.Group className="mb-3">
-							<Alert show={alertShow} variant="danger">
-								{formErrors}
-							</Alert>
+
 							<Form.Label>Email address</Form.Label>
 							<Form.Control
 								type="email"
@@ -103,7 +105,7 @@ export default function Login() {
 							/>
 						</Form.Group>
 
-						<Button type="submit" variant="primary" className="mb-4">
+						<Button type="submit" variant="primary" className="mb-4" >
 							Sign In
 						</Button>
 
