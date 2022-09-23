@@ -50,12 +50,9 @@ export default function Register() {
             body: JSON.stringify(login)
         }).then(() => {
             console.log("New user added")
+            handleClose();
         })
-//         handleClose();
     }
-
-//     setIsSubmit(true);
-
   };
 
   const [show, setShow] = useState(false);
@@ -74,7 +71,6 @@ export default function Register() {
         </a>
       </div>
 
-      {/* log in modal - same as your form but uses a pre-made react-bootstrap component so it works as a popup */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Sign up</Modal.Title>

@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import  { React, useState } from 'react';
 import { Button, Modal, Form, Alert } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from 'react-router-dom';
 import Register from './Register';
 
 export default function Login() {
-  let isValid = true;
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userInput,setUserInput]=useState({
   email: "",
@@ -14,7 +13,7 @@ export default function Login() {
   const [formErrors, setFormErrors] = useState(null);
   const [user, setUser] = useState(null);
   const [alertShow, setAlertShow] = useState(false);
-//   const [userEmail, setUserEmail] = useState([]);
+    const [show, setShow] = useState(false);
 
 
 const handleChange = (e) => {
@@ -23,7 +22,6 @@ setUserInput({...userInput, [e.target.name]:e.target.value});
 
 const handleSubmit = (e) => {
     e.preventDefault();
-//     validateUserInput(userInput);
     fetch("http://localhost:8080/login/hi", {
             method: "POST",
             headers:{"Content-Type":"application/json"},
@@ -43,22 +41,14 @@ const handleSubmit = (e) => {
         })
 }
 
-
-  const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = (event) => {
     setShow(true);
     event.preventDefault();
   };
 
-    const handleAlertShow = (event) => {
-      setShow(true);
-      event.preventDefault();
-    };
-
     const handleLogout = (event) => {
-      isLoggedIn = false;
+      setIsLoggedIn(false)
       event.preventDefault();
       setUser(null);
     };
@@ -82,7 +72,6 @@ const handleSubmit = (e) => {
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
-{/*                <p variant="danger">{formErrors}</p> */}
                <Alert show={alertShow} variant="danger" >{formErrors}</Alert>
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -102,9 +91,10 @@ const handleSubmit = (e) => {
                 id="password"
                 placeholder="Password"
                 onChange= {handleChange}
-                 value={userInput.password}/>
-{/*               <p>{formErrors.password}</p> */}
+                value={userInput.password}
+/>
             </Form.Group>
+
             <Button type="submit" variant="primary" className="mb-4" >
                         Sign In
             </Button>
