@@ -30,7 +30,7 @@ export default function Login() {
 			console.log(res);
 			setUser(res);
 				if (res.email === null) {
-                  console.log("error");
+                  console.log("Email or password incorrect.");
                     setFormErrors("Email or password incorrect.");
                     setAlertShow(true);
                } else {
