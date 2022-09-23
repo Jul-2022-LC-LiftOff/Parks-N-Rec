@@ -68,10 +68,10 @@ export default function Register() {
 
   return (
     <div>
-      <div  style={{ display: 'block', height: 49 }}>
-        <Button  href="login" variant="primary" onClick={handleShow}>
-          Register
-        </Button>
+      <div>
+        <a  href="/register" variant="primary" onClick={handleShow} >
+          New here? Create an account.
+        </a>
       </div>
 
       {/* log in modal - same as your form but uses a pre-made react-bootstrap component so it works as a popup */}

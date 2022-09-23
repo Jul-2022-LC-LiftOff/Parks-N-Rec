@@ -5,27 +5,14 @@ import { Link } from 'react-router-dom';
 import Register from './Register';
 
 export default function Login() {
+  let isValid = true;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userInput,setUserInput]=useState({
   email: "",
   password: ""
   })
-  const [user, setUser] = useState([]);
-
-
-
-
-  const validateUserInput = (userInput) => {
-
-    for (const key in user) {
-        if (key.email === userInput.email) {
-        return console.log(userInput.email + key.email + "matched")
-
-    }  }
-    };
-// loop through user.email til you find a match to emailInput
-// then compare (&& user.password to passwordInput) or throw incorrect password, redirect back to cleared login page
-
-
+  const [user, setUser] = useState(null);
+//   const [userEmail, setUserEmail] = useState([]);
 
 
 const handleChange = (e) => {
@@ -34,17 +21,25 @@ setUserInput({...userInput, [e.target.name]:e.target.value});
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    validateUserInput(userInput);
+//     validateUserInput(userInput);
     fetch("http://localhost:8080/login/hi", {
             method: "POST",
             headers:{"Content-Type":"application/json"},
             body: JSON.stringify(userInput)
         }).then(res => res.json()).then( res => {
             console.log(res);
-            console.log("New user added")
+             setUser(res)
+            if (user !== null){
+            console.log("User signed in")
+             setIsLoggedIn(true);
+ handleClose();
+ } else {
+ console.log("error");
+ }
         })
-}
 
+        console.log(isLoggedIn);
+}
 
 
   const [show, setShow] = useState(false);
@@ -55,13 +50,23 @@ const handleSubmit = (e) => {
     event.preventDefault();
   };
 
+    const handleLogout = (event) => {
+      isLoggedIn = false;
+      event.preventDefault();
+      setUser(null);
+    };
+
   return (
     <div>
-      <div  style={{ display: 'block', height: 49 }}>
-        <Button  href="login" variant="primary" onClick={handleShow}>
-          Login
-        </Button>
-      </div>
+  <div>{isLoggedIn ? (<div  style={{ display: 'block', height: 49 }}>
+     <Button  href="/" variant="primary" onClick={handleLogout} >
+       Logout
+      </Button>
+  </div>):(<div  style={{ display: 'block', height: 49 }}>
+   <Button  href="login" variant="primary" onClick={handleShow}>
+      Login
+</Button>
+ </div>)}</div>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -92,15 +97,12 @@ const handleSubmit = (e) => {
                  value={userInput.password}/>
 {/*               <p>{formErrors.password}</p> */}
             </Form.Group>
-            <Button type="submit" variant="primary"  >
+            <Button type="submit" variant="primary" className="mb-4" >
                         Sign In
             </Button>
-            
-            <div  style={{ display: 'block', height: 49 }}>
-        <Button variant="primary">
-          <Register />
-        </Button>
-        </div>
+
+          <Register className="text-center" />
+
           </Form>
             
         </Modal.Body>
