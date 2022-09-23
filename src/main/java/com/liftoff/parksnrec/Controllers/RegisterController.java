@@ -21,6 +21,12 @@ public class RegisterController {
         return "New user is added";
     }
 
+    @PostMapping("")
+    public String register(@RequestBody User user){
+        registerService.saveUser(user);
+        return "New user is added";
+    }
+
     @GetMapping("/getAll")
     public List<User> getAllUsers(){
         return registerService.getAllUsers();

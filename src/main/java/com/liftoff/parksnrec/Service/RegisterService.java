@@ -9,4 +9,6 @@ public interface RegisterService {
     public User saveUser(User user);
 
     public List<User> getAllUsers();
+
+    User findByEmail(String email);
 }

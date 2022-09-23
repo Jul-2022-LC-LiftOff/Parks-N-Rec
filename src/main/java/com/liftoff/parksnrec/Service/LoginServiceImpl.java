@@ -23,4 +23,9 @@ public class LoginServiceImpl implements LoginService {
     public List<User> getAllUsers() {
         return userRepo.findAll();
     }
+
+    @Override
+    public User login(User user) {
+        return userRepo.findByEmail(user.getEmail());
+    }
 }

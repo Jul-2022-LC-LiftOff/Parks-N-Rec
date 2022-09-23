@@ -23,4 +23,10 @@ public class RegisterServiceImpl implements RegisterService {
     public List<User> getAllUsers() {
         return userRepo.findAll();
     }
+
+    @Override
+    public User findByEmail(String email) {
+        return  userRepo.findByEmail(email);
+    }
+
 }

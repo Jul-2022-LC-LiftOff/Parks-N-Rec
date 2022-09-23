@@ -15,11 +15,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-//    @NotBlank
-//    @Column(name="username")
-//    @Size(min = 4, max = 20, message = "Invalid username. Must be between 4 and 20 characters.")
-//    private String username;
-
     @NotBlank
     @Column(name="password")
     @Size(min = 5, max = 30, message = "Invalid password. Must be between 5 and 30 characters.")
@@ -33,7 +28,6 @@ public class User {
    public User() {}
 
     public User (String password, String email) {
-//       this.username = username;
        this.password = password;
        this.email = email;
     }
@@ -45,14 +39,6 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
-//
-//    public String getUsername() {
-//        return username;
-//    }
-//
-//    public void setUsername(String username) {
-//        this.username = username;
-//    }
 
     public String getPassword() {
         return password;
@@ -87,7 +73,6 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-//                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 '}';
