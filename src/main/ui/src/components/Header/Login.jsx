@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Modal, Form } from 'react-bootstrap';
+import { Button, Modal, Form, Alert } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from 'react-router-dom';
 import Register from './Register';
@@ -11,7 +11,9 @@ export default function Login() {
   email: "",
   password: ""
   })
+  const [formErrors, setFormErrors] = useState(null);
   const [user, setUser] = useState(null);
+  const [alertShow, setAlertShow] = useState(false);
 //   const [userEmail, setUserEmail] = useState([]);
 
 
@@ -35,10 +37,10 @@ const handleSubmit = (e) => {
  handleClose();
  } else {
  console.log("error");
+ setFormErrors("Email or password incorrect.")
+ setAlertShow(true);
  }
         })
-
-        console.log(isLoggedIn);
 }
 
 
@@ -49,6 +51,11 @@ const handleSubmit = (e) => {
     setShow(true);
     event.preventDefault();
   };
+
+    const handleAlertShow = (event) => {
+      setShow(true);
+      event.preventDefault();
+    };
 
     const handleLogout = (event) => {
       isLoggedIn = false;
@@ -75,6 +82,8 @@ const handleSubmit = (e) => {
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
+{/*                <p variant="danger">{formErrors}</p> */}
+               <Alert show={alertShow} variant="danger" >{formErrors}</Alert>
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
@@ -84,7 +93,6 @@ const handleSubmit = (e) => {
                 onChange= {handleChange}
                 value={userInput.email}
               />
-{/*               <p>{formErrors.email}</p> */}
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Password</Form.Label>
