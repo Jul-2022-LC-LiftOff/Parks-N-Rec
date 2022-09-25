@@ -1,8 +1,8 @@
 import { React, useState, useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { API_KEY } from '../../api';
 import ParkCard from './ParkCard';
-import Container from 'react-bootstrap/Container';
 
 export default function FeaturedParks() {
   const [featuredParks, setFeaturedParks] = useState([]);

@@ -1,10 +1,10 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import SearchBar from '../SearchBar/SearchBar';
-import StateDropdown from './StateDropdown';
 import Login from './Login';
 import Register from '../Register/Register';
+import SearchBar from '../SearchBar/SearchBar';
+import StateDropdown from './StateDropdown';
 
 
 export const Header = () => {

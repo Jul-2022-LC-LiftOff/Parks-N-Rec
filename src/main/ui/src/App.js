@@ -1,12 +1,12 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Header } from "./components/Header/Header";
 import Homepage from "./components/Homepage/Homepage";
 import Login from "./components/Header/Login.jsx";
-import { Route, Routes } from "react-router-dom";
+import Register from "./components/Register/Register";
 import Results from "./components/Header/Results.jsx";
 import SearchByName from "./components/SearchByName/SearchByName";
 import SearchByStatePage from "./components/SearchByStatePage/SearchByStatePage";
-import Register from "./components/Register/Register";
 
 
 const App = () => {
