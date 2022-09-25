@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+// import Container from "react-bootstrap/Container";
+// import Nav from "react-bootstrap/Nav";
+// import Navbar from "react-bootstrap/Navbar";
 import React from "react";
-// import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import LoginPage from "./Login";
 import SearchBar from "../SearchBar/SearchBar";
 import StateDropdown from "./StateDropdown";
@@ -14,10 +14,11 @@ export const Header = () => {
 			<Container fluid>
 				<Navbar.Brand href="/Home">
 					<img
-						src="parkLogo.png"
+						src="ParkSomewhereLogo.png"
 						width="30"
 						height="30"
-						className="d-inline-block align-top"
+// 						className="d-inline-block align-top"
+                        className="logo"
 						alt="React Bootstrap logo"
 					></img>
 				</Navbar.Brand>
@@ -27,18 +28,18 @@ export const Header = () => {
 						<StateDropdown />
 					</Nav>
 				</Navbar.Collapse>
-				<Link to="/login" className="login-page">
-					{" "}
-					Login | Register{" "}
-				</Link>
+{/* 				<Link to="/login" className="login-page"> */}
+{/* 					{" "} */}
+{/* 					Login | Register{" "} */}
+{/* 				</Link> */}
 
-				<Navbar.Brand href="/Home">Park It</Navbar.Brand>
+{/* 				<Navbar.Brand href="/Home">Park It</Navbar.Brand> */}
 				<Navbar.Toggle aria-controls="navbar" />
 				<Navbar.Collapse id="navbar">
-					<Nav>
-						<SearchBar />
-						<StateDropdown />
-					</Nav>
+{/* 					<Nav> */}
+{/* 						<SearchBar /> */}
+{/* 						<StateDropdown /> */}
+{/* 					</Nav> */}
 				</Navbar.Collapse>
 				<LoginPage />
 
