@@ -10,7 +10,6 @@ export default function ParkInfo() {
 
   let parkCode = "yell";
   useEffect(() => {
-    //parkCode should change depending on user choice
     let url =
       "https://developer.nps.gov/api/v1/parks?parkCode=" +
       parkCode +
