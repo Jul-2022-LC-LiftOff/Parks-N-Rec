@@ -18,9 +18,6 @@ export default function HeroImageAndSearch() {
           <div className="text-white">
             <h1 className="mb-3">Find Your Park</h1>
             {/* <SearchBar /> */}
-            <a className="btn btn-outline-light btn-lg" href="#!" role="button">
-              Search
-            </a>
           </div>
         </div>
       </div>
