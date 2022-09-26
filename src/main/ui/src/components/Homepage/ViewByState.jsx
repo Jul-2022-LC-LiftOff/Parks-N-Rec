@@ -20,7 +20,7 @@ export default function ViewByState() {
             <Col>
               <button
                 onClick={function setSingleState() {
-                  setValue(state.name);
+                  setValue(state.abbreviation);
                   navigate("/singleStateView");
                 }}
               >
