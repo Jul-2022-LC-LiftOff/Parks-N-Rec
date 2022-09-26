@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom";
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import LoginPage from "./Login";
-import SearchBar from "../SearchBar/SearchBar";
 import StateDropdown from "./StateDropdown";
 
 export const Header = () => {
@@ -11,7 +9,7 @@ export const Header = () => {
 			<Container fluid>
 				<Navbar.Brand href="/Home">
 					<img
-						src="ParkSomewhereLogo.png"
+						src="headerlogo.svg"
 						width="30"
 						height="30"
 // 						className="d-inline-block align-top"
