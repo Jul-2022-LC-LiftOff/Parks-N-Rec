@@ -1,10 +1,16 @@
-import React from 'react';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import { states } from '../../states';
+import React from "react";
+import { useContext } from "react";
+import { UserContext } from "../../UserContext";
+import { useNavigate } from "react-router-dom";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
+import { states } from "../../states";
 
 export default function ViewByState() {
+  const navigate = useNavigate();
+  const { value, setValue } = useContext(UserContext);
+
   return (
     <Container className="fluid  p-3">
       <h1> View Parks by State</h1>
@@ -12,7 +18,14 @@ export default function ViewByState() {
         {states.map((state, index) => (
           <div key={index}>
             <Col>
-              <a href="url">{state.name}</a>
+              <button
+                onClick={function setSingleState() {
+                  setValue(state.name);
+                  navigate("/singleStateView");
+                }}
+              >
+                {state.name}
+              </button>
             </Col>
           </div>
         ))}

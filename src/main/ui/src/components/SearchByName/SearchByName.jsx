@@ -1,13 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Card, Col } from "react-bootstrap";
+import { Button, Card, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useContext } from "react";
 import { UserContext } from "../../UserContext";
 
 //connecting with the api & setting the "searchTerm"
 export default function SearchByName() {
+  let navigate = useNavigate();
+  const { value, setValue } = useContext(UserContext);
+
   const [data, setData] = React.useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   React.useEffect(() => {
@@ -39,9 +42,6 @@ export default function SearchByName() {
       return park;
     }
   }
-
-  let navigate = useNavigate();
-  const { value, setValue } = useContext(UserContext);
 
   return (
     <div>
@@ -94,15 +94,9 @@ export default function SearchByName() {
                 <Card.Body>
                   <p> {park.name} </p>
                   <p>{park.description}</p>
-                  <button
-                    onClick={function toParkProfile() {
-                      navigate("/ParkProfile");
-                      setValue(park.parkCode);
-                      console.log({ value });
-                    }}
-                  >
+                  <Button onClick={navigate("/ParkProfile")}>
                     Visit Park site
-                  </button>
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>
