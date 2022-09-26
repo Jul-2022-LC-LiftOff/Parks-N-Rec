@@ -8,10 +8,9 @@ export default function SingleStateView() {
   const [data, setData] = React.useState([]);
   const { value, setValue } = useContext(UserContext);
 
-  let selectedState = JSON.stringify(value);
-  console.log(selectedState);
-
   React.useEffect(() => {
+    let selectedState = JSON.stringify(value);
+    console.log(selectedState);
     let url =
       "https://developer.nps.gov/api/v1/parks?stateCode=" +
       selectedState +
