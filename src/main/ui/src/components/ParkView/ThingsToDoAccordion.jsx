@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.css";
 import { Accordion } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.css";
 
 export default function ThingsToDoAccordion({ parkCode }, { parkInfo }) {
 	const [thingsToDo, setThingsToDo] = useState([]);
