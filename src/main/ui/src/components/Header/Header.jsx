@@ -12,7 +12,6 @@ export const Header = () => {
 						src="headerlogo.svg"
 						width="30"
 						height="30"
-// 						className="d-inline-block align-top"
                         className="logo"
 						alt="React Bootstrap logo"
 					></img>
