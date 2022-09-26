@@ -12,15 +12,18 @@ export default function HeroImageAndSearch() {
     >
       <div
         className="mask bg-gradient"
-        style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', height: 500 }}
+        style={{ backgroundColor: 'rgba(232, 236, 235, 0.2)', height: 500 }}
       >
         <div className="d-flex justify-content-center align-items-center bg-image h-100">
           <div className="text-white">
-            <h1 className="mb-3">Find Your Park</h1>
-            {/* <SearchBar /> */}
-            <a className="btn btn-outline-light btn-lg" href="#!" role="button">
-              Search
-            </a>
+            <img
+            	src="Artboard 9 copy 2.svg"
+            	width="60"
+            	height="30"
+				className="d-inline-block align-top"
+                 className="logotwo"
+            	alt="React Bootstrap logo"
+            	></img>
           </div>
         </div>
       </div>

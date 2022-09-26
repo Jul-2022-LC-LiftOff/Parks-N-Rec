@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 function StateDropdown() {
   return (
     <Nav>
-      <NavDropdown name="stateSelecter" title="Search">
+      <NavDropdown name="stateSelecter" title="Find Your Park">
         <NavDropdown.Item as={Link} to="/SearchByName">
           {' '}
           Search by name{' '}

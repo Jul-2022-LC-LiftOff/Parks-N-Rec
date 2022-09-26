@@ -11,7 +11,6 @@ export default function Homepage() {
       <HeroImageAndSearch />
       <FeaturedParksCards />
       <ParkNews />
-      <ViewByState />
     </div>
   );
 }
