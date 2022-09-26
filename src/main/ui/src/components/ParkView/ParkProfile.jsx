@@ -1,16 +1,15 @@
 import { React, useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
-import "./ParkInfo.css";
 import ProfileHeroImage from "./ProfileHeroImage";
 import ThingsToDoAccordion from "./ThingsToDoAccordion";
 import VisitedParkSwitch from "./VisitedParkSwitch";
+import "./ParkInfo.css";
 
 export default function ParkInfo() {
   const [parkInfo, setParkInfo] = useState([]);
 
   let parkCode = "yell";
   useEffect(() => {
-    //parkCode should change depending on user choice
     let url =
       "https://developer.nps.gov/api/v1/parks?parkCode=" +
       parkCode +

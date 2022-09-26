@@ -1,9 +1,11 @@
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
 import { Header } from "./components/Header/Header";
 import Homepage from "./components/Homepage/Homepage";
-import { Route, Routes } from "react-router-dom";
 import SearchByName from "./components/SearchByName/SearchByName";
 import SearchByStatePage from "./components/SearchByStatePage/SearchByStatePage";
+import "./App.css";
+
+
 
 const App = () => {
 	return (

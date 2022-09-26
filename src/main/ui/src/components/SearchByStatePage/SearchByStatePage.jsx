@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import { Card, Col } from "react-bootstrap";
 import ParkData from "./data.json";
 import "./styles.css";
-import { Card, Col } from "react-bootstrap";
+
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles.css";
 
 export default function SearchByStatePage() {
 	const [data, setData] = React.useState([]);

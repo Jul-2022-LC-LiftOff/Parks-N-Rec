@@ -1,7 +1,8 @@
-import { React, useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.css";
-import { Accordion } from "react-bootstrap";
-import { API_KEY } from "../../api";
+
+import { React, useEffect, useState } from 'react';
+import { Accordion } from 'react-bootstrap';
+import { API_KEY } from '../../api';
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default function ParkNews() {
 	const [npsNews, setNpsNews] = useState([]);
