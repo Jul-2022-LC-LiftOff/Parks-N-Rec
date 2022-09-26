@@ -5,6 +5,7 @@ import ParkData from "./data.json";
 import "./styles.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles.css";
 
 export default function SearchByStatePage() {
 	const [data, setData] = React.useState([]);

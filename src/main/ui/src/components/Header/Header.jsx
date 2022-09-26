@@ -4,6 +4,7 @@ import LoginPage from "./Login";
 import SearchBar from "../SearchBar/SearchBar";
 import StateDropdown from "./StateDropdown";
 
+
 export const Header = () => {
 	return (
 		<Navbar variant="light" bg="light" expand="lg">
