@@ -14,4 +14,3 @@ export default function Homepage() {
     </div>
   );
 }
-git add 
