@@ -5,6 +5,7 @@ import SearchByName from "./components/SearchByName/SearchByName";
 import SearchByStatePage from "./components/SearchByStatePage/SearchByStatePage";
 import "./App.css";
 import { useState } from "react";
+import { UserContext } from "./UserContext";
 
 
 
@@ -14,12 +15,14 @@ const App = () => {
 		<div>
 			<Header />
 			<div>
+				<UserContext.Provider value={(searchedState, setSearchedState)}>
 				<Routes>
 					<Route path="/" element={<Homepage />} />
 					<Route path="/home" element={<Homepage />} />
-					<Route path="/searchByName" element={<SearchByName />} />
 					<Route path="/searchByState" element={<SearchByStatePage />} />
+					<Route path="/searchByName" element={<SearchByName />} />g
 				</Routes>
+				</UserContext.Provider>
 			</div>
 		</div>
 	);
