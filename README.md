@@ -1,6 +1,6 @@
 # Parks-N-Rec-Candide
 
-As a group, we are building an improved web application for communicating news, alerts, and accessibility information about National Parks, which we intend to be used as a template for State parks. We found that park websites display inconsistent information and can make it difficult to find details on park accessibility, which can discourage disabled people from planning visits. Our project makes it easy to find information and can be adapted by states to display their state park information consistently across all parks. 
+My website it is a web application for communicating news, alerts, and accessibility information about National Parks, which I intend to be used as a template for State parks. I found that park websites display inconsistent information and can make it difficult to find details on park accessibility, which can discourage disabled people from planning visits. My project makes it easy to find information and can be adapted by states to display their state park information consistently across all parks. 
 
 🚀 Technologies
 
