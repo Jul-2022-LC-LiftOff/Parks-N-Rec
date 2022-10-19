@@ -1,7 +1,11 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import LoginPage from "./Login";
+import { Link } from 'react-router-dom'
+import { Alert, Button, Form, Modal } from "react-bootstrap";
+import About from "./About";
+import Login from "./Login";
 import StateDropdown from "./StateDropdown";
+
 
 
 export const Header = () => {
@@ -26,7 +30,12 @@ export const Header = () => {
 				<Navbar.Toggle aria-controls="navbar" />
 				<Navbar.Collapse id="navbar">
 				</Navbar.Collapse>
-				<LoginPage />
+                <div style={{ display: "block", height: 49 }}>
+						<Button href="about" variant="primary" >
+							About
+						</Button>&nbsp;&nbsp;&nbsp;
+					</div>
+					<Login />
 
 			</Container>
 		</Navbar>

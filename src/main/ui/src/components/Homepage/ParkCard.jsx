@@ -3,6 +3,7 @@ import { Card, Col, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ParkCard = ({ parkData }) => {
+
   return (
     <Col xs={true} sm={true} md={3} lg={3} className="d-inline-flex m-3 h-100">
       <Card>

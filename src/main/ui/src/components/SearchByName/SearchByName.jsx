@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 //connecting with the api & setting the "searchTerm"
 export default function SearchByName() {
+
+    //const FavouriteComponent = props.favouriteComponent
 	const [data, setData] = React.useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
 	React.useEffect(() => {
